@@ -1,11 +1,15 @@
 ********************************************
 Toolchains installation
 ********************************************
-This guide will show how to install the SDK and toolchain for **The STEAM development board**. Currently there are 2 major platform environments for developing with ESP32s3.
+This guide will show how to install the SDK and toolchain for **The STEAM development board**. Currently there are 2 major platform environments for developing with ESP32-S3.
+
 * **ESP-IDF:** The official SDK for the ESP32-S3 microcontroller which is a powerful SDK, highly optimized, written primarily in C (and C++), gives direct access to low-level hardware features, and permits deep power management customization
 * **Arduino:** A simple development environments easier for beginners. it's a wrapper-based on the Espressif's offical toolchains, fewer customization options, heavier resource usage. 
 
-**NOTE:** Currently this documentation is under development, and current users based are beginners. Therefore, only the instruction for Arduino is written here, for the ESP-IDF installation instruction, refer to the `Offical ESP-IDF documentation <https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/index.html>`_  
+.. note::
+   Currently this documentation is under development, and current users based are beginners. Therefore, only the instruction for Arduino is written here, for the ESP-IDF installation instruction, refer to the `Offical ESP-IDF documentation <https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/index.html>`_  
+
+If you are not familiar with the Arduino IDE, you can find `installation instruction here <arduinoIDE.html>`_
 
 Arduino toolchains
 ==================

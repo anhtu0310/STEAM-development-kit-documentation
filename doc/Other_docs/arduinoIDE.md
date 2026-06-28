@@ -1,0 +1,131 @@
+# **Getting started with Arduino**
+
+**WHAT IS ARDUINO?**
+
+Arduino is an open-source electronics platform based on easy-to-use hardware and software. It's intended for anyone making interactive projects.
+
+**ARDUINO SOFTWARE**
+
+You can tell your Arduino what to do by writing code in the Arduino programming language and using the Arduino development environment.
+
+# **1. Download arduino IDE**
+
+## **A. Windows System**
+
+You could download Arduino IDE from the official website: [https://www.arduino.cc/](https://www.arduino.cc/)
+
+Enter the link and click **SOFTWARE**: 
+
+![image-20230331165128482](../img/image-20230331165128482-1685496644801-1.png)
+
+There are various versions of IDE for Arduino. Just download a version compatible with your system. 
+
+![](../img/image-20230531112709308.png)
+
+Here we will show you how to download and install the windows version of Arduino IDE. 
+
+There are two versions of IDE for WINDOWS system. You can choose between the installer (.exe) and the Zip file. For installer, it can be directly downloaded, without the need of installing it manually while for Zip package, you will need to install the driver manually.
+
+![image-20230331165316657](../img/image-20230331165316657-1685496675570-5.png)
+
+You just need to click **JUST DOWNLOAD**.
+
+## **B. Mac System**
+
+The versions of Arduino IDE vary from operation systems.
+
+For how to download Arduino IDE on Mac, please refer to Windows:
+
+![](../img/image-20230531112759668.png)
+
+After downloading, double-click to open it and follow the installation instructions.
+
+## **C.Detailed installation steps：**
+
+1.Save the .exe file downloaded from the software page to your hard drive and simply run the file .
+
+![image-20231030111507277](../img/image-20231030111507277.png)
+
+2.Read the License Agreement and agree it.
+
+![image-20231030111548510](../img/image-20231030111548510.png)
+
+3.Choose the installation options.
+
+![image-20231030111609783](../img/image-20231030111609783.png)
+
+4.Choose the install location.
+
+![image-20231030111627536](../img/image-20231030111627536.png)
+
+5.Click finish and run Arduino IDE
+
+![image-20231030111656023](../img/image-20231030111656023.png)
+
+
+# **3. Arduino IDE Settings**
+
+Click![](../img/image-20230531140203077.png)icon to open Arduino IDE.
+
+![](../img/image-20230531113348119.png)
+
+1. “File”: Including New Sketch, Open..., Sketchbook, Examples, Close, Save(Save as...), Preferences, Advanced..., etc.
+2. “Edit”: Including Copy, Paste, Auto Format, Increase/Decrease Font Size, etc. Commonly, you can use shortcuts to do these operations.
+3. “Sketch”: Including Verify/Compile, Upload, Include Library, etc.
+4. “Tools”: Including Board and Port, which are two of the most important functions. 
+5. “Help”: Including Check for Updates as well as some official data references. 
+6. “Serial Plotter”: To display the data from serial port in the way of a line chart.
+7. “Serial Monitor”: To prints the data from serial port. 
+8. Verify code.
+9. Verify and upload code.
+10.  “Sketchbook”: To create a new sketch, or sign in to Arduino Cloud to sync and edit your Cloud Sketches.
+11. “Boards Manager”: To install or remove development board. 
+12. “Library Manager”: To install or remove library.
+13. “Debug”: To monitor code and debug breakpoints.
+14. Search.
+15. Sketch editing area.
+16. IDE Output: To report error or successful uploading, and to display data from serial monitor.
+
+# **5. Import Library**
+
+First of all, the corresponding Arduino library files are required. 
+
+## **A. What are Libraries ?**
+
+Libraries are a collection of code that make it easy for you to connect a sensor,display, module, etc.
+
+For example, the built-in LiquidCrystal library helps talk to LCD displays. 
+
+There are hundreds of additional libraries available on the Internet for download. The built-in libraries and some of these additional libraries are listed in the reference.
+
+If there is an error 'No such file or directory' when compiling or uploading code, it means the library file is missing. As shown in the figure below, the error occurred when uploading LCD1602 module code due to the missing 'LiquidCrystal_I2C' library file.
+
+![image-20231030131942400](../img/image-20231030131942400.png)
+
+## **B. How to Install a Library ?**
+
+<p style="color:red;">Let's take adding the "LiquidCrystal_I2C" library file as an example.<p>
+
+Here we will introduce the most simple way to add libraries.
+
+Click **Skerch > Include Library > Add .Zip Library...** in sequence. 
+
+
+![5646545](../img/5646545.png)
+
+Find files(.zip) you need to add as library and wait. “**Library installed**” will be displayed if library is successfully added.
+
+![446518](../img/446518.png)
+
+![image-20231031114018284](../img/image-20231031114018284.png)
+
+**Dynamic operation example:**
+
+![146185](../img/146185.gif)
+
+For how to include a library, the method of the two system is the same. 
+
+For more details, please visit our official website: [https://www.keyestudio.com/](https://www.keyestudio.com/)
+
+
+

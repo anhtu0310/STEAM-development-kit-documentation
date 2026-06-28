@@ -27,3 +27,10 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 html_theme = 'conestack'
 # html_static_path = ['_static']
+# html_theme_options = {
+#     # Ensure this is set to False (or omitted) so the right-side TOC remains visible
+#     'hide_localtoc': False,
+    
+#     # Optional: Ensures your global multi-page structure shows up on the left sidebar
+#     'hide_globaltoc': False,
+# }

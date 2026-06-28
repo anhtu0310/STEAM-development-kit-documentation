@@ -48,14 +48,14 @@ Geting started !
 
 
 .. toctree::
-   :hidden:
    :maxdepth: 5
    :caption: Contents:
 
    usermanual.rst
-   toolchains.rst
+   toolchains.rst 
    exampleprojects.rst
    hardware.rst
+   other_docs.rst
 .. # STEAM Development Kit Documentation
 
 .. A small example of how to use Sphinx and MyST 
