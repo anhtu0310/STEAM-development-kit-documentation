@@ -55,7 +55,7 @@ Create a new sketch in the Arduino IDE and enter the following code:
         digitalWrite(LED_PIN, led_sts);
 
         if (digitalRead(BUT_PIN))
-            led_sts != led_sts;
+            led_sts =! led_sts;
         
         delay(300);
     }
@@ -144,7 +144,7 @@ Try modifying the program to better understand how it works.
 
 
 Summary
-^^^^^^^
+=======
 In this tutorial, you learned how to use a push button to control an LED. The program continuously reads the button state and stores the LED status in a Boolean variable. Whenever the button is pressed, the stored state is inverted, causing the LED to toggle between ON and OFF.
 
 Key concepts covered include:

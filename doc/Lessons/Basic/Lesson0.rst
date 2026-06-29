@@ -29,7 +29,9 @@ In this project the built-in LED will be used, no external components are requir
    The interfacing description of the microcontroller board 
 
 The build in LED on **GPIO08** will be used
-## Writing the Program
+
+Writing the Program
+===================
 
 Create a new sketch in the Arduino IDE and enter the following code:
 
@@ -129,7 +131,7 @@ Or try:
 The LED will blink very quickly.
 
 Summary
-^^^^^^^
+=======
 
 Congratulations! You have completed your first Arduino project.
 
