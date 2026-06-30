@@ -27,12 +27,12 @@ Before starting, make sure you have the following:
 
 In this project, the built-in 8x8 LED Matrix and button will be used. No external components are required.
 
-.. figure:: ../../img/MCU_board.png
+.. figure:: ../../img/board_matrix.png
    :align: center
    :width: 400
    :figclass: align-center
 
-   The interfacing description of the microcontroller board 
+   The interfacing description of the 8x8 matrix 
 
 The built-in button is on **GPIO0**. The MAX7219 driver typically uses three pins: Data In (DIN), Clock (CLK), and Chip Select (CS). 
 
@@ -155,6 +155,10 @@ Uploading the Program
 4. Select your board module and the correct serial port from the **Tools** menu.
 5. Click the **Upload** button.
 
+.. figure:: ../../img/8x8matrix.png
+   :align: center
+   :figclass: align-center
+
 Expected Result
 ^^^^^^^^^^^^^^^
 
@@ -164,6 +168,10 @@ After uploading the program:
 * Press the push button once; the smile transforms into a flat, neutral expression.
 * Press the button a second time; the expression changes to a sad face.
 * Pressing it a third time cycles the loop back, returning the display to a happy face.
+
+.. figure:: ../../img/8x8matrix.gif
+   :align: center
+   :figclass: align-center
 
 How the Code Works
 ^^^^^^^^^^^^^^^^^^

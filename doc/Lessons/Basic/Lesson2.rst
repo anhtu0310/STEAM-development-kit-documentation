@@ -24,12 +24,12 @@ Before starting, make sure you have the following:
 
 All required components — the relay module and the push button — are already included on the STEAM development board. No external components are needed.
 
-.. figure:: ../../img/MCU_board.png
+.. figure:: ../../img/board_relay.png
    :align: center
    :width: 400
    :figclass: align-center
 
-   The interfacing description of the microcontroller board
+   The interfacing description of the relay
 
 The built-in relay is connected to **GPIO45** and the built-in button is on **GPIO0**.
 
@@ -46,18 +46,21 @@ A relay contains an electromagnetic coil and a mechanical switch. When the MCU d
 
 Most relay modules include a flyback diode and a transistor driver, so you can connect the control pin directly to a GPIO pin with no additional components.
 
-.. figure:: ../../img/relay_diagram.png
+.. figure:: ../../img/relay.webp
    :align: center
-   :width: 400
    :figclass: align-center
 
-   Internal structure of a relay module
+   Internal structure of a relay
 
 The relay has three output terminals:
 
 * **COM** – Common terminal, always connected to your load circuit.
 * **NO** – Normally Open; the contact is *open* (disconnected) when the relay is off and *closed* when the relay is energised.
 * **NC** – Normally Closed; the contact is *closed* when the relay is off and *open* when it is energised.
+
+.. note::
+   The **Panasonic ALDP105** is a compact type relay, hence it only has NO contact.
+
 
 Writing the Program
 ===================
@@ -99,7 +102,7 @@ Uploading the Program
 5. Click the **Upload** button.
 6. Wait until the upload is complete.
 
-.. figure:: ../../img/relay_tog.png
+.. figure:: ../../img/led_tog_relay.png
    :align: center
    :figclass: align-center
 
@@ -113,6 +116,11 @@ After uploading the program to the board:
 * If the relay is OFF, pressing the button **energises** it (ON) — you should hear a click.
 * If the relay is ON, pressing the button **de-energises** it (OFF) — another click.
 * The 300 ms delay prevents multiple rapid toggles caused by mechanical button bounce.
+
+.. figure:: ../../img/relay_tog.gif
+   :align: center
+   :figclass: align-center
+
 
 How the Code Works
 ^^^^^^^^^^^^^^^^^^

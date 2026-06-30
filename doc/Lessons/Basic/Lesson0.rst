@@ -74,6 +74,10 @@ After the program has been uploaded successfully:
 * The LED turns **OFF** for one second.
 * The process repeats continuously.
 
+.. figure:: ../../img/blink.gif
+   :align: center
+   :figclass: align-center
+
 How the Code Works
 ^^^^^^^^^^^^^^^^^^
 **`setup()`**

@@ -1,5 +1,5 @@
 *************************************************************
-Project 6 : Wi-Fi Controlled Switch via Web Browser
+Project 8 : Wi-Fi Controlled Switch via Web Browser
 *************************************************************
 
 Introduction

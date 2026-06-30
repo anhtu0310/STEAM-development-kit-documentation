@@ -1,34 +1,50 @@
-*************************************************************
+********************************************************************
 Project 7 : 4-Digit 7-Segment Display Using 74HC595 Shift Registers
-*************************************************************
+********************************************************************
 
 
 Introduction
 ============ 
 
-In this tutorial, you will learn how to display numbers on a **4-digit 7-segment display** using an Arduino and four **74HC595 shift registers**.
+In this tutorial, you will learn how to display numbers on a **4-digit 7-segment display** using an MCU and four **74HC595 shift registers**.
 
-Instead of connecting each LED segment directly to the Arduino, the 74HC595 shift registers greatly reduce the number of GPIO pins required. Only **three Arduino pins** are needed to control all four displays.
+Instead of connecting each LED segment directly to the MCU, the 74HC595 shift registers greatly reduce the number of GPIO pins required. Only **three MCU pins** are needed to control all four displays.
 
 After completing this tutorial, you will be able to:
 
 * Display numbers from **0** to **9999**.
 * Display negative numbers.
 * Display decimal points.
-* Understand how the Arduino communicates with multiple shift registers.
+* Understand how the MCU communicates with multiple shift registers.
 
 Requirements
 ============
 
-Connect the Arduino to the first 74HC595 as follows:
+Before starting, make sure you have the following:
+
+* The STEAM development board 
+* USB cable
+* Arduino IDE with ESP32 toolchain installed
+
+In this project, the built-in 7segment display with 7HCc595 be used. 
+
+.. figure:: ../../img/7seg.png
+   :align: center
+   :width: 400
+   :figclass: align-center
+
+   The interfacing description of the microcontroller board 
+
+74HC595s are connected to the MCU as follows:
 
 ==================  ==========================
-Arduino Pin         74HC595 Pin
+MCU Pin             74HC595 Pin
 ==================  ==========================
 `DATA_PIN` (16)     DS (Serial Data)
 `CLOCK_PIN` (42)    SH_CP (Shift Clock)
 `LATCH_PIN` (0)     ST_CP (Latch Clock)
 ==================  ==========================
+
 Shift Register Connections
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 Connect the four 74HC595 shift registers in a daisy chain.
@@ -66,7 +82,7 @@ This project uses **common-anode** displays.
 Writing the Program
 ===================
 
-Create a new sketch in the Arduino IDE and enter the following code:
+Create a new sketch in the MCU IDE and enter the following code:
 
 Pin Definitions
 ^^^^^^^^^^^^^^^
@@ -77,7 +93,7 @@ Pin Definitions
     const int CLOCK_PIN = 42;   // SH_CP (pin 11 of 74HC595)
     const int LATCH_PIN = 0;  // ST_CP (pin 12 of 74HC595)
 
-These three constants specify which Arduino GPIO pins are connected to the first 74HC595 shift register.
+These three constants specify which MCU GPIO pins are connected to the first 74HC595 shift register.
 
 `DATA_PIN`
 
@@ -355,6 +371,11 @@ After uploading the sketch:
 * Next, the display shows `-42`.
 * Finally, the display shows `1234` before repeating the demonstration.
 
+.. figure:: ../../img/7segs.gif
+   :align: center
+   :figclass: align-center
+
+
 Experiment
 ==========
 Try modifying the program to better understand how it works.
@@ -387,7 +408,7 @@ Try modifying the program to better understand how it works.
 
 Summary
 =======
-In this tutorial, you learned how to control a 4-digit 7-segment display using four 74HC595 shift registers and only three Arduino GPIO pins.
+In this tutorial, you learned how to control a 4-digit 7-segment display using four 74HC595 shift registers and only three MCU GPIO pins.
 
 You learned how to:
 
@@ -398,4 +419,4 @@ You learned how to:
 * Convert numbers into segment patterns using a lookup table.
 * Update all four displays simultaneously using the latch signal.
 
-This project introduces the use of shift registers for expanding Arduino outputs and provides a foundation for building digital clocks, timers, counters, measurement displays, and other numeric display applications.
+This project introduces the use of shift registers for expanding MCU outputs and provides a foundation for building digital clocks, timers, counters, measurement displays, and other numeric display applications.

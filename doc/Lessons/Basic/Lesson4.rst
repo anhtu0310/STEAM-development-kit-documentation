@@ -18,6 +18,26 @@ Requirements
 * USB cable
 * Arduino IDE with ESP32 toolchain installed
 
+In this project, the built-in buzzer and button will be used. No external components are required.
+
+.. figure:: ../../img/board_buzz.png
+   :align: center
+   :width: 400
+   :figclass: align-center
+
+   The interfacing description of the microcontroller board 
+
+For buzzer it also need to change the dips switch 1 position as follow:
+
+   .. figure:: ../../img/buzz_ON.png
+      :align: center
+      :width: 200
+      :figclass: align-center
+
+      DIP switch 1 position for enabling Buzzer 
+
+The built-in buzzer on **GPIO03** and the button on **GPIO0** will be used. *(Note: Ensure GPIO09 matches your specific board's buzzer pin)*.
+
 .. note::
     **Hardware Tip:** To hear distinct musical pitches, a **passive buzzer** or speaker is required. If your board has an **active buzzer** (which makes a continuous sound when powered), this code will still work, but you will only hear the *rhythm* of the notes as clicks or beeps, rather than different pitches.
 
@@ -28,7 +48,7 @@ Create a new sketch in the Arduino IDE and enter the following code. We will be 
 
 .. code-block:: cpp
 
-    #define BUZZER_PIN 9
+    #define BUZZER_PIN 3
     #define BUT_PIN 0
 
     // Define the frequencies for musical notes
@@ -93,6 +113,10 @@ Uploading the Program
 2. Select **ESP32S3 Dev Module** from **Tools → Board**.
 3. Select the correct serial port.
 4. Click **Upload**.
+
+.. figure:: ../../img/buzz_tone.png
+   :align: center
+   :figclass: align-center
 
 Expected Result
 ^^^^^^^^^^^^^^^

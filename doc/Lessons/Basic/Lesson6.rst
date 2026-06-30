@@ -26,7 +26,7 @@ Before starting, make sure you have the following:
 
 In this project, the built-in SH1106 OLED and the button will be used. 
 
-.. figure:: ../../img/MCU_board.png
+.. figure:: ../../img/board_i2c.png
    :align: center
    :width: 400
    :figclass: align-center
@@ -135,6 +135,11 @@ Uploading the Program
 3. Select your ESP32 board and the correct serial port from the **Tools** menu.
 4. Click the **Upload** button.
 
+.. figure:: ../../img/oled.png
+   :align: center
+   :figclass: align-center
+
+
 Expected Result
 ^^^^^^^^^^^^^^^
 
@@ -143,6 +148,11 @@ After uploading the program:
 * The OLED screen will turn on and display three lines of text welcoming you to the STEAM board.
 * Press the push button once. The screen will instantly clear and draw a bordered graphics screen featuring a circle and a filled square.
 * Press the button again to toggle back to the text screen.
+
+.. figure:: ../../img/Oled.gif
+   :align: center
+   :figclass: align-center
+
 
 How the Code Works
 ^^^^^^^^^^^^^^^^^^
