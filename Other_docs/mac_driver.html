@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Install CP2102 Driver on MAC System &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Install CP2102 Driver on Windows System" href="windows_driver.html" />
+<link rel="stylesheet" type="text/css" src="../_static/bootstrap/bootstrap.css" />
+<script src="../_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../_static/js/conestack.js"></script>
+<script src="../_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="../index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="../search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usermanual.html">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware.html">Hardware</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../exampleprojects.html">Example projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../other_docs.html">Other documentations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="install-cp2102-driver-on-mac-system">
+<h1><strong>Install CP2102 Driver on MAC System</strong><a class="headerlink" href="#install-cp2102-driver-on-mac-system" title="Link to this heading">#</a></h1>
+<p>Connect board we provide to your computer, and open Arduino IDE.</p>
+<p><img alt="File:====9.webp" src="../_images/40A968D312A8B080E52C4559201F498A.webp" /></p>
+<p>Click “Tools” to select <strong>Board: Arduino Uno</strong> and <strong>Port: /dev/cu.usbserial-0001</strong>.</p>
+<p><img alt="File:====10.webp" src="../_images/3123378638D9C83554A2C90BFA436BCF.webp" /></p>
+<p>Tap <img alt="0486-23.webp" src="../_images/0486-23.webp" /> to upload code, if burn successfully, you will view Done uploading.</p>
+<p><img alt="File:====11.webp" src="../_images/E97244571B69D21FF31DE3B879B8B0E5.webp" /></p>
+<p>Note: If burn unsuccessfully, you need to install driver of CP2102, please continue to follow the instructions as below:</p>
+<p>Download the driver of CP2102:<a class="reference external" href="https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers">https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers</a></p>
+<p>1. Select Mac OSX edition</p>
+<p><img alt="File:====12.webp" src="../_images/6E53A3DACDEC57D5EE0B15B48D771A5B.webp" /></p>
+<p>2. Unzip the downloaded package</p>
+<p><img alt="====13.webp" src="../_images/8DCED2768D5F86D3D0C3F6076D87A9A8.webp" /></p>
+<p>3. Open folder and double-click SiLabsUSBDriverDisk.dmg file.</p>
+<p><img alt="====14.webp" src="../_images/61AE3E706A1C4AFA7948D5FB2E797A6D.webp" /></p>
+<p>4. You will view the following files as follows:</p>
+<p><img alt="====15.webp" src="../_images/3FFD0525E16492EDE92BDB8C84198DB9.webp" /></p>
+<p>5. Double-click Install CP210x VCP Driver, tick Don’t warn me and tap Open.</p>
+<p><img alt="====16.webp" src="../_images/14F6EBB088E654ABC2F0149645E34ED1.webp" /></p>
+<p>6. Tap Continue</p>
+<p><img alt="====17.webp" src="../_images/A243872CDBB520E4D298C006E001FFF5.webp" /></p>
+<p>7. Tap Continue and Agree</p>
+<p><img alt="====18.webp" src="../_images/AE367C1894DF6745E46BBDFC460C1F99.webp" /></p>
+<p>8. Click Continue and input your password</p>
+<p><img alt="====19.webp" src="../_images/27B7214283D7F76ABA3557DD629BD965.webp" /></p>
+<p><img alt="====20.webp" src="../_images/29BBCA3360D806164717733460574356.webp" /></p>
+<p>9. Select Open Security Preferences</p>
+<p><img alt="====21.webp" src="../_images/CA6BC6E536202F07A53C09201A0996FF.webp" /></p>
+<p>10. Click the lock to unlock security &amp; privacy preference.</p>
+<p><img alt="====22.webp" src="../_images/379CAA1889F4A45614B27C9B2B934869.webp" /></p>
+<p><img alt="====23.webp" src="../_images/88A1B169A192EE6C49E95947D6287FC2.webp" /></p>
+<p>11. Then click Allow</p>
+<p><img alt="====24.webp" src="../_images/19E43624EFDE1B223800201C944D25E9.webp" /></p>
+<p>12. Back to installation page, and wait to install.</p>
+<p><img alt="====25.webp" src="../_images/BB0E17AFD8BAD8B8013F19D7A9DA0FD9.webp" /></p>
+<p>13. Successfully installed</p>
+<p><img alt="====26.webp" src="../_images/3BD5BB3752ABF97E9BAB6BF950A75BED.webp" /></p>
+<p>14. Then enter ArduinoIDE, click Tools and select Board: Arduino Uno and /dev/cu.SLAB_USBtoUAPT</p>
+<p><img alt="====27.webp" src="../_images/73AED810D216D7DA3A3CE9CC0E4DBA4A.webp" /></p>
+<p>15. Click<img alt="0486-23.webp" src="../_images/0486-23.webp" /> to upload code and you will see “Done uploading”.</p>
+<p><img alt="====28.webp" src="../_images/D918E2E31A9632F8B272A16595C46A83.webp" /></p>
+</section>
+
+
+      </div>
+
+    
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="windows_driver.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter"><strong>Install CP2102 Driver on Windows System</strong></a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

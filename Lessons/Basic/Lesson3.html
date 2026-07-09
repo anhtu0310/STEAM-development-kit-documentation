@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project 3 : Turn ON and OFF the Buzzer using a button &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project 4 : Play a Melody using a Button" href="Lesson4.html" />
+    <link rel="prev" title="Project 2 : Control a Relay Using a Button" href="Lesson2.html" />
+<link rel="stylesheet" type="text/css" src="../../_static/bootstrap/bootstrap.css" />
+<script src="../../_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../../_static/js/conestack.js"></script>
+<script src="../../_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="../../index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="../../search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="project-3-turn-on-and-off-the-buzzer-using-a-button">
+<h1>Project 3 : Turn ON and OFF the Buzzer using a button<a class="headerlink" href="#project-3-turn-on-and-off-the-buzzer-using-a-button" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this project, we will learn how to turn an active buzzer ON and OFF using a button. Unlike a simple delay-based toggle, we will improve our programming logic by introducing <strong>Edge Detection</strong> (also known as State Change Detection). By the end of this tutorial, you will know how to:</p>
+<ul class="simple">
+<li><p>Control an active buzzer using digital output.</p></li>
+<li><p>Understand active-LOW button logic.</p></li>
+<li><p>Implement edge detection so the buzzer only toggles once per press, regardless of how long the button is held down.</p></li>
+</ul>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>Before starting, make sure you have the following:</p>
+<ul class="simple">
+<li><p>The STEAM development kit or The STEAM standalone microcontroller board</p></li>
+<li><p>USB cable</p></li>
+<li><p>Arduino IDE with ESP32 toolchain installed</p></li>
+</ul>
+<p>In this project, the built-in buzzer and button will be used. No external components are required.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/board_buzz.png"><img alt="../../_images/board_buzz.png" src="../../_images/board_buzz.png" width="400" />
+</a>
+<figcaption>
+<p><span class="caption-text">The interfacing description of the microcontroller board</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For buzzer it also need to change the dips switch 1 position as follow:</p>
+<blockquote>
+<div><figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../../_images/buzz_ON.png"><img alt="../../_images/buzz_ON.png" src="../../_images/buzz_ON.png" width="200" />
+</a>
+<figcaption>
+<p><span class="caption-text">DIP switch 1 position for enabling Buzzer</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>The built-in buzzer on <strong>GPIO03</strong> and the button on <strong>GPIO0</strong> will be used. <em>(Note: Ensure GPIO09 matches your specific board’s buzzer pin)</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The button on this board is active-LOW. This means it reads as HIGH when left alone, and drops to LOW when pressed.</p>
+</div>
+</section>
+<section id="writing-the-program">
+<h2>Writing the Program<a class="headerlink" href="#writing-the-program" title="Link to this heading">#</a></h2>
+<p>Create a new sketch in the Arduino IDE and enter the following code:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#define BUZZER_PIN 3</span>
+<span class="cp">#define BUT_PIN 0</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">buzzer_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HIGH</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BUZZER_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BUT_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Ensure the buzzer is off to start</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">BUZZER_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Read the current state of the button</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">current_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BUT_PIN</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Check if the button transitioned from HIGH (unpressed) to LOW (pressed)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HIGH</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">current_but_sts</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LOW</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">buzzer_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">buzzer_sts</span><span class="p">;</span><span class="w">               </span><span class="c1">// Toggle the buzzer status</span>
+<span class="w">        </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">BUZZER_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">buzzer_sts</span><span class="p">);</span><span class="w">   </span><span class="c1">// Apply the new status</span>
+<span class="w">        </span><span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span><span class="w">                              </span><span class="c1">// Small delay to debounce</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Save the current state for the next loop iteration</span>
+<span class="w">    </span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_but_sts</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="uploading-the-program">
+<h3>Uploading the Program<a class="headerlink" href="#uploading-the-program" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Connect the Arduino board to your computer using the USB cable.</p></li>
+<li><p>Open the Arduino IDE.</p></li>
+<li><p>Select <strong>ESP32S3 Dev Module</strong> from <strong>Tools → Board → esp32</strong>.</p></li>
+<li><p>Select the correct serial port obtained when the board is connected to the computer from <strong>Tools → Port</strong>.</p></li>
+<li><p>Click the <strong>Upload</strong> button.</p></li>
+<li><p>Wait until the upload is complete.</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/buzzer_tog.png" src="../../_images/buzzer_tog.png" />
+</figure>
+</section>
+<section id="expected-result">
+<h3>Expected Result<a class="headerlink" href="#expected-result" title="Link to this heading">#</a></h3>
+<p>After uploading the program to the Arduino board:</p>
+<ul class="simple">
+<li><p>The buzzer is initially <strong>silent</strong>.</p></li>
+<li><p>Pressing and releasing the button will turn the buzzer <strong>ON</strong>.</p></li>
+<li><p>Pressing the button a second time will turn the buzzer <strong>OFF</strong>.</p></li>
+<li><p>Unlike simple delay loops, holding the button down will <em>not</em> cause the buzzer to continuously turn on and off. It waits for a fresh button press.</p></li>
+</ul>
+</section>
+<section id="how-the-code-works">
+<h3>How the Code Works<a class="headerlink" href="#how-the-code-works" title="Link to this heading">#</a></h3>
+<p><strong>`setup()`</strong></p>
+<p>The <cite>setup()</cite> function runs once when the Arduino starts.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">pinMode</span><span class="p">(</span><span class="n">BUZZER_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="n">pinMode</span><span class="p">(</span><span class="n">BUT_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">BUZZER_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><cite>BUZZER_PIN</cite> is configured as an output to drive the buzzer.</p></li>
+<li><p><cite>BUT_PIN</cite> is configured as an input to read the push button.</p></li>
+<li><p>We explicitly write a <cite>LOW</cite> signal to the buzzer to ensure it starts silently.</p></li>
+</ul>
+<p><cite>loop()</cite></p>
+<p>The <cite>loop()</cite> function executes continuously. We begin by reading the button:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">bool</span><span class="w"> </span><span class="n">current_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BUT_PIN</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Next, we check for a <strong>State Change</strong> (specifically a falling edge). Because the button is active-LOW, a press means the signal drops from <cite>HIGH</cite> to <cite>LOW</cite>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HIGH</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">current_but_sts</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LOW</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">buzzer_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">buzzer_sts</span><span class="p">;</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">BUZZER_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">buzzer_sts</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If the last state was <cite>HIGH</cite> and the current state is <cite>LOW</cite>, we know a <em>new</em> press just occurred. We invert <cite>buzzer_sts</cite> and write it to the buzzer. The <cite>delay(50)</cite> provides just enough time to ignore the mechanical bouncing of the button contacts without slowing down the rest of our code.</p>
+<p>Finally, we update our tracking variable:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_but_sts</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This ensures that on the next loop, the program remembers the button is already being held down, preventing accidental double-toggles.</p>
+</section>
+<section id="experiment">
+<h3>Experiment<a class="headerlink" href="#experiment" title="Link to this heading">#</a></h3>
+<p>Try modifying the program to better understand how it works:</p>
+<ul class="simple">
+<li><p><strong>Momentary Switch:</strong> Remove the toggle logic entirely so the buzzer only makes noise <em>while</em> you are actively holding the button down. (Hint: write the inverted <cite>current_but_sts</cite> directly to the buzzer).</p></li>
+<li><p><strong>Double Press:</strong> Can you modify the logic to only turn the buzzer on if you press the button twice within one second?</p></li>
+</ul>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this tutorial, you learned how to use a push button to control an active buzzer. Rather than relying on long, blocking delays, you implemented <strong>state change detection</strong>. By comparing the button’s current state to its previous state, the microcontroller can detect the exact moment a button is pressed down.</p>
+<p>Key concepts covered include:</p>
+<ul class="simple">
+<li><p>Controlling an active buzzer using <strong>digitalWrite()</strong>.</p></li>
+<li><p>Understanding active-LOW hardware logic.</p></li>
+<li><p>Using state change detection (edge detection) to trigger events exactly once per action.</p></li>
+<li><p>Applying a short 50 ms delay for effective software debouncing.</p></li>
+</ul>
+<p>This project introduces vital logic used in professional embedded systems, ensuring user interfaces respond crisply and accurately without unexpected repeating behaviors.</p>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      <ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#writing-the-program">Writing the Program</a><ul>
+<li><a class="reference internal" href="#uploading-the-program">Uploading the Program</a></li>
+<li><a class="reference internal" href="#expected-result">Expected Result</a></li>
+<li><a class="reference internal" href="#how-the-code-works">How the Code Works</a></li>
+<li><a class="reference internal" href="#experiment">Experiment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="Lesson2.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">Project 2 : Control a Relay Using a Button</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="Lesson4.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter">Project 4 : Play a Melody using a Button</a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

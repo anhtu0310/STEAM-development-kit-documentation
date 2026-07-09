@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Getting started with Arduino &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install CP2102 Driver on Windows System" href="windows_driver.html" />
+    <link rel="prev" title="Other documentations" href="../other_docs.html" />
+<link rel="stylesheet" type="text/css" src="../_static/bootstrap/bootstrap.css" />
+<script src="../_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../_static/js/conestack.js"></script>
+<script src="../_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="../index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="../search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usermanual.html">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware.html">Hardware</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../exampleprojects.html">Example projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../other_docs.html">Other documentations</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="getting-started-with-arduino">
+<h1><strong>Getting started with Arduino</strong><a class="headerlink" href="#getting-started-with-arduino" title="Link to this heading">#</a></h1>
+<p><strong>WHAT IS ARDUINO?</strong></p>
+<p>Arduino is an open-source electronics platform based on easy-to-use hardware and software. It’s intended for anyone making interactive projects.</p>
+<p><strong>ARDUINO SOFTWARE</strong></p>
+<p>You can tell your Arduino what to do by writing code in the Arduino programming language and using the Arduino development environment.</p>
+</section>
+<section id="download-arduino-ide">
+<h1><strong>1. Download arduino IDE</strong><a class="headerlink" href="#download-arduino-ide" title="Link to this heading">#</a></h1>
+<section id="a-windows-system">
+<h2><strong>A. Windows System</strong><a class="headerlink" href="#a-windows-system" title="Link to this heading">#</a></h2>
+<p>You could download Arduino IDE from the official website: <a class="reference external" href="https://www.arduino.cc/">https://www.arduino.cc/</a></p>
+<p>Enter the link and click <strong>SOFTWARE</strong>:</p>
+<p><img alt="image-20230331165128482" src="../_images/image-20230331165128482-1685496644801-1.png" /></p>
+<p>There are various versions of IDE for Arduino. Just download a version compatible with your system.</p>
+<p><img alt="" src="../_images/image-20230531112709308.png" /></p>
+<p>Here we will show you how to download and install the windows version of Arduino IDE.</p>
+<p>There are two versions of IDE for WINDOWS system. You can choose between the installer (.exe) and the Zip file. For installer, it can be directly downloaded, without the need of installing it manually while for Zip package, you will need to install the driver manually.</p>
+<p><img alt="image-20230331165316657" src="../_images/image-20230331165316657-1685496675570-5.png" /></p>
+<p>You just need to click <strong>JUST DOWNLOAD</strong>.</p>
+</section>
+<section id="b-mac-system">
+<h2><strong>B. Mac System</strong><a class="headerlink" href="#b-mac-system" title="Link to this heading">#</a></h2>
+<p>The versions of Arduino IDE vary from operation systems.</p>
+<p>For how to download Arduino IDE on Mac, please refer to Windows:</p>
+<p><img alt="" src="../_images/image-20230531112759668.png" /></p>
+<p>After downloading, double-click to open it and follow the installation instructions.</p>
+</section>
+<section id="c-detailed-installation-steps">
+<h2><strong>C.Detailed installation steps：</strong><a class="headerlink" href="#c-detailed-installation-steps" title="Link to this heading">#</a></h2>
+<p>1.Save the .exe file downloaded from the software page to your hard drive and simply run the file .</p>
+<p><img alt="image-20231030111507277" src="../_images/image-20231030111507277.png" /></p>
+<p>2.Read the License Agreement and agree it.</p>
+<p><img alt="image-20231030111548510" src="../_images/image-20231030111548510.png" /></p>
+<p>3.Choose the installation options.</p>
+<p><img alt="image-20231030111609783" src="../_images/image-20231030111609783.png" /></p>
+<p>4.Choose the install location.</p>
+<p><img alt="image-20231030111627536" src="../_images/image-20231030111627536.png" /></p>
+<p>5.Click finish and run Arduino IDE</p>
+<p><img alt="image-20231030111656023" src="../_images/image-20231030111656023.png" /></p>
+</section>
+</section>
+<section id="arduino-ide-settings">
+<h1><strong>3. Arduino IDE Settings</strong><a class="headerlink" href="#arduino-ide-settings" title="Link to this heading">#</a></h1>
+<p>Click<img alt="" src="../_images/image-20230531140203077.png" />icon to open Arduino IDE.</p>
+<p><img alt="" src="../_images/image-20230531113348119.png" /></p>
+<ol class="arabic simple">
+<li><p>“File”: Including New Sketch, Open…, Sketchbook, Examples, Close, Save(Save as…), Preferences, Advanced…, etc.</p></li>
+<li><p>“Edit”: Including Copy, Paste, Auto Format, Increase/Decrease Font Size, etc. Commonly, you can use shortcuts to do these operations.</p></li>
+<li><p>“Sketch”: Including Verify/Compile, Upload, Include Library, etc.</p></li>
+<li><p>“Tools”: Including Board and Port, which are two of the most important functions.</p></li>
+<li><p>“Help”: Including Check for Updates as well as some official data references.</p></li>
+<li><p>“Serial Plotter”: To display the data from serial port in the way of a line chart.</p></li>
+<li><p>“Serial Monitor”: To prints the data from serial port.</p></li>
+<li><p>Verify code.</p></li>
+<li><p>Verify and upload code.</p></li>
+<li><p>“Sketchbook”: To create a new sketch, or sign in to Arduino Cloud to sync and edit your Cloud Sketches.</p></li>
+<li><p>“Boards Manager”: To install or remove development board.</p></li>
+<li><p>“Library Manager”: To install or remove library.</p></li>
+<li><p>“Debug”: To monitor code and debug breakpoints.</p></li>
+<li><p>Search.</p></li>
+<li><p>Sketch editing area.</p></li>
+<li><p>IDE Output: To report error or successful uploading, and to display data from serial monitor.</p></li>
+</ol>
+</section>
+<section id="import-library">
+<h1><strong>5. Import Library</strong><a class="headerlink" href="#import-library" title="Link to this heading">#</a></h1>
+<p>First of all, the corresponding Arduino library files are required.</p>
+<section id="a-what-are-libraries">
+<h2><strong>A. What are Libraries ?</strong><a class="headerlink" href="#a-what-are-libraries" title="Link to this heading">#</a></h2>
+<p>Libraries are a collection of code that make it easy for you to connect a sensor,display, module, etc.</p>
+<p>For example, the built-in LiquidCrystal library helps talk to LCD displays.</p>
+<p>There are hundreds of additional libraries available on the Internet for download. The built-in libraries and some of these additional libraries are listed in the reference.</p>
+<p>If there is an error ‘No such file or directory’ when compiling or uploading code, it means the library file is missing. As shown in the figure below, the error occurred when uploading LCD1602 module code due to the missing ‘LiquidCrystal_I2C’ library file.</p>
+<p><img alt="image-20231030131942400" src="../_images/image-20231030131942400.png" /></p>
+</section>
+<section id="b-how-to-install-a-library">
+<h2><strong>B. How to Install a Library ?</strong><a class="headerlink" href="#b-how-to-install-a-library" title="Link to this heading">#</a></h2>
+<p style="color:red;">Let's take adding the "LiquidCrystal_I2C" library file as an example.<p>
+<p>Here we will introduce the most simple way to add libraries.</p>
+<p>Click <strong>Skerch &gt; Include Library &gt; Add .Zip Library…</strong> in sequence.</p>
+<p><img alt="5646545" src="../_images/5646545.png" /></p>
+<p>Find files(.zip) you need to add as library and wait. “<strong>Library installed</strong>” will be displayed if library is successfully added.</p>
+<p><img alt="446518" src="../_images/446518.png" /></p>
+<p><img alt="image-20231031114018284" src="../_images/image-20231031114018284.png" /></p>
+<p><strong>Dynamic operation example:</strong></p>
+<p><img alt="146185" src="../_images/146185.gif" /></p>
+<p>For how to include a library, the method of the two system is the same.</p>
+<p>For more details, please visit our official website: <a class="reference external" href="https://www.keyestudio.com/">https://www.keyestudio.com/</a></p>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="../other_docs.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">Other documentations</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="windows_driver.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter"><strong>Install CP2102 Driver on Windows System</strong></a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

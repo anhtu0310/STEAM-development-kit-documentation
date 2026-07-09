@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project 6 : Display Text and Graphics on an SH1106 OLED &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project 7 : 4-Digit 7-Segment Display Using 74HC595 Shift Registers" href="Lesson7.html" />
+    <link rel="prev" title="Project 5 : Control an 8x8 LED Matrix Display using a Button" href="Lesson5.html" />
+<link rel="stylesheet" type="text/css" src="../../_static/bootstrap/bootstrap.css" />
+<script src="../../_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../../_static/js/conestack.js"></script>
+<script src="../../_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="../../index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="../../search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="project-6-display-text-and-graphics-on-an-sh1106-oled">
+<h1>Project 6 : Display Text and Graphics on an SH1106 OLED<a class="headerlink" href="#project-6-display-text-and-graphics-on-an-sh1106-oled" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this project, we will learn how to operate a high-resolution, self-illuminating display: the <strong>SH1106 OLED</strong>. Unlike the 8x8 LED matrix that is great for blocky pixel art, an OLED screen can display crisp text, variable fonts, and smooth geometric shapes.</p>
+<p>We will communicate with the screen using <strong>I2C</strong> (Inter-Integrated Circuit), a protocol that requires only two data wires. To make drawing easy, we will use the highly versatile <strong>u8g2</strong> graphics library. By the end of this tutorial, you will know how to:</p>
+<ul class="simple">
+<li><p>Reassign hardware I2C pins (SDA and SCL) on the ESP32.</p></li>
+<li><p>Initialize the u8g2 library for an SH1106 display.</p></li>
+<li><p>Draw text with custom fonts and render geometric shapes.</p></li>
+<li><p>Use a button to toggle between different screen layouts.</p></li>
+</ul>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>Before starting, make sure you have the following:</p>
+<ul class="simple">
+<li><p>The STEAM development kit or The STEAM standalone microcontroller board</p></li>
+<li><p>USB cable</p></li>
+<li><p>Arduino IDE with ESP32 toolchain installed</p></li>
+<li><p><strong>U8g2</strong> library installed (Go to <strong>Tools → Manage Libraries</strong>, search for “u8g2” by oliver, and install it).</p></li>
+</ul>
+<p>In this project, the built-in SH1106 OLED and the button will be used.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/board_i2c.png"><img alt="../../_images/board_i2c.png" src="../../_images/board_i2c.png" width="400" />
+</a>
+<figcaption>
+<p><span class="caption-text">The interfacing description of the microcontroller board</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The built-in button is on <strong>GPIO0</strong>. The OLED uses the I2C interface mapped to <strong>GPIO48 for SCL</strong> (Clock) and <strong>GPIO47 for SDA</strong> (Data).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>I2C allows multiple devices to share the same two wires by giving each device a unique address. The SH1106 display typically has an I2C address of <code class="docutils literal notranslate"><span class="pre">0x3C</span></code>, which the u8g2 library handles automatically behind the scenes.</p>
+</div>
+</section>
+<section id="writing-the-program">
+<h2>Writing the Program<a class="headerlink" href="#writing-the-program" title="Link to this heading">#</a></h2>
+<p>Create a new sketch in the Arduino IDE and enter the following code:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Arduino.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;U8g2lib.h&gt;</span>
+
+<span class="c1">// Define custom I2C pins for the OLED</span>
+<span class="cp">#define SDA_PIN 47</span>
+<span class="cp">#define SCL_PIN 48</span>
+
+<span class="c1">// Define the button pin</span>
+<span class="cp">#define BUT_PIN 0</span>
+
+<span class="c1">// Initialize the u8g2 object for the SH1106 OLED</span>
+<span class="c1">// &#39;F&#39; stands for Full Framebuffer (best for ESP32 as it has plenty of RAM)</span>
+<span class="c1">// HW_I2C tells the library to use hardware-accelerated I2C</span>
+<span class="n">U8G2_SH1106_128X64_NONAME_F_HW_I2C</span><span class="w"> </span><span class="nf">u8g2</span><span class="p">(</span><span class="n">U8G2_R0</span><span class="p">,</span><span class="w"> </span><span class="cm">/* reset=*/</span><span class="w"> </span><span class="n">U8X8_PIN_NONE</span><span class="p">);</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HIGH</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">display_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 0 = Text Screen, 1 = Graphics Screen</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BUT_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Map the ESP32&#39;s hardware I2C to our specific pins</span>
+<span class="w">    </span><span class="n">Wire</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">SDA_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">SCL_PIN</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Start the display</span>
+<span class="w">    </span><span class="n">u8g2</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Read the current state of the active-LOW button</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">current_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BUT_PIN</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Detect button press (falling edge)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HIGH</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">current_but_sts</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LOW</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Toggle between state 0 and 1</span>
+<span class="w">        </span><span class="n">display_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">display_state</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span><span class="w"> </span><span class="c1">// Software debounce</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_but_sts</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Render the OLED Screen</span>
+<span class="w">    </span><span class="n">u8g2</span><span class="p">.</span><span class="n">clearBuffer</span><span class="p">();</span><span class="w"> </span><span class="c1">// 1. Clear the internal memory</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">display_state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">drawTextScreen</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">drawGraphicsScreen</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">u8g2</span><span class="p">.</span><span class="n">sendBuffer</span><span class="p">();</span><span class="w">  </span><span class="c1">// 2. Push the memory to the physical display</span>
+<span class="p">}</span>
+
+<span class="c1">// Function to render text</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">drawTextScreen</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Set a standard readable font</span>
+<span class="w">    </span><span class="n">u8g2</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_ncenB08_tr</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// drawStr(X, Y, &quot;Text&quot;) - Note: Y is the bottom-left baseline of the text</span>
+<span class="w">    </span><span class="n">u8g2</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Hello, STEAM!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">u8g2</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SH1106 OLED Test&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">u8g2</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Press the button -&gt;&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Function to render shapes</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">drawGraphicsScreen</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Draw a border around the edge of the 128x64 screen</span>
+<span class="w">    </span><span class="n">u8g2</span><span class="p">.</span><span class="n">drawFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="mi">64</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Draw a hollow circle in the center (X=64, Y=32, Radius=20)</span>
+<span class="w">    </span><span class="n">u8g2</span><span class="p">.</span><span class="n">drawCircle</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="n">U8G2_DRAW_ALL</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Draw a filled square on the left side</span>
+<span class="w">    </span><span class="n">u8g2</span><span class="p">.</span><span class="n">drawBox</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Add a small label</span>
+<span class="w">    </span><span class="n">u8g2</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_ncenB08_tr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">u8g2</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">95</span><span class="p">,</span><span class="w"> </span><span class="mi">36</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Art!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="uploading-the-program">
+<h3>Uploading the Program<a class="headerlink" href="#uploading-the-program" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Connect the board to your computer using the USB cable.</p></li>
+<li><p>Open the Arduino IDE and ensure the <strong>U8g2</strong> library is installed.</p></li>
+<li><p>Select your ESP32 board and the correct serial port from the <strong>Tools</strong> menu.</p></li>
+<li><p>Click the <strong>Upload</strong> button.</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/oled.png" src="../../_images/oled.png" />
+</figure>
+</section>
+<section id="expected-result">
+<h3>Expected Result<a class="headerlink" href="#expected-result" title="Link to this heading">#</a></h3>
+<p>After uploading the program:</p>
+<ul class="simple">
+<li><p>The OLED screen will turn on and display three lines of text welcoming you to the STEAM board.</p></li>
+<li><p>Press the push button once. The screen will instantly clear and draw a bordered graphics screen featuring a circle and a filled square.</p></li>
+<li><p>Press the button again to toggle back to the text screen.</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../_images/Oled.gif" src="../../_images/Oled.gif" />
+</figure>
+</section>
+<section id="how-the-code-works">
+<h3>How the Code Works<a class="headerlink" href="#how-the-code-works" title="Link to this heading">#</a></h3>
+<p><strong>I2C Pin Reassignment</strong></p>
+<p>The ESP32 is highly flexible and allows us to route I2C communication to almost any pin. We accomplish this in <cite>setup()</cite> by calling:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Wire</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">SDA_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">SCL_PIN</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>By doing this <em>before</em> calling <cite>u8g2.begin()</cite>, the OLED library knows exactly where to send its data.</p>
+<p><strong>The U8g2 Drawing Process (Buffer Logic)</strong></p>
+<p>Drawing directly to the screen pixel-by-pixel is slow and causes flickering. Instead, <cite>u8g2</cite> uses a <strong>Framebuffer</strong> (the <cite>F</cite> in our object constructor). This means the microcontroller calculates the entire image in its own fast RAM first.</p>
+<p>The rendering always follows this three-step cycle:
+1. <code class="docutils literal notranslate"><span class="pre">u8g2.clearBuffer();</span></code> Erases the invisible canvas in the ESP32’s memory.
+2. <strong>Drawing Commands:</strong> <code class="docutils literal notranslate"><span class="pre">drawStr()</span></code>, <code class="docutils literal notranslate"><span class="pre">drawCircle()</span></code>, etc., paint onto the invisible canvas.
+3. <code class="docutils literal notranslate"><span class="pre">u8g2.sendBuffer();</span></code> Instantly blasts the completed canvas to the OLED via I2C, resulting in a smooth, flicker-free image.</p>
+<p><strong>Coordinates</strong></p>
+<p>The screen is 128 pixels wide (X: 0 to 127) and 64 pixels tall (Y: 0 to 63).
+* <strong>(0, 0)</strong> is the top-left corner.
+* When drawing text, the Y coordinate represents the <em>bottom baseline</em> of the letters, not the top.</p>
+</section>
+<section id="experiment">
+<h3>Experiment<a class="headerlink" href="#experiment" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Change the Font:</strong> The u8g2 library has hundreds of fonts. Visit the <a class="reference external" href="https://github.com/olikraus/u8g2/wiki/fntlistall">u8g2 font documentation</a> online, find a larger or stylized font (like <code class="docutils literal notranslate"><span class="pre">u8g2_font_logisoso16_tr</span></code>), and replace <code class="docutils literal notranslate"><span class="pre">u8g2_font_ncenB08_tr</span></code> in the code. <em>Note: Larger fonts take up more vertical space, so you may need to adjust your Y coordinates!</em></p></li>
+<li><p><strong>Bouncing Box:</strong> Can you modify <cite>loop()</cite> to make a box animate across the screen? (Hint: Create global variables for an <cite>x_position</cite> and an <cite>x_direction</cite>. Add <cite>x_direction</cite> to <cite>x_position</cite> inside your graphics function, and if <cite>x_position</cite> hits the screen edges, multiply <cite>x_direction</cite> by <cite>-1</cite> to reverse it).</p></li>
+</ul>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this tutorial, you learned how to drive a high-resolution OLED screen using I2C communication. You configured custom data and clock pins on the ESP32 and learned the fundamental buffer-drawing sequence (<cite>clearBuffer</cite> -&gt; draw -&gt; <cite>sendBuffer</cite>) required by the u8g2 library.</p>
+<p>Key concepts covered include:</p>
+<ul class="simple">
+<li><p>Initializing custom hardware I2C pins using <code class="docutils literal notranslate"><span class="pre">Wire.begin()</span></code>.</p></li>
+<li><p>Utilizing a full framebuffer to draw flicker-free graphics.</p></li>
+<li><p>Understanding X/Y pixel coordinate systems.</p></li>
+<li><p>Combining modular helper functions (<cite>drawTextScreen</cite>, <cite>drawGraphicsScreen</cite>) with button logic to create multi-page user interfaces.</p></li>
+</ul>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      <ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#writing-the-program">Writing the Program</a><ul>
+<li><a class="reference internal" href="#uploading-the-program">Uploading the Program</a></li>
+<li><a class="reference internal" href="#expected-result">Expected Result</a></li>
+<li><a class="reference internal" href="#how-the-code-works">How the Code Works</a></li>
+<li><a class="reference internal" href="#experiment">Experiment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="Lesson5.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">Project 5 : Control an 8x8 LED Matrix Display using a Button</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="Lesson7.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter">Project 7 : 4-Digit 7-Segment Display Using 74HC595 Shift Registers</a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

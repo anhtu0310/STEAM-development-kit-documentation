@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>User manual &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Toolchains installation" href="toolchains.html" />
+    <link rel="prev" title="Introduction" href="index.html" />
+<link rel="stylesheet" type="text/css" src="_static/bootstrap/bootstrap.css" />
+<script src="_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="_static/js/conestack.js"></script>
+<script src="_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exampleprojects.html">Example projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="other_docs.html">Other documentations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Other_docs/arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Other_docs/arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Other_docs/arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Other_docs/arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Other_docs/windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Other_docs/mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="user-manual">
+<h1>User manual<a class="headerlink" href="#user-manual" title="Link to this heading">#</a></h1>
+<p class="justified-text">The STEAM development kit is a open-source low-cost versatile microcontroller development board with advance peripheral like USB, VGA, ethernet,..
+Aiming at beginners such as students and enthusiasts.</p>
+<section id="hardware-overview">
+<h2>Hardware Overview<a class="headerlink" href="#hardware-overview" title="Link to this heading">#</a></h2>
+<p>The The STEAM development kit is consists of 2 different boards, connected by the 2.54mm header:</p>
+<p><strong>The main microcontroller board:</strong></p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/controller3D.PNG"><img alt="_images/controller3D.PNG" src="_images/controller3D.PNG" width="400" />
+</a>
+<figcaption>
+<p><span class="caption-text">The 3D rendering of the maincontroller board</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The microcontroller board is designed to be small but include all of the necessary components for it to work standalone independently with the peripheral board. It also exposes all of the GPIOs for user and for interfacing with the peripheral board.</p>
+<p><strong>The main peripheral board:</strong></p>
+<figure class="align-center" id="id2">
+<img alt="_images/PCB3D.PNG" src="_images/PCB3D.PNG" />
+<figcaption>
+<p><span class="caption-text">The 3D rendering of the peripheral board</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The peripheral board is designed to carry the microcontroller board as a daughter borad, where all of the processing logic is happened. Unlike the microcontroller board it cannot operate independently, the microntroller board need to be present for it to work.</p>
+<p>With this architecture the microcontroller can be flexibly change to different MCU families or even FPGA, CLPD. Where the daughter microcontroller board can either work alone or expand it peripheral.</p>
+</section>
+<section id="specification">
+<h2>Specification<a class="headerlink" href="#specification" title="Link to this heading">#</a></h2>
+<p>The STEAM development kit <strong>microcontroller board</strong> is equipped with:</p>
+<ul class="simple">
+<li><p>ESP32-S3 WROOM N8R16 (8MB of FLASH, 16MB of PSRAM), 2x xtensa LX7</p></li>
+<li><p>Built in 2.4 GHz Wi-Fi (802.11 b/g/n), Bluetooth 5.0 LE</p></li>
+<li><p>Built in 45 programmable GPIOs, SPI, I2S, I2C, PWM, RMT, ADC and UART, SD/MMC host and TWAI</p></li>
+<li><p>USB-C port connect directly to the MCU USB pins</p></li>
+<li><p>Power supply:</p>
+<ul>
+<li><p>AP2112 low drop-out 5V to 3.3V &#64; 600 mA linear regulator</p></li>
+</ul>
+</li>
+</ul>
+<p>The STEAM development kit <strong>peripheral board</strong> is equipped with:</p>
+<ul class="simple">
+<li><p>W5500 SPI ethernet chip with built in TCP/IP support</p></li>
+<li><p>CP2102 USB to UART</p></li>
+<li><p>16 bits VGA output</p></li>
+<li><p>SH1106 1.3 inch single color OLED</p></li>
+<li><p>MAX7210 8x8 dot matrix led display</p></li>
+<li><p>4x0.36 in 7 segment LED display controlled with 4x 74HC595D</p></li>
+<li><p>2x WS2812 RGB LEDS</p></li>
+<li><p>Panasonic ALDP relay and 5V buzzer</p></li>
+<li><p>BM280 pressure and temperature sensor</p></li>
+<li><p>MircoSD and USB-A ports</p></li>
+<li><p>Power supply:</p>
+<ul>
+<li><p>MP1854 DC-DC buck converter 9-28V input, 5V 3A output</p></li>
+<li><p>NCP1117 Linear regulator 5v to 3.3V &#64; 1A</p></li>
+</ul>
+</li>
+</ul>
+<figure class="align-center" id="id3">
+<img alt="_images/block_dia.svg" src="_images/block_dia.svg" />
+<figcaption>
+<p><span class="caption-text">The block diagram of The STEAM development kit system</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="gpios-and-peripherals">
+<h2>GPIOs and Peripherals<a class="headerlink" href="#gpios-and-peripherals" title="Link to this heading">#</a></h2>
+<p><strong>The microcontroller board interfacing details:</strong></p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/MCU_board.png"><img alt="_images/MCU_board.png" src="_images/MCU_board.png" width="400" />
+</a>
+<figcaption>
+<p><span class="caption-text">The interfacing description of the microcontroller board</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The main peripherals of the microcontroller board is the USB-C port and GPIOs for interfacing with the peripheral board.</p>
+<p><strong>The peripheral board interfacing details:</strong></p>
+<figure class="align-center" id="id5">
+<img alt="_images/full_board.png" src="_images/full_board.png" />
+<figcaption>
+<p><span class="caption-text">The interfacing description of the peripheral board</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The peripheral board contains different devices and components, however due to the limitation of the numbers of GPIOs, some functions have to share the GPIOs which is a limitation where not all functions of the development kit can be used simultaneously.</p>
+</section>
+<section id="shared-hw-resources">
+<h2>Shared HW resources<a class="headerlink" href="#shared-hw-resources" title="Link to this heading">#</a></h2>
+<section id="shared-spi-bus">
+<h3>Shared SPI bus<a class="headerlink" href="#shared-spi-bus" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/shared_SPI.png"><img alt="_images/shared_SPI.png" src="_images/shared_SPI.png" width="500" />
+</a>
+<figcaption>
+<p><span class="caption-text">The shared SPI devices between microSD card and the W5500 ethernet chip</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Since both of the microSD card and the W5500 ethernet chip are slaves, the main microcontroller is the master. The SPI communication protocol allows one multiple slaves, with the communication is held by the master. The design here follows mult-drop configuration where each slaves is controlled with a separated Chip select (CS) pin.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/SPI_three_slaves.svg.png"><img alt="_images/SPI_three_slaves.svg.png" src="_images/SPI_three_slaves.svg.png" width="400" />
+</a>
+<figcaption>
+<p><span class="caption-text">SPI mult-drop configuration</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>However, due to the data intensive nature of both ethernet and MicroSD card interface, the firmware implementation of this 2 functions shall consider the resources carefully. To give each device a handling task that do not collide with each other writing or reading data at the same time.</p>
+</section>
+<section id="shared-i2c-bus">
+<h3>Shared I2c bus<a class="headerlink" href="#shared-i2c-bus" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/shared_i2c.png"><img alt="_images/shared_i2c.png" src="_images/shared_i2c.png" width="500" />
+</a>
+<figcaption>
+<p><span class="caption-text">The shared SPI devices between 1.3 inch OLED card and the BME280 pressure and temperatures sensor</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The I2c or TWI protocol is designed with multiple devices sharing 1 physical bus (2 wire), allowing multiple slaves and masters. The nodes are differentiated by their addresses.</p>
+<figure class="align-center" id="id9">
+<a class="reference internal image-reference" href="_images/I2C_controller-target.svg.png"><img alt="_images/I2C_controller-target.svg.png" src="_images/I2C_controller-target.svg.png" width="400" />
+</a>
+<figcaption>
+<p><span class="caption-text">I2C multiple devices bus</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In this design, the OLED has I2C address of 0x3C and 0x77 for the sensor. The I2C handler of the ESP32-S3 can handle I2C message queue.
+Therfore, using 2 devices simultaneously would not be a issue, but user still need to aware that I2C transmissions between different devices need to be done sequentially for better implement the software.</p>
+</section>
+<section id="shared-16-bits-vga-gpios-with-buzzer-led-display-functions">
+<h3>Shared 16 bits VGA GPIOs with buzzer LED display functions<a class="headerlink" href="#shared-16-bits-vga-gpios-with-buzzer-led-display-functions" title="Link to this heading">#</a></h3>
+<figure class="align-center" id="id10">
+<a class="reference internal image-reference" href="_images/shared_i2c.png"><img alt="_images/shared_i2c.png" src="_images/shared_i2c.png" width="500" />
+</a>
+<figcaption>
+<p><span class="caption-text">The shared GPIOs between 16 bits VGA output and 8x8 matrix LED, 7 segment LEDs, DIP switch/ touch buttons /buttons and buzzer</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Due to the resistor ladder of driving VGA signal for 16 bits color is 20 GPIOs, the numbers of GPIOs left is not enough for all functions, hence the GPIO is shared.
+The output of VGA resistor ladder is isolated by the 74LCV245 bus transceiver ICs, hence we have the limitation of when using the VGA output functions the 8x8 matrix, display, 7segment display, buzzer, buttons and DIP switch is not available.
+Only when VGA is not used then, those function can be accessible.</p>
+<p>The following quirk of using those function should be <strong>notice</strong>:</p>
+<ul class="simple">
+<li><p>The LED matrix and 7segment can be initialized before initializing the VGA output is initialized, but cannot and should not attempt to be refreshed.</p></li>
+<li><p>To use the <strong>VGA output</strong>, ensure to put all switches in the DIP switches 1 and 2 to <strong>OFF</strong> position</p></li>
+</ul>
+<figure class="align-center" id="id11">
+<a class="reference internal image-reference" href="_images/DIP_OFF.png"><img alt="_images/DIP_OFF.png" src="_images/DIP_OFF.png" width="200" />
+</a>
+<figcaption>
+<p><span class="caption-text">DIP switches position for VGA output</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ul>
+<li><dl>
+<dt>To use the <strong>Buzzer</strong>, put switch 4 of DIP 1 to ON, the it could be controlled by <strong>GPIO3</strong>:</dt><dd><figure class="align-center" id="id12">
+<a class="reference internal image-reference" href="_images/buzz_ON.png"><img alt="_images/buzz_ON.png" src="_images/buzz_ON.png" width="200" />
+</a>
+<figcaption>
+<p><span class="caption-text">DIP switch 1 position for enabling Buzzer</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</dd>
+</dl>
+</li>
+<li><p>It’s not necessary to change DIP switch config to display on <strong>7 Segment Display</strong>, but if RESET and brightness PWM control is needed,  put switch 2 and 3 of DIP 1 to ON:</p></li>
+</ul>
+<figure class="align-center" id="id13">
+<a class="reference internal image-reference" href="_images/7Seg_more.png"><img alt="_images/7Seg_more.png" src="_images/7Seg_more.png" width="200" />
+</a>
+<figcaption>
+<p><span class="caption-text">DIP switch 1 position for controlling RESET and Brightness of 7 segment Display</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>To disable the VGA display, put switch 4 of DIP 1 to ON:</p></li>
+</ul>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="_images/VGA_OFF.png"><img alt="_images/VGA_OFF.png" src="_images/VGA_OFF.png" width="200" />
+</a>
+<figcaption>
+<p><span class="caption-text">DIP switch 1 position for disabling the VGA output</span><a class="headerlink" href="#id14" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="using-the-board">
+<h2>Using the board<a class="headerlink" href="#using-the-board" title="Link to this heading">#</a></h2>
+<section id="powering-up-the-board">
+<h3>Powering up the board<a class="headerlink" href="#powering-up-the-board" title="Link to this heading">#</a></h3>
+<p>To power up the board, either use the USB-C ports on the board or the DC barrel on the board. Make sure to use the correct power supply for for the board:</p>
+<ul class="simple">
+<li><p><strong>5V 1A</strong> for powering via USB, USB-PD charger can be used !</p></li>
+<li><p><strong>9-28V 500mA</strong> for powering via DC 5.5x2.1mm barrel jack</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When both DC jack and USB are plugged in, the board will use <strong>DC jack</strong> as primary power source.</p>
+</div>
+<figure class="align-center" id="id15">
+<a class="reference internal image-reference" href="_images/powerup.png"><img alt="_images/powerup.png" src="_images/powerup.png" width="500" />
+</a>
+<figcaption>
+<p><span class="caption-text">Powering up the development kit</span><a class="headerlink" href="#id15" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>When the board is properly powered, all three power LEDs indicator should light up like the in the picture</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If any of the 3 LED is not brighten up, please check the power supply and debug based on the schematic of following 3 voltage rails:</p>
+<ul class="simple">
+<li><p>3.3V on the mainboard, upper LED on the top right conner</p></li>
+<li><p>5V on mainboard, lower LED on the top right conner</p></li>
+<li><p>3.3V on the microcontroller board, LED on the daughter board</p></li>
+</ul>
+</div>
+</section>
+<section id="conneting-the-devolopment-board-to-pc">
+<h3>Conneting the devolopment board to PC<a class="headerlink" href="#conneting-the-devolopment-board-to-pc" title="Link to this heading">#</a></h3>
+<p>Connect the board to the PC using the USB-C port, in most operating systems, it will be recognized directly as a USB Serial device with the name of <em>Silicon Labs CP210x USB to UART Bridge</em>, you can check if the board is recognized by the PC as:</p>
+<section id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h4>
+<p>Right Click on <strong>This PC-&gt;manage-&gt;Device Manager -&gt; Port(COM&amp;LPT)</strong></p>
+<figure class="align-center" id="id16">
+<img alt="_images/win_driver.png" src="_images/win_driver.png" />
+<figcaption>
+<p><span class="caption-text">Check if Windows recognized the board</span><a class="headerlink" href="#id16" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If the the device show up but driver is not installed properly, please use Windows update to install the driver, or manually <a class="reference external" href="https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads">download the driver and install it</a>  .</p>
+<p><a class="reference external" href="windows_driver.html">Following this instruction here</a></p>
+</section>
+<section id="linux">
+<h4>Linux<a class="headerlink" href="#linux" title="Link to this heading">#</a></h4>
+<p>Use this command to check if the board is properly recognized:</p>
+<p>The result should look like this:</p>
+<figure class="align-center" id="id17">
+<img alt="_images/dmesg.png" src="_images/dmesg.png" />
+<figcaption>
+<p><span class="caption-text">DMESG response</span><a class="headerlink" href="#id17" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="macos">
+<h4>MacOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h4>
+<p>You can use the exact same method on Linux to check if it’s recognized.
+If it’s the first time connecting such device, usually the driver need to be installed, get it <a class="reference external" href="https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=downloads">here</a>  and follow this <a class="reference external" href="mac_driver.html">instruction</a></p>
+</section>
+</section>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      <ul>
+<li><a class="reference internal" href="#hardware-overview">Hardware Overview</a></li>
+<li><a class="reference internal" href="#specification">Specification</a></li>
+<li><a class="reference internal" href="#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li><a class="reference internal" href="#shared-hw-resources">Shared HW resources</a><ul>
+<li><a class="reference internal" href="#shared-spi-bus">Shared SPI bus</a></li>
+<li><a class="reference internal" href="#shared-i2c-bus">Shared I2c bus</a></li>
+<li><a class="reference internal" href="#shared-16-bits-vga-gpios-with-buzzer-led-display-functions">Shared 16 bits VGA GPIOs with buzzer LED display functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-the-board">Using the board</a><ul>
+<li><a class="reference internal" href="#powering-up-the-board">Powering up the board</a></li>
+<li><a class="reference internal" href="#conneting-the-devolopment-board-to-pc">Conneting the devolopment board to PC</a><ul>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+<li><a class="reference internal" href="#linux">Linux</a></li>
+<li><a class="reference internal" href="#macos">MacOS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="index.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">Introduction</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="toolchains.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter">Toolchains installation</a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

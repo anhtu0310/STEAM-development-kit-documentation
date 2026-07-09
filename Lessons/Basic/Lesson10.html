@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project 10 : Environmental Monitoring with BMP280 and OLED Display &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project 11 : USB Keyboard Input Displayed on the OLED Screen" href="Lesson11.html" />
+    <link rel="prev" title="Project 9 : Ethernet-Controlled Relay Switch via Web Browser" href="Lesson9.html" />
+<link rel="stylesheet" type="text/css" src="../../_static/bootstrap/bootstrap.css" />
+<script src="../../_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../../_static/js/conestack.js"></script>
+<script src="../../_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="../../index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="../../search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="project-10-environmental-monitoring-with-bmp280-and-oled-display">
+<h1>Project 10 : Environmental Monitoring with BMP280 and OLED Display<a class="headerlink" href="#project-10-environmental-monitoring-with-bmp280-and-oled-display" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this project, you will read temperature, humidity, and barometric pressure from a <strong>BMP280 environmental sensor</strong> and display the live readings on the on-board SH1106 OLED screen. Both devices share the <strong>same two-wire I²C bus</strong>, demonstrating one of I²C’s most useful properties: multiple devices can communicate over a single pair of wires, each identified by its own address.</p>
+<p>By the end of this tutorial, you will know how to:</p>
+<ul class="simple">
+<li><p>Understand how multiple I²C devices share a single bus using unique addresses.</p></li>
+<li><p>Initialise a shared I²C bus with custom pins using the ESP32’s <code class="docutils literal notranslate"><span class="pre">TwoWire</span></code> API.</p></li>
+<li><p>Read temperature, humidity, and barometric pressure from the BMP280.</p></li>
+<li><p>Display multi-line sensor data on the SH1106 OLED using U8g2.</p></li>
+<li><p>Build a periodically-refreshing dashboard that updates readings every second.</p></li>
+</ul>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>Before starting, make sure you have the following:</p>
+<ul class="simple">
+<li><p>The STEAM development kit or The STEAM standalone microcontroller board</p></li>
+<li><p>USB cable</p></li>
+<li><p>Arduino IDE with ESP32 toolchain installed</p></li>
+</ul>
+<p>The BMP280 sensor and the SH1106 OLED display are both integrated on the STEAM development board and share the same I²C bus. No external components or additional wiring are needed.</p>
+<figure class="align-center" id="id1">
+<img alt="../../_images/board_i2c.png" src="../../_images/board_i2c.png" />
+<figcaption>
+<p><span class="caption-text">The interfacing description of the microcontroller board</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>I²C bus pin assignments (shared by both devices):</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal</p></th>
+<th class="head"><p>ESP32-S3 GPIO</p></th>
+<th class="head"><p>Connected to</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SCL</p></td>
+<td><p>IO48</p></td>
+<td><p>SH1106 OLED clock + BMP280 clock</p></td>
+</tr>
+<tr class="row-odd"><td><p>SDA</p></td>
+<td><p>IO47</p></td>
+<td><p>SH1106 OLED data + BMP280 data</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>I²C device addresses:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 25.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Device</p></th>
+<th class="head"><p>Address</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SH1106 OLED</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0x3C</span></code></p></td>
+<td><p>Fixed on the STEAM board</p></td>
+</tr>
+<tr class="row-odd"><td><p>BMP280</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0x76</span></code></p></td>
+<td><p>SDO pin tied to GND on the STEAM board</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="background-key-concepts">
+<h2>Background: Key Concepts<a class="headerlink" href="#background-key-concepts" title="Link to this heading">#</a></h2>
+<section id="the-i2c-bus-and-device-addressing">
+<h3>The I²C Bus and Device Addressing<a class="headerlink" href="#the-i2c-bus-and-device-addressing" title="Link to this heading">#</a></h3>
+<p>I²C (Inter-Integrated Circuit) is a two-wire serial protocol that allows many devices to share a single pair of lines: <strong>SCL</strong> (clock) and <strong>SDA</strong> (data). The ESP32-S3 acts as the bus <em>master</em> — it generates the clock and initiates all transactions. Each peripheral is a <em>slave</em> and responds only when addressed by its unique 7-bit address.</p>
+<p>A transaction begins with the master sending a start condition and a 7-bit address. Every slave on the bus reads that address; the one that recognises it responds with an acknowledgement. All other slaves stay silent. This addressing scheme is how two completely different devices — a display controller and an environmental sensor — can peacefully coexist on the same two wires.</p>
+<figure class="align-center" id="id2">
+<img alt="../../_images/I2C_controller-target.svg.png" src="../../_images/I2C_controller-target.svg.png" />
+<figcaption>
+<p><span class="caption-text">Multiple I²C devices sharing SCL and SDA lines</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>No two devices may share the same address on the same bus. The SH1106 is at <code class="docutils literal notranslate"><span class="pre">0x3C</span></code> and the BMP280 is at <code class="docutils literal notranslate"><span class="pre">0x76</span></code> — they are different, so both work on the same wires without conflict.</p>
+</div>
+</section>
+<section id="the-bmp280-sensor">
+<h3>The BMP280 Sensor<a class="headerlink" href="#the-bmp280-sensor" title="Link to this heading">#</a></h3>
+<p>The BMP280 is a compact environmental sensor from Bosch that measures three quantities in a single small package:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 25.0%" />
+<col style="width: 45.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Measurement</p></th>
+<th class="head"><p>Unit</p></th>
+<th class="head"><p>Typical range</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Temperature</p></td>
+<td><p>°C</p></td>
+<td><p>−40 to +85 °C (±1 °C)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Relative Humidity</p></td>
+<td><p>% RH</p></td>
+<td><p>0 to 100 % (±3 %)</p></td>
+</tr>
+<tr class="row-even"><td><p>Barometric Pressure</p></td>
+<td><p>hPa</p></td>
+<td><p>300 to 1100 hPa (±1 hPa)</p></td>
+</tr>
+</tbody>
+</table>
+<p>The sensor also provides a calculated altitude estimate derived from the pressure reading by comparing it against a configurable sea-level reference pressure (standard atmosphere = 1013.25 hPa).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because the BMP280 is mounted on the PCB near other components that generate a small amount of heat, its temperature reading may read 2–5 °C higher than the true ambient temperature. This is normal and is called <strong>self-heating</strong> or <strong>thermal offset</strong>. The Experiment section shows how to apply a calibration correction.</p>
+</div>
+</section>
+<section id="initialising-a-shared-i2c-bus-with-custom-pins">
+<h3>Initialising a Shared I²C Bus with Custom Pins<a class="headerlink" href="#initialising-a-shared-i2c-bus-with-custom-pins" title="Link to this heading">#</a></h3>
+<p>The Arduino <code class="docutils literal notranslate"><span class="pre">Wire</span></code> library defaults to the ESP32-S3’s built-in I²C pins, which differ from the STEAM board’s IO47/IO48 assignment. To override this, <code class="docutils literal notranslate"><span class="pre">Wire.begin(SDA,</span> <span class="pre">SCL)</span></code> must be called <strong>once</strong> in <code class="docutils literal notranslate"><span class="pre">setup()</span></code> before any library that uses I²C is initialised.</p>
+<p>Both U8g2 and the Adafruit BMP280 library accept a reference to a <code class="docutils literal notranslate"><span class="pre">TwoWire</span></code> bus object. By passing the same <code class="docutils literal notranslate"><span class="pre">Wire</span></code> object (after configuring it with the correct pins) to both libraries, they share a single properly-configured bus:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Wire</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">OLED_SDA</span><span class="p">,</span><span class="w"> </span><span class="n">OLED_SCL</span><span class="p">);</span><span class="w">           </span><span class="c1">// Configure custom pins once</span>
+<span class="n">display</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Wire</span><span class="p">,</span><span class="w"> </span><span class="n">OLED_ADDRESS</span><span class="p">);</span><span class="w">        </span><span class="c1">// U8g2 uses Wire</span>
+<span class="n">BMP</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">BMP_ADDRESS</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Wire</span><span class="p">);</span><span class="w">             </span><span class="c1">// Adafruit BMP280 uses same Wire</span>
+</pre></div>
+</div>
+<p>This is the cleanest pattern: one bus instance, configured once, shared by all devices.</p>
+</section>
+</section>
+<section id="required-libraries">
+<h2>Required Libraries<a class="headerlink" href="#required-libraries" title="Link to this heading">#</a></h2>
+<p>Install both libraries through the Arduino Library Manager (<strong>Tools → Manage Libraries</strong>):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Library</p></th>
+<th class="head"><p>Search term in Library Manager</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>U8g2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U8g2</span></code> by oliver (olikraus)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Adafruit BMP280 Library</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Adafruit</span> <span class="pre">BMP280</span> <span class="pre">Library</span></code> by Adafruit</p></td>
+</tr>
+<tr class="row-even"><td><p>Adafruit Unified Sensor</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Adafruit</span> <span class="pre">Unified</span> <span class="pre">Sensor</span></code> by Adafruit <em>(dependency of the above)</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Adafruit BMP280 Library depends on the <strong>Adafruit Unified Sensor</strong> library. The Library Manager will prompt you to install the dependency automatically when you install the BMP280 library — accept this prompt.</p>
+</div>
+</section>
+<section id="writing-the-program">
+<h2>Writing the Program<a class="headerlink" href="#writing-the-program" title="Link to this heading">#</a></h2>
+<p>Create a new sketch in the Arduino IDE and enter the following code:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;U8g2lib.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Adafruit_Sensor.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Adafruit_BMP280.h&gt;</span>
+
+<span class="c1">// ── I²C pin definitions (shared by OLED and BMP280) ──────────────────────</span>
+<span class="cp">#define I2C_SCL 48</span>
+<span class="cp">#define I2C_SDA 47</span>
+
+<span class="c1">// ── Device I²C addresses ──────────────────────────────────────────────────</span>
+<span class="cp">#define OLED_ADDRESS 0x3C</span>
+<span class="cp">#define bmp_ADDRESS  0x77   </span><span class="c1">// Change to 0x77 if your board uses that address</span>
+
+<span class="c1">// ── Sea-level pressure reference for altitude calculation ─────────────────</span>
+<span class="cp">#define SEALEVEL_HPA 1013.25</span>
+
+<span class="c1">// ── Temperature self-heating correction (°C to subtract) ─────────────────</span>
+<span class="c1">// The BMP280 sits near other components that generate heat.</span>
+<span class="c1">// Measure the true ambient temperature with a reference thermometer,</span>
+<span class="c1">// subtract the BMP280 reading, and enter the difference here.</span>
+<span class="cp">#define TEMP_OFFSET 0.0    </span><span class="c1">// e.g. set to 3.0 if BMP280 reads 3°C too high</span>
+
+<span class="c1">// ── Display: SH1106 128×64, full buffer, hardware I²C ────────────────────</span>
+<span class="c1">// When passing a Wire pointer explicitly, use the SW constructor with</span>
+<span class="c1">// U8X8_PIN_NONE for all pins; pin configuration comes from Wire.begin().</span>
+<span class="c1">// U8G2_SH1106_128X64_NONAME_F_HW_I2C display(</span>
+<span class="c1">//     U8G2_R0,        // No rotation</span>
+<span class="c1">//     U8X8_PIN_NONE,  // No hardware reset pin</span>
+<span class="c1">//     I2C_SCL,        // SCL — IO48</span>
+<span class="c1">//     I2C_SDA         // SDA — IO47</span>
+<span class="c1">// );</span>
+<span class="n">U8G2_SH1106_128X64_NONAME_F_HW_I2C</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span><span class="n">U8G2_R0</span><span class="p">,</span><span class="w"> </span><span class="cm">/* reset=*/</span><span class="w"> </span><span class="n">U8X8_PIN_NONE</span><span class="p">);</span>
+
+<span class="c1">// ── BMP280 sensor object ──────────────────────────────────────────────────</span>
+<span class="n">Adafruit_BMP280</span><span class="w"> </span><span class="n">bmp</span><span class="p">;</span>
+
+<span class="c1">// ── Update interval ───────────────────────────────────────────────────────</span>
+<span class="cp">#define UPDATE_INTERVAL_MS 1000</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// ── Helper: draw the sensor dashboard ────────────────────────────────────</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">drawDashboard</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">tempC</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">pressure</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">altitude</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">24</span><span class="p">];</span>
+
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">clearBuffer</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// ── Header bar ────────────────────────────────────────────────────────</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setDrawColor</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">drawBox</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setDrawColor</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_6x10_tr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Environment Monitor&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setDrawColor</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// ── Temperature ───────────────────────────────────────────────────────</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_6x10_tr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Temp:&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_profont17_tr</span><span class="p">);</span><span class="w">  </span><span class="c1">// Slightly larger for the value</span>
+<span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%.1f C&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tempC</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// ── Pressure ──────────────────────────────────────────────────────────</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_6x10_tr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Pres:&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_profont17_tr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%.0f hPa&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">pressure</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// ── Altitude (small, bottom-right) ───────────────────────────────────</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_5x7_tr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;Alt: %.0fm&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">72</span><span class="p">,</span><span class="w"> </span><span class="mi">49</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">sendBuffer</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// ── Setup ─────────────────────────────────────────────────────────────────</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Configure the I²C bus with custom pins BEFORE initialising any device.</span>
+<span class="w">    </span><span class="c1">// Both U8g2 and the BMP280 library will use this configured bus.</span>
+<span class="w">    </span><span class="n">Wire</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">I2C_SDA</span><span class="p">,</span><span class="w"> </span><span class="n">I2C_SCL</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Initialise the OLED display</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Show a startup message while the BMP280 initialises</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">clearBuffer</span><span class="p">();</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_6x10_tr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;STEAM Dev Board&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Finding BMP280...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">sendBuffer</span><span class="p">();</span>
+<span class="w">    </span><span class="n">bmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Adafruit_BMP280</span><span class="p">(</span><span class="o">&amp;</span><span class="n">Wire</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Initialise the BMP280, passing the configured Wire instance</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">bmp</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Sensor not found — show error and halt</span>
+<span class="w">        </span><span class="n">display</span><span class="p">.</span><span class="n">clearBuffer</span><span class="p">();</span>
+<span class="w">        </span><span class="n">display</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_6x10_tr</span><span class="p">);</span>
+<span class="w">        </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;BMP280 not found!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Check address:&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Try 0x76 or 0x77&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">display</span><span class="p">.</span><span class="n">sendBuffer</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;ERROR: BMP280 not found. Check I2C address and wiring.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;BMP280 initialised successfully.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Sensor chip ID: 0x&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">bmp</span><span class="p">.</span><span class="n">sensorID</span><span class="p">(),</span><span class="w"> </span><span class="n">HEX</span><span class="p">);</span><span class="w">   </span><span class="c1">// 0x60 = BMP280, 0x56-0x58 = BMP280</span>
+
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span><span class="w">  </span><span class="c1">// Brief pause so the startup message is visible</span>
+<span class="p">}</span>
+
+<span class="c1">// ── Loop ──────────────────────────────────────────────────────────────────</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">UPDATE_INTERVAL_MS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// Read sensor values</span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">tempC</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">bmp</span><span class="p">.</span><span class="n">readTemperature</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">TEMP_OFFSET</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">pressure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bmp</span><span class="p">.</span><span class="n">readPressure</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">100.0F</span><span class="p">;</span><span class="w">   </span><span class="c1">// Pa → hPa</span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">altitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bmp</span><span class="p">.</span><span class="n">readAltitude</span><span class="p">(</span><span class="n">SEALEVEL_HPA</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Update display</span>
+<span class="w">        </span><span class="n">drawDashboard</span><span class="p">(</span><span class="n">tempC</span><span class="p">,</span><span class="w"> </span><span class="n">pressure</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Echo to Serial Monitor for debugging</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Temp: %.1f°C  Pres: %.1f hPa  Alt: %.0fm</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">tempC</span><span class="p">,</span><span class="w"> </span><span class="n">pressure</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="uploading-the-program">
+<h2>Uploading the Program<a class="headerlink" href="#uploading-the-program" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Connect the board to your computer using the USB cable.</p></li>
+<li><p>Select <strong>ESP32S3 Dev Module</strong> from <strong>Tools → Board → esp32</strong>.</p></li>
+<li><p>Select the correct serial port from <strong>Tools → Port</strong>.</p></li>
+<li><p>Click the <strong>Upload</strong> button and wait for completion.</p></li>
+<li><p>Open the <strong>Serial Monitor</strong> (Tools → Serial Monitor, 115200 baud) to see readings echoed as text.</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/BMP280_oled.png" src="../../_images/BMP280_oled.png" />
+</figure>
+</section>
+<section id="expected-result">
+<h2>Expected Result<a class="headerlink" href="#expected-result" title="Link to this heading">#</a></h2>
+<p>After uploading:</p>
+<ul class="simple">
+<li><p>The OLED briefly shows <strong>“STEAM Dev Board / Finding BMP280…”</strong> during initialisation.</p></li>
+<li><p>The display then switches to the environmental dashboard, showing:</p>
+<ul>
+<li><p><strong>Temp:</strong> live temperature in °C</p></li>
+<li><p><strong>Humi:</strong> relative humidity in %</p></li>
+<li><p><strong>Pres:</strong> barometric pressure in hPa</p></li>
+<li><p><strong>Alt:</strong> estimated altitude in metres (small text, bottom-right)</p></li>
+</ul>
+</li>
+<li><p>All four values refresh every <strong>1 second</strong>.</p></li>
+<li><p>Breathing on the sensor causes humidity to rise and then slowly return to ambient — a satisfying way to confirm the sensor is live.</p></li>
+<li><p>The Serial Monitor shows the same readings as a comma-separated line every second.</p></li>
+</ul>
+<p>If the OLED shows <strong>“BMP280 not found!”</strong>, see the Troubleshooting section.</p>
+<figure class="align-center">
+<img alt="../../_images/bmp280.jpg" src="../../_images/bmp280.jpg" />
+</figure>
+</section>
+<section id="how-the-code-works">
+<h2>How the Code Works<a class="headerlink" href="#how-the-code-works" title="Link to this heading">#</a></h2>
+<p><strong>Shared I²C Bus Initialisation</strong></p>
+<p>The single most important line in <code class="docutils literal notranslate"><span class="pre">setup()</span></code> is:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Wire</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">I2C_SDA</span><span class="p">,</span><span class="w"> </span><span class="n">I2C_SCL</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This configures the ESP32-S3’s hardware I²C controller to use IO47 (SDA) and IO48 (SCL) instead of the ESP32 defaults. It must be called <strong>before</strong> any library that uses I²C, so that both U8g2 and the BMP280 library inherit the correct pin assignment.</p>
+<p>U8g2 takes the pin numbers directly in its constructor. The Adafruit BMP280 library takes a pointer to a <code class="docutils literal notranslate"><span class="pre">TwoWire</span></code> object in its <code class="docutils literal notranslate"><span class="pre">begin()</span></code> call:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">BMP</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">BMP_ADDRESS</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Wire</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Passing <code class="docutils literal notranslate"><span class="pre">&amp;Wire</span></code> (the address of the global <code class="docutils literal notranslate"><span class="pre">Wire</span></code> object) tells the library to use the same bus instance that was already configured — not to create its own. This is the key to sharing a bus cleanly between two libraries.</p>
+<p><strong>Reading the BMP280</strong></p>
+<p>The Adafruit library exposes four simple read functions:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Returns</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BMP.readTemperature()</span></code></p></td>
+<td><p>Temperature in °C (<code class="docutils literal notranslate"><span class="pre">float</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">BMP.readHumidity()</span></code></p></td>
+<td><p>Relative humidity in % RH (<code class="docutils literal notranslate"><span class="pre">float</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">BMP.readPressure()</span></code></p></td>
+<td><p>Pressure in <strong>Pascals</strong> (divide by 100 for hPa)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">BMP.readAltitude(seaLevelPressure)</span></code></p></td>
+<td><p>Estimated altitude in metres (<code class="docutils literal notranslate"><span class="pre">float</span></code>)</p></td>
+</tr>
+</tbody>
+</table>
+<p>The pressure unit mismatch is the most common beginner mistake — the library returns Pascals (Pa), but weather data is always reported in hectopascals (hPa). Dividing by 100.0 converts between them.</p>
+<p><strong>Non-Blocking Timing</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function uses <code class="docutils literal notranslate"><span class="pre">millis()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">delay()</span></code> to measure the update interval:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">UPDATE_INTERVAL_MS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// ... read and display</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This pattern means the MCU is never stalled waiting. Other code (additional sensors, button handling, communication tasks) can be inserted into <code class="docutils literal notranslate"><span class="pre">loop()</span></code> without interfering with the 1-second update rhythm.</p>
+<p><strong>Displaying Multiple Fonts in One Frame</strong></p>
+<p>U8g2 allows the active font to be switched at any point within a frame by calling <code class="docutils literal notranslate"><span class="pre">display.setFont()</span></code> again. In <code class="docutils literal notranslate"><span class="pre">drawDashboard()</span></code>, the label (e.g. “Temp:”) uses a compact 6×10-pixel font, while the numeric value uses a slightly taller <code class="docutils literal notranslate"><span class="pre">profont17</span></code> font — giving the values visual prominence without requiring a complete layout redesign.</p>
+<p>All drawing calls after <code class="docutils literal notranslate"><span class="pre">clearBuffer()</span></code> build up in RAM. Only <code class="docutils literal notranslate"><span class="pre">sendBuffer()</span></code> transfers the complete frame to the display in one I²C transaction, eliminating any visible flicker.</p>
+<p><strong>Sensor Chip ID Check</strong></p>
+<p>After a successful <code class="docutils literal notranslate"><span class="pre">BMP.begin()</span></code>, the code reads and prints <code class="docutils literal notranslate"><span class="pre">BMP.sensorID()</span></code> to the Serial Monitor. This is useful for distinguishing genuine BMP280 modules (chip ID <code class="docutils literal notranslate"><span class="pre">0x60</span></code>) from BMP280 modules (chip IDs <code class="docutils literal notranslate"><span class="pre">0x56</span></code> to <code class="docutils literal notranslate"><span class="pre">0x58</span></code>) that are sometimes sold mislabelled. A BMP280 lacks the humidity sensor, so humidity readings will return <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p>
+</section>
+<section id="i2c-scanner-sketch">
+<h2>I²C Scanner Sketch<a class="headerlink" href="#i2c-scanner-sketch" title="Link to this heading">#</a></h2>
+<p>If you are unsure of the I²C address of any device on the bus, upload this utility sketch first to identify everything connected. It is standalone — remove it before uploading the main program.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
+
+<span class="cp">#define I2C_SDA 47</span>
+<span class="cp">#define I2C_SCL 48</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Wire</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">I2C_SDA</span><span class="p">,</span><span class="w"> </span><span class="n">I2C_SCL</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;I2C Scanner — scanning addresses 1 to 126...&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">addr</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">127</span><span class="p">;</span><span class="w"> </span><span class="n">addr</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Wire</span><span class="p">.</span><span class="n">beginTransmission</span><span class="p">(</span><span class="n">addr</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Wire</span><span class="p">.</span><span class="n">endTransmission</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  Device found at 0x%02X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">addr</span><span class="p">);</span>
+<span class="w">            </span><span class="n">found</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">found</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;  No devices found. Check wiring.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Done. %d device(s) found.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">found</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+</pre></div>
+</div>
+<p>Expected output with the STEAM board:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>I2C Scanner — scanning addresses 1 to 126...
+  Device found at 0x3C    ← SH1106 OLED
+  Device found at 0x76    ← BMP280
+Done. 2 device(s) found.
+</pre></div>
+</div>
+<p>If you see only one address or none, check the wiring and power supply before proceeding.</p>
+</section>
+<section id="experiment">
+<h2>Experiment<a class="headerlink" href="#experiment" title="Link to this heading">#</a></h2>
+<p>Try the following modifications to deepen your understanding.</p>
+<ul>
+<li><p><strong>Apply a temperature self-heating correction.</strong> Place the board in the same environment as a reference thermometer for 10 minutes. Note the difference between the reference reading and the BMP280 reading, then set <code class="docutils literal notranslate"><span class="pre">TEMP_OFFSET</span></code> in the code:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#define TEMP_OFFSET 3.5   </span><span class="c1">// BMP280 was reading 3.5°C too high</span>
+</pre></div>
+</div>
+<p>This correction is subtracted from every temperature reading automatically, and it also improves the humidity reading because the BMP280 derives relative humidity from absolute humidity relative to temperature.</p>
+</li>
+<li><p><strong>Add a dew point calculation.</strong> Dew point is the temperature at which moisture condenses, useful for HVAC and agriculture:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Magnus formula approximation (accurate to ±0.35°C between 0–60°C)</span>
+<span class="kt">float</span><span class="w"> </span><span class="nf">dewPoint</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">tempC</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">rh</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">17.625f</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">243.04f</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">gamma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">log</span><span class="p">(</span><span class="n">rh</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">100.0f</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">tempC</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tempC</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">gamma</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">gamma</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Display the result on the OLED by replacing the altitude line, or add it as a fifth row if you switch to a smaller font.</p>
+</li>
+<li><p><strong>Add a simple trend indicator.</strong> Compare the current pressure reading to the reading from 30 seconds ago and display an arrow to indicate whether pressure is rising (<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>), falling (<code class="docutils literal notranslate"><span class="pre">&lt;</span></code>), or stable (<code class="docutils literal notranslate"><span class="pre">=</span></code>):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">prevPressure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">float</span><span class="w"> </span><span class="n">delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pressure</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prevPressure</span><span class="p">;</span>
+<span class="kt">char</span><span class="w"> </span><span class="n">trend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">delta</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.3</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="sc">&#39;&gt;&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="n">delta</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">-0.3</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="sc">&#39;&lt;&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="sc">&#39;=&#39;</span><span class="p">;</span>
+<span class="n">prevPressure</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pressure</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>A rapidly falling pressure often indicates approaching bad weather — a classic barometer function.</p>
+</li>
+<li><p><strong>Change the update interval.</strong> Modify <code class="docutils literal notranslate"><span class="pre">UPDATE_INTERVAL_MS</span></code> to <code class="docutils literal notranslate"><span class="pre">5000</span></code> for a 5-second refresh, or <code class="docutils literal notranslate"><span class="pre">500</span></code> for twice-per-second updates. Note that reading the BMP280 more than once per second has no benefit since its internal measurement cycle runs at approximately 1 Hz in default mode.</p></li>
+<li><p><strong>Display temperature in Fahrenheit</strong> alongside Celsius:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">float</span><span class="w"> </span><span class="n">tempF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tempC</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">9.0f</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">5.0f</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">32.0f</span><span class="p">;</span>
+<span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%.1fC / %.1fF&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tempC</span><span class="p">,</span><span class="w"> </span><span class="n">tempF</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 38.0%" />
+<col style="width: 62.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symptom</p></th>
+<th class="head"><p>What to check</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OLED shows “BMP280 not found!”</p></td>
+<td><p>Run the I²C scanner sketch (see above). If the BMP280 appears at <code class="docutils literal notranslate"><span class="pre">0x77</span></code> instead of <code class="docutils literal notranslate"><span class="pre">0x76</span></code>, change <code class="docutils literal notranslate"><span class="pre">BMP_ADDRESS</span></code> in the code to <code class="docutils literal notranslate"><span class="pre">0x77</span></code> and re-upload.</p></td>
+</tr>
+<tr class="row-odd"><td><p>I²C scanner finds no devices</p></td>
+<td><p>Confirm the board is powered. Verify that <code class="docutils literal notranslate"><span class="pre">Wire.begin()</span></code> is called with IO47 (SDA) and IO48 (SCL). Check that no other sketch has locked the I²C peripheral.</p></td>
+</tr>
+<tr class="row-even"><td><p>Humidity always reads NaN or 0</p></td>
+<td><p>The sensor may be a BMP280, not a BMP280. Check <code class="docutils literal notranslate"><span class="pre">BMP.sensorID()</span></code> in the Serial Monitor — IDs <code class="docutils literal notranslate"><span class="pre">0x56</span></code>–<code class="docutils literal notranslate"><span class="pre">0x58</span></code> indicate a BMP280 (no humidity). Replace the module or contact your supplier.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Temperature reads several degrees too high</p></td>
+<td><p>Expected due to PCB self-heating. Set <code class="docutils literal notranslate"><span class="pre">TEMP_OFFSET</span></code> to compensate. See the Experiment section for calibration instructions.</p></td>
+</tr>
+<tr class="row-even"><td><p>OLED is blank but BMP280 appears in the I²C scanner</p></td>
+<td><p>The OLED address may differ. Try changing <code class="docutils literal notranslate"><span class="pre">OLED_ADDRESS</span></code> to <code class="docutils literal notranslate"><span class="pre">0x3D</span></code> and re-upload. Also confirm that <code class="docutils literal notranslate"><span class="pre">display.begin()</span></code> is called after <code class="docutils literal notranslate"><span class="pre">Wire.begin()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Readings are constant and do not change</p></td>
+<td><p>Confirm the board is not in a sealed enclosure with no airflow. Breathing gently on the sensor should cause humidity to rise within a few seconds.</p></td>
+</tr>
+<tr class="row-even"><td><p>Pressure reads an implausible value (e.g. 0 or very large)</p></td>
+<td><p>Ensure the pressure is divided by 100 before display (Pa → hPa). Double-check that <code class="docutils literal notranslate"><span class="pre">BMP.begin()</span></code> returned <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this tutorial, you learned how to read environmental data from a BMP280 sensor and display it on an SH1106 OLED — both connected to the ESP32-S3 on the <strong>same I²C bus</strong> using a shared pair of wires.</p>
+<p>Key concepts covered include:</p>
+<ul class="simple">
+<li><p>How <strong>I²C device addressing</strong> allows multiple peripherals to share two wires without conflict.</p></li>
+<li><p>Configuring <strong>custom I²C pins</strong> with <code class="docutils literal notranslate"><span class="pre">Wire.begin(SDA,</span> <span class="pre">SCL)</span></code> and sharing the configured bus between multiple libraries by passing <code class="docutils literal notranslate"><span class="pre">&amp;Wire</span></code>.</p></li>
+<li><p>Initialising the <strong>Adafruit BMP280</strong> library with a custom <code class="docutils literal notranslate"><span class="pre">TwoWire</span></code> reference.</p></li>
+<li><p>Reading <strong>temperature</strong>, <strong>humidity</strong>, <strong>pressure</strong>, and <strong>derived altitude</strong> from the BMP280.</p></li>
+<li><p>Converting sensor units correctly (Pa → hPa).</p></li>
+<li><p>Building a <strong>non-blocking update loop</strong> with <code class="docutils literal notranslate"><span class="pre">millis()</span></code> for periodic refresh without stalling the MCU.</p></li>
+<li><p>Rendering a <strong>multi-font dashboard</strong> with U8g2, using <code class="docutils literal notranslate"><span class="pre">clearBuffer()</span></code> and <code class="docutils literal notranslate"><span class="pre">sendBuffer()</span></code> for flicker-free updates.</p></li>
+<li><p>Using the <strong>I²C scanner</strong> as a first-step diagnostic tool whenever a device is not found.</p></li>
+<li><p>Understanding and compensating for <strong>BMP280 self-heating</strong> on an integrated board.</p></li>
+</ul>
+<p>This project introduces the foundational pattern for multi-sensor embedded systems: a shared bus, independent device addresses, timed polling, and a rendered display — a combination that appears in weather stations, air-quality monitors, HVAC controllers, and countless IoT data-logging applications.</p>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      <ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#background-key-concepts">Background: Key Concepts</a><ul>
+<li><a class="reference internal" href="#the-i2c-bus-and-device-addressing">The I²C Bus and Device Addressing</a></li>
+<li><a class="reference internal" href="#the-bmp280-sensor">The BMP280 Sensor</a></li>
+<li><a class="reference internal" href="#initialising-a-shared-i2c-bus-with-custom-pins">Initialising a Shared I²C Bus with Custom Pins</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#required-libraries">Required Libraries</a></li>
+<li><a class="reference internal" href="#writing-the-program">Writing the Program</a></li>
+<li><a class="reference internal" href="#uploading-the-program">Uploading the Program</a></li>
+<li><a class="reference internal" href="#expected-result">Expected Result</a></li>
+<li><a class="reference internal" href="#how-the-code-works">How the Code Works</a></li>
+<li><a class="reference internal" href="#i2c-scanner-sketch">I²C Scanner Sketch</a></li>
+<li><a class="reference internal" href="#experiment">Experiment</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="Lesson9.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">Project 9 : Ethernet-Controlled Relay Switch via Web Browser</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="Lesson11.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter">Project 11 : USB Keyboard Input Displayed on the OLED Screen</a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

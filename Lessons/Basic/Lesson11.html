@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project 11 : USB Keyboard Input Displayed on the OLED Screen &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project 12 : RGB Mood Lamp — Five Light Effects with One Button" href="Lesson12.html" />
+    <link rel="prev" title="Project 10 : Environmental Monitoring with BMP280 and OLED Display" href="Lesson10.html" />
+<link rel="stylesheet" type="text/css" src="../../_static/bootstrap/bootstrap.css" />
+<script src="../../_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../../_static/js/conestack.js"></script>
+<script src="../../_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="../../index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="../../search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="project-11-usb-keyboard-input-displayed-on-the-oled-screen">
+<h1>Project 11 : USB Keyboard Input Displayed on the OLED Screen<a class="headerlink" href="#project-11-usb-keyboard-input-displayed-on-the-oled-screen" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this project, you will explore one of the most powerful — and least well-known — features of the ESP32-S3: its built-in USB On-The-Go (OTG) controller operating in <strong>host mode</strong>. Instead of the ESP32-S3 acting as a USB device (as it does when you plug it into your computer for programming), it will become the USB <em>host</em> — the controller — allowing you to plug in a standard USB keyboard and read every keystroke.</p>
+<p>Each key pressed on the keyboard will be decoded and displayed on the on-board SH1106 OLED screen, building a simple text terminal.</p>
+<p>By the end of this tutorial, you will know how to:</p>
+<ul class="simple">
+<li><p>Understand the difference between USB device mode and USB host mode.</p></li>
+<li><p>Configure the Arduino IDE correctly to enable USB host functionality.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">EspUsbHost</span></code> library to receive keyboard events via a callback.</p></li>
+<li><p>Decode HID keycodes into printable ASCII characters.</p></li>
+<li><p>Drive the SH1106 OLED display with the U8g2 library using custom I²C pins.</p></li>
+<li><p>Safely share data between a USB background task and the main loop using a mutex.</p></li>
+</ul>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>Before starting, make sure you have the following:</p>
+<ul class="simple">
+<li><p>The STEAM development kit or The STEAM standalone microcontroller board</p></li>
+<li><p>A standard USB keyboard (USB HID Boot Protocol compatible — virtually all modern keyboards qualify)</p></li>
+<li><p>A USB Type-A to Type-C OTG cable, or a USB hub with Type-C input, to connect the keyboard to the board’s USB port</p></li>
+<li><p>Arduino IDE with ESP32 toolchain installed (esp32 board package version <strong>3.0 or later</strong>)</p></li>
+</ul>
+<p>The SH1106 OLED display is already integrated on the STEAM development board. No additional components are needed.</p>
+<figure class="align-center" id="id1">
+<img alt="../../_images/board_oled_usb.png" src="../../_images/board_oled_usb.png" />
+<figcaption>
+<p><span class="caption-text">The interfacing description of the microcontroller board</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Pin assignments used in this project:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal</p></th>
+<th class="head"><p>ESP32-S3 GPIO</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OLED SCL</p></td>
+<td><p>IO48</p></td>
+<td><p>I²C clock line to SH1106</p></td>
+</tr>
+<tr class="row-odd"><td><p>OLED SDA</p></td>
+<td><p>IO47</p></td>
+<td><p>I²C data line to SH1106</p></td>
+</tr>
+<tr class="row-even"><td><p>USB D+ / D−</p></td>
+<td><p>IO19 / IO20</p></td>
+<td><p>Built-in USB OTG data lines (fixed, internal)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The USB D+ and D− lines (IO19 and IO20) are connected internally to the USB connector on the STEAM board. You do not wire these manually — they are used automatically when you plug a keyboard into the board’s USB port.</p>
+</div>
+</section>
+<section id="background-key-concepts">
+<h2>Background: Key Concepts<a class="headerlink" href="#background-key-concepts" title="Link to this heading">#</a></h2>
+<section id="usb-device-mode-vs-usb-host-mode">
+<h3>USB Device Mode vs. USB Host Mode<a class="headerlink" href="#usb-device-mode-vs-usb-host-mode" title="Link to this heading">#</a></h3>
+<p>Every USB connection has two roles: a <strong>host</strong> (the controller that manages the bus and enumerates devices) and a <strong>device</strong> (the peripheral being controlled). In everyday use, your computer is the host and your keyboard, mouse, or ESP32 board is the device.</p>
+<p>The ESP32-S3’s USB OTG controller can operate in <strong>either role</strong>:</p>
+<ul class="simple">
+<li><p><strong>Device mode</strong> (default) — the ESP32-S3 appears to your computer as a serial port, HID device, or similar peripheral. This is the mode used for programming and Serial Monitor.</p></li>
+<li><p><strong>Host mode</strong> — the ESP32-S3 takes control of the USB bus and can talk to keyboards, mice, USB storage, and other peripherals.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The USB OTG peripheral can only be in <strong>one mode at a time</strong>. When host mode is active, the same USB port <strong>cannot</strong> be used for programming or Serial Monitor. You must upload the sketch <em>before</em> switching to host mode and use the board’s UART port (via a USB-to-serial adapter on TX0/RX0) if you need to debug at runtime.</p>
+</div>
+</section>
+<section id="the-hid-protocol-and-boot-protocol">
+<h3>The HID Protocol and Boot Protocol<a class="headerlink" href="#the-hid-protocol-and-boot-protocol" title="Link to this heading">#</a></h3>
+<p>USB keyboards speak the <strong>HID (Human Interface Device)</strong> protocol. When a key is pressed, the keyboard sends a small data packet called a <strong>HID report</strong> containing up to six simultaneous keycodes and a modifier byte (Shift, Ctrl, Alt, etc.).</p>
+<p>The <strong>Boot Protocol</strong> is a simplified, standardised subset of HID that every keyboard is required to support. It uses a fixed 8-byte report format that any host can parse without reading complex HID descriptors. The <code class="docutils literal notranslate"><span class="pre">EspUsbHost</span></code> library targets the Boot Protocol, which means it works reliably with virtually any USB keyboard.</p>
+</section>
+<section id="the-espusbhost-library">
+<h3>The EspUsbHost Library<a class="headerlink" href="#the-espusbhost-library" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">EspUsbHost</span></code> (by Masayuki Tanaka) wraps Espressif’s ESP-IDF USB host stack in a clean, Arduino-friendly callback API. The library runs the entire USB host task in a background FreeRTOS thread, so your <code class="docutils literal notranslate"><span class="pre">loop()</span></code> function is completely free. You simply register a callback in <code class="docutils literal notranslate"><span class="pre">setup()</span></code>, call <code class="docutils literal notranslate"><span class="pre">usb.begin()</span></code>, and the library delivers decoded keyboard events — including the ASCII character, raw HID keycode, and modifier flags — directly to your function whenever a key is pressed or released.</p>
+</section>
+<section id="the-sh1106-oled-and-u8g2">
+<h3>The SH1106 OLED and U8g2<a class="headerlink" href="#the-sh1106-oled-and-u8g2" title="Link to this heading">#</a></h3>
+<p>The SH1106 is a 128×64-pixel monochrome OLED controller. It is closely related to the popular SSD1306 but uses a 132-pixel-wide internal frame buffer with a 2-pixel horizontal offset; using an SSD1306-specific library on an SH1106 display produces a shifted image. U8g2 natively supports the SH1106 and handles the offset automatically.</p>
+<p>U8g2’s full-frame-buffer mode (<code class="docutils literal notranslate"><span class="pre">_F_</span></code> in the constructor name) stores the entire 128×64 bitmap in RAM and sends it to the display in one call to <code class="docutils literal notranslate"><span class="pre">sendBuffer()</span></code>. This gives flicker-free updates but uses approximately 1 KB of RAM — well within the ESP32-S3’s 512 KB.</p>
+<p>The STEAM board’s SH1106 is wired to non-default I²C pins (IO47/IO48). U8g2’s hardware I²C constructor accepts explicit SCL and SDA pin numbers as its third and fourth arguments, so no manual <code class="docutils literal notranslate"><span class="pre">Wire.begin()</span></code> is needed.</p>
+</section>
+</section>
+<section id="required-libraries">
+<h2>Required Libraries<a class="headerlink" href="#required-libraries" title="Link to this heading">#</a></h2>
+<p>Install both libraries through the Arduino Library Manager (<strong>Tools → Manage Libraries</strong>):</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Library</p></th>
+<th class="head"><p>Search term in Library Manager</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EspUsbHost</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">EspUsbHost</span></code> by Masayuki Tanaka (tanakamasayuki)</p></td>
+</tr>
+<tr class="row-odd"><td><p>U8g2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">U8g2</span></code> by oliver (olikraus)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">EspUsbHost</span></code> version 2.x uses a different API from version 1.x. This lesson uses the <strong>version 2.x</strong> callback API (<code class="docutils literal notranslate"><span class="pre">usb.onKeyboard(...)</span></code>). If you see errors about virtual functions or inheritance, check that you have version 2.x installed.</p>
+</div>
+</section>
+<section id="critical-arduino-ide-settings">
+<h2>Critical Arduino IDE Settings<a class="headerlink" href="#critical-arduino-ide-settings" title="Link to this heading">#</a></h2>
+<p>Before writing or uploading any code, you must configure two settings in the Arduino IDE. These settings tell the compiler how the USB peripheral should be used at boot, and they are <strong>not</strong> stored in the sketch — they are board-specific build options.</p>
+<p>Go to <strong>Tools</strong> and set:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 30.0%" />
+<col style="width: 30.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Required Value</p></th>
+<th class="head"><p>Why</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>USB CDC On Boot</p></td>
+<td><p><strong>Disabled</strong></p></td>
+<td><p>Frees the USB OTG peripheral for host mode. If Enabled, the USB port is claimed by the CDC serial driver and the keyboard will never enumerate.</p></td>
+</tr>
+<tr class="row-odd"><td><p>USB Mode</p></td>
+<td><p><strong>Hardware CDC and JTAG</strong> (or leave default)</p></td>
+<td><p>Ensures UART0 (TX0/RX0) is used for upload and Serial Monitor.</p></td>
+</tr>
+<tr class="row-even"><td><p>Upload Mode</p></td>
+<td><p><strong>UART0 / Hardware CDC</strong></p></td>
+<td><p>Upload proceeds over the UART port, not the OTG port.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">USB</span> <span class="pre">CDC</span> <span class="pre">on</span> <span class="pre">Boot</span></code> is set to <strong>Enabled</strong> when this sketch runs, the keyboard will not be detected and no characters will appear on the display. Always verify this setting before uploading.</p>
+</div>
+<figure class="align-center" id="id2">
+<img alt="../../_images/usb_cdc_setting.png" src="../../_images/usb_cdc_setting.png" />
+<figcaption>
+<p><span class="caption-text">Setting “USB CDC On Boot” to Disabled in the Arduino IDE Tools menu</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="writing-the-program">
+<h2>Writing the Program<a class="headerlink" href="#writing-the-program" title="Link to this heading">#</a></h2>
+<p>Create a new sketch in the Arduino IDE and enter the following code:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Wire.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;U8g2lib.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;EspUsbHost.h&quot;</span>
+
+<span class="c1">// ── Pin definitions ────────────────────────────────────────────────────────</span>
+<span class="cp">#define OLED_SCL 48</span>
+<span class="cp">#define OLED_SDA 47</span>
+
+<span class="c1">// ── Display: SH1106 128×64, full frame buffer, hardware I²C ───────────────</span>
+<span class="c1">// Constructor argument order: rotation, reset pin, SCL pin, SDA pin</span>
+<span class="n">U8G2_SH1106_128X64_NONAME_F_HW_I2C</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span>
+<span class="w">    </span><span class="n">U8G2_R0</span><span class="p">,</span><span class="w">          </span><span class="c1">// No rotation</span>
+<span class="w">    </span><span class="n">U8X8_PIN_NONE</span><span class="p">,</span><span class="w">    </span><span class="c1">// No hardware reset pin</span>
+<span class="w">    </span><span class="n">OLED_SCL</span><span class="p">,</span><span class="w">         </span><span class="c1">// IO48</span>
+<span class="w">    </span><span class="n">OLED_SDA</span><span class="w">          </span><span class="c1">// IO47</span>
+<span class="p">);</span>
+
+<span class="c1">// ── USB host ───────────────────────────────────────────────────────────────</span>
+<span class="n">EspUsbHost</span><span class="w"> </span><span class="n">usb</span><span class="p">;</span>
+
+<span class="c1">// ── Shared state (written by USB task, read by main loop) ──────────────────</span>
+<span class="c1">// Protected by a FreeRTOS mutex to avoid race conditions.</span>
+<span class="k">static</span><span class="w"> </span><span class="n">SemaphoreHandle_t</span><span class="w"> </span><span class="n">bufMutex</span><span class="p">;</span>
+
+<span class="cp">#define MAX_LINE_CHARS 21        </span><span class="c1">// 128px / ~6px per char at font size 6×10</span>
+<span class="cp">#define MAX_LINES       5        </span><span class="c1">// 5 usable text rows on a 64px display</span>
+
+<span class="k">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">lines</span><span class="p">[</span><span class="n">MAX_LINES</span><span class="p">];</span><span class="w">  </span><span class="c1">// Ring buffer of text lines</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w">    </span><span class="n">currentLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">   </span><span class="c1">// Which line is being typed into</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w">   </span><span class="n">displayDirty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="c1">// True when the display needs refresh</span>
+
+<span class="c1">// ── Helper: advance to the next line (like pressing Enter) ────────────────</span>
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">newLine</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">currentLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">currentLine</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MAX_LINES</span><span class="p">;</span>
+<span class="w">    </span><span class="n">lines</span><span class="p">[</span><span class="n">currentLine</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w">   </span><span class="c1">// Clear the new current line</span>
+<span class="p">}</span>
+
+<span class="c1">// ── USB keyboard callback ─────────────────────────────────────────────────</span>
+<span class="c1">// Called from the EspUsbHost FreeRTOS task on every key event.</span>
+<span class="c1">// Keep this function fast — do not call display functions here.</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">onKeyboardEvent</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">EspUsbHostKeyboardEvent</span><span class="w"> </span><span class="o">&amp;</span><span class="n">event</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">event</span><span class="p">.</span><span class="n">pressed</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span><span class="w">   </span><span class="c1">// Ignore key-release events</span>
+
+<span class="w">    </span><span class="n">xSemaphoreTake</span><span class="p">(</span><span class="n">bufMutex</span><span class="p">,</span><span class="w"> </span><span class="n">portMAX_DELAY</span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">keycode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x28</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="n">keycode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x58</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Enter / Numpad Enter → move to the next line</span>
+<span class="w">        </span><span class="n">newLine</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">keycode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x2A</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Backspace → remove last character from current line</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">currentLine</span><span class="p">].</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">lines</span><span class="p">[</span><span class="n">currentLine</span><span class="p">].</span><span class="n">remove</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">currentLine</span><span class="p">].</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentLine</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Line is empty — go back to the previous line</span>
+<span class="w">            </span><span class="n">lines</span><span class="p">[</span><span class="n">currentLine</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="n">currentLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">currentLine</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">MAX_LINES</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MAX_LINES</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">ascii</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mh">0x20</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="n">ascii</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mh">0x7E</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Printable ASCII character</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">lines</span><span class="p">[</span><span class="n">currentLine</span><span class="p">].</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">MAX_LINE_CHARS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Current line is full — auto-wrap to the next</span>
+<span class="w">            </span><span class="n">newLine</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">lines</span><span class="p">[</span><span class="n">currentLine</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="p">)</span><span class="n">event</span><span class="p">.</span><span class="n">ascii</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// Non-printable keycodes (function keys, arrows, etc.) are silently ignored.</span>
+
+<span class="w">    </span><span class="n">displayDirty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="n">xSemaphoreGive</span><span class="p">(</span><span class="n">bufMutex</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// ── Helper: render all lines to the display ───────────────────────────────</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">refreshDisplay</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">clearBuffer</span><span class="p">();</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_6x10_tr</span><span class="p">);</span><span class="w">  </span><span class="c1">// 6px wide, 10px tall — fits 21 chars</span>
+
+<span class="w">    </span><span class="c1">// Draw a header bar</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setDrawColor</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">drawBox</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setDrawColor</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;USB Keyboard Terminal&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setDrawColor</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Draw text lines, starting from the oldest visible line.</span>
+<span class="w">    </span><span class="c1">// The ring buffer holds MAX_LINES entries; we display them top to bottom.</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">startLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">currentLine</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MAX_LINES</span><span class="p">;</span><span class="w">  </span><span class="c1">// Oldest line</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAX_LINES</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">startLine</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MAX_LINES</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">           </span><span class="c1">// 12px header + 2px gap + 10px per row</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="p">(</span><span class="n">MAX_LINES</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Highlight the active (current) line with a cursor character</span>
+<span class="w">            </span><span class="n">String</span><span class="w"> </span><span class="n">cursorLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lines</span><span class="p">[</span><span class="n">currentLine</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;_&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">cursorLine</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">lines</span><span class="p">[</span><span class="n">idx</span><span class="p">].</span><span class="n">c_str</span><span class="p">());</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">sendBuffer</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// ── Setup ──────────────────────────────────────────────────────────────────</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialise I²C display</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_6x10_tr</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">clearBuffer</span><span class="p">();</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Plug in keyboard...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">display</span><span class="p">.</span><span class="n">sendBuffer</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Initialise shared state</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAX_LINES</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">bufMutex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">xSemaphoreCreateMutex</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Register the keyboard callback and start the USB host stack</span>
+<span class="w">    </span><span class="n">usb</span><span class="p">.</span><span class="n">onKeyboard</span><span class="p">(</span><span class="n">onKeyboardEvent</span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">usb</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// If begin() fails, show an error and halt</span>
+<span class="w">        </span><span class="n">display</span><span class="p">.</span><span class="n">clearBuffer</span><span class="p">();</span>
+<span class="w">        </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;USB Host failed!&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">34</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Check CDC setting&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">display</span><span class="p">.</span><span class="n">sendBuffer</span><span class="p">();</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="mi">1000</span><span class="p">));</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ── Loop ───────────────────────────────────────────────────────────────────</span>
+<span class="c1">// The USB host task runs in the background. This loop only updates the</span>
+<span class="c1">// display when the keyboard callback has flagged new data.</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">displayDirty</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">xSemaphoreTake</span><span class="p">(</span><span class="n">bufMutex</span><span class="p">,</span><span class="w"> </span><span class="n">portMAX_DELAY</span><span class="p">);</span>
+<span class="w">        </span><span class="n">displayDirty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="n">refreshDisplay</span><span class="p">();</span>
+<span class="w">        </span><span class="n">xSemaphoreGive</span><span class="p">(</span><span class="n">bufMutex</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">vTaskDelay</span><span class="p">(</span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="mi">30</span><span class="p">));</span><span class="w">  </span><span class="c1">// ~33 fps ceiling; yields to other tasks</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p><strong>Set the IDE options first</strong> — before doing anything else, go to <strong>Tools</strong> and confirm <code class="docutils literal notranslate"><span class="pre">USB</span> <span class="pre">CDC</span> <span class="pre">On</span> <span class="pre">Boot</span></code> is <strong>Disabled</strong> and <code class="docutils literal notranslate"><span class="pre">Upload</span> <span class="pre">Mode</span></code> is <strong>UART0 / Hardware CDC</strong>. Uploading with the wrong settings is the most common cause of failure.</p></li>
+<li><p>Connect the board to your computer using the <strong>USB cable</strong> (the programming/UART port, not the OTG port if your board has two).</p></li>
+<li><p>Select <strong>ESP32S3 Dev Module</strong> from <strong>Tools → Board → esp32</strong>.</p></li>
+<li><p>Select the correct serial port from <strong>Tools → Port</strong>.</p></li>
+<li><p>Click the <strong>Upload</strong> button and wait for completion.</p></li>
+<li><p><strong>Disconnect the programming cable</strong> from the computer (or the board, depending on your setup).</p></li>
+<li><p>Power the board via USB power supply or battery.</p></li>
+<li><p>Plug the USB keyboard into the board’s USB OTG port using a USB-A to USB-C OTG cable.</p></li>
+<li><p>The OLED display will show <strong>“Plug in keyboard…”</strong> until the keyboard is detected, then switch to the terminal view.</p></li>
+</ol>
+<p>After powering the board with the keyboard connected:</p>
+<ul class="simple">
+<li><p>The OLED displays a header bar reading <strong>“USB Keyboard Terminal”</strong> and a blinking cursor <code class="docutils literal notranslate"><span class="pre">_</span></code> on the first text line.</p></li>
+<li><p>Pressing any alphanumeric key, punctuation, or space shows the character immediately on the display.</p></li>
+<li><p>Pressing <strong>Enter</strong> moves the cursor to the next line.</p></li>
+<li><p>Pressing <strong>Backspace</strong> removes the last character. If the current line is empty, it moves back to the previous line.</p></li>
+<li><p>When a line fills up (21 characters), text wraps automatically to the next line.</p></li>
+<li><p>After five lines are filled, older lines scroll off the top as new lines are added (ring buffer behaviour).</p></li>
+<li><p>Modifier keys (Shift, Ctrl, Alt), function keys, and arrow keys produce no visible output — they are silently ignored.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Shift is fully handled by the <code class="docutils literal notranslate"><span class="pre">EspUsbHost</span></code> library: pressing <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">a</span></code> delivers an uppercase <code class="docutils literal notranslate"><span class="pre">'A'</span></code> in <code class="docutils literal notranslate"><span class="pre">event.ascii</span></code> automatically. You do not need to implement shift-state logic yourself.</p>
+</div>
+<figure class="align-center">
+<img alt="../../_images/oled_usb.gif" src="../../_images/oled_usb.gif" />
+</figure>
+<p><strong>Display Initialisation</strong></p>
+<p>The U8g2 constructor specifies the SH1106 driver, 128×64 resolution, full frame buffer (<code class="docutils literal notranslate"><span class="pre">_F_</span></code>), and hardware I²C (<code class="docutils literal notranslate"><span class="pre">_HW_I2C</span></code>). The third and fourth arguments override the default I²C pins with IO48 (SCL) and IO47 (SDA):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">U8G2_SH1106_128X64_NONAME_F_HW_I2C</span><span class="w"> </span><span class="nf">display</span><span class="p">(</span>
+<span class="w">    </span><span class="n">U8G2_R0</span><span class="p">,</span><span class="w"> </span><span class="n">U8X8_PIN_NONE</span><span class="p">,</span><span class="w"> </span><span class="n">OLED_SCL</span><span class="p">,</span><span class="w"> </span><span class="n">OLED_SDA</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">display.begin()</span></code> initialises the I²C bus and sends the SH1106 power-on sequence. After that, drawing calls write into an in-RAM buffer; <code class="docutils literal notranslate"><span class="pre">display.sendBuffer()</span></code> transfers the entire buffer to the display in a single I²C burst.</p>
+<p><strong>The Mutex</strong></p>
+<p>The USB host library runs its event loop in a separate FreeRTOS task (on a different CPU core). The keyboard callback <code class="docutils literal notranslate"><span class="pre">onKeyboardEvent()</span></code> is therefore called from that task, not from the main Arduino task. If both tasks write to the <code class="docutils literal notranslate"><span class="pre">lines[]</span></code> array at the same time, data corruption occurs.</p>
+<p>A <strong>FreeRTOS mutex</strong> (<code class="docutils literal notranslate"><span class="pre">xSemaphoreCreateMutex()</span></code>) prevents this. Before reading or writing shared data, both the callback and the main loop call <code class="docutils literal notranslate"><span class="pre">xSemaphoreTake()</span></code> to lock the mutex, and <code class="docutils literal notranslate"><span class="pre">xSemaphoreGive()</span></code> to release it. Only one task can hold the mutex at a time, so concurrent access is impossible.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">xSemaphoreTake</span><span class="p">(</span><span class="n">bufMutex</span><span class="p">,</span><span class="w"> </span><span class="n">portMAX_DELAY</span><span class="p">);</span>
+<span class="c1">// ... read or write shared data safely ...</span>
+<span class="n">xSemaphoreGive</span><span class="p">(</span><span class="n">bufMutex</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>The Keyboard Callback</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">usb.onKeyboard()</span></code> registers a function that receives an <code class="docutils literal notranslate"><span class="pre">EspUsbHostKeyboardEvent</span></code> struct on every key press or release. The struct contains:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">event.pressed</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code> on key-down, <code class="docutils literal notranslate"><span class="pre">false</span></code> on key-up</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event.keycode</span></code></p></td>
+<td><p>Raw HID keycode (e.g., <code class="docutils literal notranslate"><span class="pre">0x28</span></code> = Enter, <code class="docutils literal notranslate"><span class="pre">0x2A</span></code> = Backspace)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">event.ascii</span></code></p></td>
+<td><p>Decoded ASCII character, including Shift state (0 if non-printable)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">event.modifiers</span></code></p></td>
+<td><p>Bitmask for Shift, Ctrl, Alt, GUI keys</p></td>
+</tr>
+</tbody>
+</table>
+<p>The callback ignores release events, checks for Enter and Backspace by raw keycode, and for all other keys appends <code class="docutils literal notranslate"><span class="pre">event.ascii</span></code> to the current line if it is a printable character (ASCII 0x20–0x7E).</p>
+<p><strong>The Ring Buffer</strong></p>
+<p>The five text lines are stored in a fixed-size array indexed by <code class="docutils literal notranslate"><span class="pre">currentLine</span></code>. When <code class="docutils literal notranslate"><span class="pre">newLine()</span></code> is called:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">currentLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">currentLine</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MAX_LINES</span><span class="p">;</span>
+<span class="n">lines</span><span class="p">[</span><span class="n">currentLine</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The modulo wraps the index back to zero after it reaches <code class="docutils literal notranslate"><span class="pre">MAX_LINES</span></code>, overwriting the oldest line. The <code class="docutils literal notranslate"><span class="pre">refreshDisplay()</span></code> function computes the oldest line as <code class="docutils literal notranslate"><span class="pre">(currentLine</span> <span class="pre">+</span> <span class="pre">1)</span> <span class="pre">%</span> <span class="pre">MAX_LINES</span></code> and renders them top to bottom, with the current (newest) line at the bottom highlighted with a <code class="docutils literal notranslate"><span class="pre">_</span></code> cursor.</p>
+<p><strong>The Display Update</strong></p>
+<p>The main <code class="docutils literal notranslate"><span class="pre">loop()</span></code> checks <code class="docutils literal notranslate"><span class="pre">displayDirty</span></code> (set to <code class="docutils literal notranslate"><span class="pre">true</span></code> by the callback when data changes) and only calls <code class="docutils literal notranslate"><span class="pre">refreshDisplay()</span></code> when there is something new to show. The <code class="docutils literal notranslate"><span class="pre">vTaskDelay()</span></code> at the end yields the main task to the scheduler, keeping CPU usage low between keystrokes.</p>
+<p>Try the following modifications to deepen your understanding.</p>
+<ul>
+<li><p><strong>Show the raw HID keycode</strong> for non-printable keys so you can see what special keys produce:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// In the &#39;else&#39; branch after the printable ASCII check:</span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span>
+<span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;[%02X]&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">event</span><span class="p">.</span><span class="n">keycode</span><span class="p">);</span>
+<span class="w">    </span><span class="n">lines</span><span class="p">[</span><span class="n">currentLine</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">buf</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Press F1, the arrow keys, or Page Up to see their keycodes displayed as <code class="docutils literal notranslate"><span class="pre">[3A]</span></code>, <code class="docutils literal notranslate"><span class="pre">[4F]</span></code>, etc.</p>
+</li>
+<li><p><strong>Respond to the Escape key</strong> (keycode <code class="docutils literal notranslate"><span class="pre">0x29</span></code>) by clearing all lines:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">keycode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mh">0x29</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">MAX_LINES</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">currentLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Change the font</strong> for larger or smaller text. U8g2 includes dozens of built-in fonts:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_ncenB08_tr</span><span class="p">);</span><span class="w">  </span><span class="c1">// Serif, 8px — fewer chars per line</span>
+<span class="n">display</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_5x7_tr</span><span class="p">);</span><span class="w">      </span><span class="c1">// Compact, fits 25 chars per line</span>
+<span class="n">display</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">u8g2_font_profont22_tr</span><span class="p">);</span><span class="w"> </span><span class="c1">// Large — 5 chars per line, 2 rows</span>
+</pre></div>
+</div>
+<p>Remember to recalculate <code class="docutils literal notranslate"><span class="pre">MAX_LINE_CHARS</span></code> and <code class="docutils literal notranslate"><span class="pre">MAX_LINES</span></code> when you change the font size. <code class="docutils literal notranslate"><span class="pre">display.getMaxCharWidth()</span></code> and <code class="docutils literal notranslate"><span class="pre">display.getMaxCharHeight()</span></code> report the metrics for the currently selected font.</p>
+</li>
+<li><p><strong>Add a character and line counter</strong> in the header bar:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">hdr</span><span class="p">[</span><span class="mi">22</span><span class="p">];</span>
+<span class="n">snprintf</span><span class="p">(</span><span class="n">hdr</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">hdr</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;Terminal  L%d C%d&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="n">currentLine</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">         </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">lines</span><span class="p">[</span><span class="n">currentLine</span><span class="p">].</span><span class="n">length</span><span class="p">());</span>
+<span class="n">display</span><span class="p">.</span><span class="n">drawStr</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">hdr</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Detect the Caps Lock keycode</strong> (<code class="docutils literal notranslate"><span class="pre">0x39</span></code>) and toggle a <code class="docutils literal notranslate"><span class="pre">capsLock</span></code> boolean. Use it to draw a small <code class="docutils literal notranslate"><span class="pre">[CAP]</span></code> indicator in the header when active.</p></li>
+</ul>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symptom</p></th>
+<th class="head"><p>What to check</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OLED shows “Plug in keyboard…” but nothing happens when keys are pressed</p></td>
+<td><p>Confirm <code class="docutils literal notranslate"><span class="pre">USB</span> <span class="pre">CDC</span> <span class="pre">on</span> <span class="pre">Boot</span></code> is <strong>Disabled</strong>. Re-upload after changing the setting.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">usb.begin()</span></code> fails (OLED shows error message)</p></td>
+<td><p>The USB OTG peripheral is already in use by CDC. Set <code class="docutils literal notranslate"><span class="pre">USB</span> <span class="pre">CDC</span> <span class="pre">on</span> <span class="pre">Boot</span></code> to Disabled and re-upload.</p></td>
+</tr>
+<tr class="row-even"><td><p>OLED remains completely blank</p></td>
+<td><p>Check I²C wiring. Verify SCL=IO48 and SDA=IO47. Run an I²C scanner sketch to confirm the SH1106 is visible at address 0x3C.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Display shows but characters are shifted 2 pixels to the side</p></td>
+<td><p>You are using an SSD1306 driver instead of the SH1106 driver. Confirm the constructor name contains <code class="docutils literal notranslate"><span class="pre">SH1106</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p>Only the first character of each key press appears; holding a key does not repeat</p></td>
+<td><p>Expected with this code. Key repeat requires detecting held keys via a timer. See the Experiment section for ideas.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Some keys produce <code class="docutils literal notranslate"><span class="pre">[00]</span></code> or no output</p></td>
+<td><p>The keyboard may be sending a report the library cannot decode. Try a different keyboard. Most modern USB keyboards work, but some gaming keyboards with non-standard descriptors may require the full HID Report Protocol instead of Boot Protocol.</p></td>
+</tr>
+<tr class="row-even"><td><p>Upload fails after changing <code class="docutils literal notranslate"><span class="pre">USB</span> <span class="pre">CDC</span> <span class="pre">on</span> <span class="pre">Boot</span></code> to Disabled</p></td>
+<td><p>Confirm <code class="docutils literal notranslate"><span class="pre">Upload</span> <span class="pre">Mode</span></code> is set to <strong>UART0 / Hardware CDC</strong> and that you are connected to the correct (UART) port.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this tutorial, you used the ESP32-S3’s built-in USB OTG controller in host mode to receive input from a standard USB keyboard and display each keystroke on an SH1106 OLED screen.</p>
+<p>Key concepts covered include:</p>
+<ul class="simple">
+<li><p>The distinction between <strong>USB device mode</strong> and <strong>USB host mode</strong>, and why they cannot coexist on the same port.</p></li>
+<li><p>The mandatory Arduino IDE setting: <strong>USB CDC on Boot → Disabled</strong>.</p></li>
+<li><p>Using the <code class="docutils literal notranslate"><span class="pre">EspUsbHost</span></code> library’s <strong>callback-based API</strong> to receive keyboard events from a background FreeRTOS task without any polling in <code class="docutils literal notranslate"><span class="pre">loop()</span></code>.</p></li>
+<li><p>Interpreting <code class="docutils literal notranslate"><span class="pre">EspUsbHostKeyboardEvent</span></code> fields: <code class="docutils literal notranslate"><span class="pre">pressed</span></code>, <code class="docutils literal notranslate"><span class="pre">keycode</span></code>, <code class="docutils literal notranslate"><span class="pre">ascii</span></code>, and <code class="docutils literal notranslate"><span class="pre">modifiers</span></code>.</p></li>
+<li><p>Initialising the <strong>U8g2</strong> library for the SH1106 with non-default I²C pins.</p></li>
+<li><p>Using a <strong>FreeRTOS mutex</strong> to safely share a text buffer between the USB task and the main loop.</p></li>
+<li><p>Implementing a <strong>ring buffer</strong> of text lines for scrolling terminal behaviour.</p></li>
+</ul>
+<p>This project demonstrates a complete pipeline from physical hardware input (USB keyboard) through protocol decoding (HID Boot Protocol), inter-task communication (FreeRTOS mutex), and graphical output (OLED display) — a pattern common in embedded UI and data-entry applications.</p>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      <ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#background-key-concepts">Background: Key Concepts</a><ul>
+<li><a class="reference internal" href="#usb-device-mode-vs-usb-host-mode">USB Device Mode vs. USB Host Mode</a></li>
+<li><a class="reference internal" href="#the-hid-protocol-and-boot-protocol">The HID Protocol and Boot Protocol</a></li>
+<li><a class="reference internal" href="#the-espusbhost-library">The EspUsbHost Library</a></li>
+<li><a class="reference internal" href="#the-sh1106-oled-and-u8g2">The SH1106 OLED and U8g2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#required-libraries">Required Libraries</a></li>
+<li><a class="reference internal" href="#critical-arduino-ide-settings">Critical Arduino IDE Settings</a></li>
+<li><a class="reference internal" href="#writing-the-program">Writing the Program</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="Lesson10.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">Project 10 : Environmental Monitoring with BMP280 and OLED Display</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="Lesson12.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter">Project 12 : RGB Mood Lamp — Five Light Effects with One Button</a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

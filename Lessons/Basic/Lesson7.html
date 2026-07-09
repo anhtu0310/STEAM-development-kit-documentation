@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project 7 : 4-Digit 7-Segment Display Using 74HC595 Shift Registers &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project 8 : Wi-Fi Controlled Switch via Web Browser" href="Lesson8.html" />
+    <link rel="prev" title="Project 6 : Display Text and Graphics on an SH1106 OLED" href="Lesson6.html" />
+<link rel="stylesheet" type="text/css" src="../../_static/bootstrap/bootstrap.css" />
+<script src="../../_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../../_static/js/conestack.js"></script>
+<script src="../../_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="../../index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="../../search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="project-7-4-digit-7-segment-display-using-74hc595-shift-registers">
+<h1>Project 7 : 4-Digit 7-Segment Display Using 74HC595 Shift Registers<a class="headerlink" href="#project-7-4-digit-7-segment-display-using-74hc595-shift-registers" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this tutorial, you will learn how to display numbers on a <strong>4-digit 7-segment display</strong> using an MCU and four <strong>74HC595 shift registers</strong>.</p>
+<p>Instead of connecting each LED segment directly to the MCU, the 74HC595 shift registers greatly reduce the number of GPIO pins required. Only <strong>three MCU pins</strong> are needed to control all four displays.</p>
+<p>After completing this tutorial, you will be able to:</p>
+<ul class="simple">
+<li><p>Display numbers from <strong>0</strong> to <strong>9999</strong>.</p></li>
+<li><p>Display negative numbers.</p></li>
+<li><p>Display decimal points.</p></li>
+<li><p>Understand how the MCU communicates with multiple shift registers.</p></li>
+</ul>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>Before starting, make sure you have the following:</p>
+<ul class="simple">
+<li><p>The STEAM development board</p></li>
+<li><p>USB cable</p></li>
+<li><p>Arduino IDE with ESP32 toolchain installed</p></li>
+</ul>
+<p>In this project, the built-in 7segment display with 7HCc595 be used.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/7seg.png"><img alt="../../_images/7seg.png" src="../../_images/7seg.png" width="400" />
+</a>
+<figcaption>
+<p><span class="caption-text">The interfacing description of the microcontroller board</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>74HC595s are connected to the MCU as follows:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>MCU Pin</p></th>
+<th class="head"><p>74HC595 Pin</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><cite>DATA_PIN</cite> (16)</p></td>
+<td><p>DS (Serial Data)</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>CLOCK_PIN</cite> (42)</p></td>
+<td><p>SH_CP (Shift Clock)</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>LATCH_PIN</cite> (0)</p></td>
+<td><p>ST_CP (Latch Clock)</p></td>
+</tr>
+</tbody>
+</table>
+<section id="shift-register-connections">
+<h3>Shift Register Connections<a class="headerlink" href="#shift-register-connections" title="Link to this heading">#</a></h3>
+<p>Connect the four 74HC595 shift registers in a daisy chain.</p>
+<ul class="simple">
+<li><p>Q7S of Register 1 → DS of Register 2</p></li>
+<li><p>Q7S of Register 2 → DS of Register 3</p></li>
+<li><p>Q7S of Register 3 → DS of Register 4</p></li>
+</ul>
+<p>All registers share the same clock and latch signals.</p>
+</section>
+<section id="segment-connections">
+<h3>Segment Connections<a class="headerlink" href="#segment-connections" title="Link to this heading">#</a></h3>
+<p>Each shift register controls one 7-segment display.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>74HC595 Output</p></th>
+<th class="head"><p>Segment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Q0</p></td>
+<td><p>A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Q1</p></td>
+<td><p>B</p></td>
+</tr>
+<tr class="row-even"><td><p>Q2</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-odd"><td><p>Q3</p></td>
+<td><p>D</p></td>
+</tr>
+<tr class="row-even"><td><p>Q4</p></td>
+<td><p>E</p></td>
+</tr>
+<tr class="row-odd"><td><p>Q5</p></td>
+<td><p>F</p></td>
+</tr>
+<tr class="row-even"><td><p>Q6</p></td>
+<td><p>G</p></td>
+</tr>
+<tr class="row-odd"><td><p>Q7</p></td>
+<td><p>DP</p></td>
+</tr>
+</tbody>
+</table>
+<p>This project uses <strong>common-anode</strong> displays.</p>
+<ul class="simple">
+<li><p>Segment output LOW = LED ON</p></li>
+<li><p>Segment output HIGH = LED OFF</p></li>
+</ul>
+</section>
+</section>
+<section id="writing-the-program">
+<h2>Writing the Program<a class="headerlink" href="#writing-the-program" title="Link to this heading">#</a></h2>
+<p>Create a new sketch in the MCU IDE and enter the following code:</p>
+<section id="pin-definitions">
+<h3>Pin Definitions<a class="headerlink" href="#pin-definitions" title="Link to this heading">#</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// ── Pin definitions ──────────────────────────────────────────────────────────</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DATA_PIN</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="p">;</span><span class="w">   </span><span class="c1">// DS   (pin 14 of 74HC595)</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">CLOCK_PIN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span><span class="w">   </span><span class="c1">// SH_CP (pin 11 of 74HC595)</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">LATCH_PIN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// ST_CP (pin 12 of 74HC595)</span>
+</pre></div>
+</div>
+<p>These three constants specify which MCU GPIO pins are connected to the first 74HC595 shift register.</p>
+<p><cite>DATA_PIN</cite></p>
+<p>The data pin sends binary data to the shift register one bit at a time.</p>
+<p><cite>CLOCK_PIN</cite></p>
+<p>The clock pin tells the shift register when to read the current data bit. Every clock pulse moves one bit into the register.</p>
+<p><cite>LATCH_PIN</cite></p>
+<p>The latch pin transfers all shifted data to the output pins simultaneously. Without the latch pin, the display would change while data is still being transmitted.</p>
+</section>
+<section id="segment-lookup-table">
+<h3>Segment Lookup Table<a class="headerlink" href="#segment-lookup-table" title="Link to this heading">#</a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// ── Segment encoding (Common Anode → active LOW, so bits are inverted) ───────</span>
+<span class="c1">//</span>
+<span class="c1">//  Bit position:  7   6   5   4   3   2   1   0</span>
+<span class="c1">//  Segment:       DP  G   F   E   D   C   B   A</span>
+<span class="c1">//</span>
+<span class="c1">//  For common anode, 0 = segment ON, 1 = segment OFF.</span>
+<span class="c1">//</span>
+<span class="c1">//       AAA</span>
+<span class="c1">//      F   B</span>
+<span class="c1">//      F   B</span>
+<span class="c1">//       GGG</span>
+<span class="c1">//      E   C</span>
+<span class="c1">//      E   C</span>
+<span class="c1">//       DDD  DP</span>
+
+<span class="c1">// Lookup table for digits 0–9 (index 10 = blank, index 11 = dash &#39;-&#39;)</span>
+<span class="c1">// Stored as active-HIGH patterns; we invert when sending to the shift register.</span>
+<span class="c1">//                          PGFEDCBA</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">DIGITS</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="mb">0b00111111</span><span class="p">,</span><span class="w">  </span><span class="c1">// 0  — A B C D E F</span>
+<span class="mb">0b00000110</span><span class="p">,</span><span class="w">  </span><span class="c1">// 1  — B C</span>
+<span class="mb">0b01011011</span><span class="p">,</span><span class="w">  </span><span class="c1">// 2  — A B D E G</span>
+<span class="mb">0b01001111</span><span class="p">,</span><span class="w">  </span><span class="c1">// 3  — A B C D G</span>
+<span class="mb">0b01100110</span><span class="p">,</span><span class="w">  </span><span class="c1">// 4  — B C F G</span>
+<span class="mb">0b01101101</span><span class="p">,</span><span class="w">  </span><span class="c1">// 5  — A C D F G</span>
+<span class="mb">0b01111101</span><span class="p">,</span><span class="w">  </span><span class="c1">// 6  — A C D E F G</span>
+<span class="mb">0b00000111</span><span class="p">,</span><span class="w">  </span><span class="c1">// 7  — A B C</span>
+<span class="mb">0b01111111</span><span class="p">,</span><span class="w">  </span><span class="c1">// 8  — A B C D E F G</span>
+<span class="mb">0b01101111</span><span class="p">,</span><span class="w">  </span><span class="c1">// 9  — A B C D F G</span>
+<span class="mb">0b00000000</span><span class="p">,</span><span class="w">  </span><span class="c1">// 10 — blank (all off)</span>
+<span class="mb">0b01000000</span><span class="p">,</span><span class="w">  </span><span class="c1">// 11 — dash  (G only)</span>
+<span class="p">};</span>
+
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">BLANK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">DASH</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>the <cite>DIGITS</cite> array stores the segment pattern for each number.</p>
+<p>Each element of the array is one byte (8 bits).</p>
+<p>Each bit controls one segment of the display.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Bit</p></th>
+<th class="head"><p>Segment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bit 0</p></td>
+<td><p>A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bit 1</p></td>
+<td><p>B</p></td>
+</tr>
+<tr class="row-even"><td><p>Bit 2</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bit 3</p></td>
+<td><p>D</p></td>
+</tr>
+<tr class="row-even"><td><p>Bit 4</p></td>
+<td><p>E</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bit 5</p></td>
+<td><p>F</p></td>
+</tr>
+<tr class="row-even"><td><p>Bit 6</p></td>
+<td><p>G</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bit 7</p></td>
+<td><p>Decimal Point</p></td>
+</tr>
+</tbody>
+</table>
+<p>For example,</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="mb">0b00111111</span>
+</pre></div>
+</div>
+<p>represents the number <cite>0</cite>.</p>
+<p>The binary value indicates that segments A, B, C, D, E and F are ON, while segment G is OFF.</p>
+<p>Likewise,</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="mb">0b00000110</span>
+</pre></div>
+</div>
+<p>lights only segments B and C, producing the digit <cite>1</cite>.</p>
+<p>The lookup table allows the program to display numbers simply by indexing the array instead of calculating which segments should be lit every time.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Special Symbols</strong></p>
+<p>The lookup table also contains two special characters.</p>
+<ul class="simple">
+<li><p><strong>BLANK:</strong> Turns every segment OFF, mainly used to remove leading zeros.</p></li>
+<li><p><strong>DASH:</strong> Displays only the middle segment (G), used to display negative numbers or error messages.</p></li>
+</ul>
+</div>
+</section>
+<section id="the-shiftoutbyte-function">
+<h3>The <cite>shiftOutByte()</cite> Function<a class="headerlink" href="#the-shiftoutbyte-function" title="Link to this heading">#</a></h3>
+<p>This function sends one byte (8 bits) to the daisy-chained shift registers using a for loop. The byte that represents which segments should be turned on or off. The function starts with the most significant bit (MSB).</p>
+<p>Each iteration of the loop performs three steps:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Pull the clock pin LOW.</p></li>
+<li><p>Output one data bit.</p></li>
+<li><p>Pull the clock pin HIGH.</p></li>
+</ol>
+</div></blockquote>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// ── Core shift-register function ─────────────────────────────────────────────</span>
+
+<span class="cm">/**</span>
+<span class="cm">* Send one byte to the shift register chain.</span>
+<span class="cm">* MSB first. Clock is generated manually (no SPI) for simplicity.</span>
+<span class="cm">*/</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">shiftOutByte</span><span class="p">(</span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">CLOCK_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">DATA_PIN</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x01</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">CLOCK_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Every rising edge of the clock shifts one bit into the 74HC595. After eight clock pulses, the entire byte has been stored.</p>
+</section>
+<section id="the-displaydigits-function">
+<h3>The <cite>displayDigits()</cite> Function<a class="headerlink" href="#the-displaydigits-function" title="Link to this heading">#</a></h3>
+<p>The function retrieves the segment pattern for each digit from the DIGITS lookup table, inverts the bits because the displays are common-anode, optionally enables the decimal points, and shifts the four bytes into the daisy-chained 74HC595 shift registers. Finally, the latch pin is toggled to update all four displays simultaneously.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">* Display a 4-digit number on the displays.</span>
+<span class="cm">*</span>
+<span class="cm">* @param d1  Leftmost digit  (digit index: 0–9, BLANK, or DASH)</span>
+<span class="cm">* @param d2  Second digit</span>
+<span class="cm">* @param d3  Third digit</span>
+<span class="cm">* @param d4  Rightmost digit</span>
+<span class="cm">* @param dp  Bitmask for decimal points: bit3=d1, bit2=d2, bit1=d3, bit0=d4</span>
+<span class="cm">*/</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">displayDigits</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">d1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">d2</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">d3</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">d4</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="c1">// For common-anode, invert the segment pattern (0 = ON).</span>
+<span class="c1">// The 74HC595s are daisy-chained, so the LAST byte clocked in</span>
+<span class="c1">// ends up in the FIRST 595 (leftmost digit). Send right-to-left.</span>
+<span class="kt">uint8_t</span><span class="w"> </span><span class="n">patterns</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+<span class="n">patterns</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="n">DIGITS</span><span class="p">[</span><span class="n">d4</span><span class="p">];</span><span class="w">  </span><span class="c1">// leftmost</span>
+<span class="n">patterns</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="n">DIGITS</span><span class="p">[</span><span class="n">d3</span><span class="p">];</span>
+<span class="n">patterns</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="n">DIGITS</span><span class="p">[</span><span class="n">d2</span><span class="p">];</span>
+<span class="n">patterns</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">~</span><span class="n">DIGITS</span><span class="p">[</span><span class="n">d1</span><span class="p">];</span><span class="w">  </span><span class="c1">// rightmost</span>
+
+<span class="c1">// Apply decimal points (bit = 0 → DP ON for common anode)</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">dpOn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">dp</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mh">0x01</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">dpOn</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">patterns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span><span class="w">  </span><span class="c1">// clear bit 7 (DP) to turn ON</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">patterns</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">|=</span><span class="w">  </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span><span class="w">  </span><span class="c1">// set   bit 7 (DP) to turn OFF</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// Latch LOW → shift data → Latch HIGH to update outputs</span>
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">LATCH_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+
+<span class="c1">// Clock in from rightmost digit to leftmost (daisy-chain order)</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">shiftOutByte</span><span class="p">(</span><span class="n">patterns</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">LATCH_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="the-displaynumber-function">
+<h3>The <cite>displayNumber()</cite> Function<a class="headerlink" href="#the-displaynumber-function" title="Link to this heading">#</a></h3>
+<p>The function first checks whether the number is within the supported range (-999 to 9999). It then detects negative numbers, extracts each decimal digit using division and modulus operations, suppresses unnecessary leading zeros, and calls displayDigits() to show the final result.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cm">/**</span>
+<span class="cm">* Display a signed integer (-999 to 9999).</span>
+<span class="cm">* Numbers out of range show &quot;----&quot;.</span>
+<span class="cm">*</span>
+<span class="cm">* @param number  Value to display</span>
+<span class="cm">* @param dp      Decimal point bitmask (bit3=d1 … bit0=d4)</span>
+<span class="cm">*/</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">displayNumber</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="p">,</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">9999</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">-999</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Out of range → show dashes</span>
+<span class="w">    </span><span class="n">displayDigits</span><span class="p">(</span><span class="n">DASH</span><span class="p">,</span><span class="w"> </span><span class="n">DASH</span><span class="p">,</span><span class="w"> </span><span class="n">DASH</span><span class="p">,</span><span class="w"> </span><span class="n">DASH</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">negative</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">negative</span><span class="p">)</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">number</span><span class="p">;</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="n">d4</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">number</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">d3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w">   </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">d2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w">  </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+
+<span class="c1">// Suppress leading zeros</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">d1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">negative</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">DASH</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">BLANK</span><span class="p">;</span><span class="w">  </span><span class="c1">// leading sign or blank</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w">  </span><span class="n">d2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLANK</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span><span class="w">   </span><span class="n">d3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BLANK</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">displayDigits</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span><span class="w"> </span><span class="n">d2</span><span class="p">,</span><span class="w"> </span><span class="n">d3</span><span class="p">,</span><span class="w"> </span><span class="n">d4</span><span class="p">,</span><span class="w"> </span><span class="n">dp</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="the-setup-and-loop-functions">
+<h3>The <cite>setup()</cite> and <cite>loop()</cite> Functions<a class="headerlink" href="#the-setup-and-loop-functions" title="Link to this heading">#</a></h3>
+<p>The setup function configures the DATA, CLOCK, and LATCH pins as outputs and displays 0 on the 4-digit display as the initial value.</p>
+<p>The loop function epeatedly performs several examples, including counting from 0 to 9999, displaying a decimal number, showing a negative number, and displaying four manually specified digits</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// ── Setup &amp; Loop ─────────────────────────────────────────────────────────────</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="n">pinMode</span><span class="p">(</span><span class="n">DATA_PIN</span><span class="p">,</span><span class="w">  </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="n">pinMode</span><span class="p">(</span><span class="n">CLOCK_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="n">pinMode</span><span class="p">(</span><span class="n">LATCH_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+
+<span class="c1">// Show &quot;0&quot; at startup</span>
+<span class="n">displayNumber</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="c1">// ── Example 1: Count 0 → 9999, one step per 50 ms ──</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">9999</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">displayNumber</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// ── Example 2: Show a fixed value with a decimal point ──</span>
+<span class="c1">// Displays &quot;12.34&quot; (decimal point between digit 2 and 3 → bit1 set)</span>
+<span class="n">displayNumber</span><span class="p">(</span><span class="mi">1234</span><span class="p">,</span><span class="w"> </span><span class="mb">0b0010</span><span class="p">);</span>
+<span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+
+<span class="c1">// ── Example 3: Show a negative number ──</span>
+<span class="n">displayNumber</span><span class="p">(</span><span class="mi">-42</span><span class="p">);</span>
+<span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+
+<span class="c1">// ── Example 4: Show individual digit patterns directly ──</span>
+<span class="n">displayDigits</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span><span class="w">   </span><span class="c1">// shows  1 2 3 4</span>
+<span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="program-flow">
+<h3>Program Flow<a class="headerlink" href="#program-flow" title="Link to this heading">#</a></h3>
+<p>The overall execution flow of the program is:</p>
+<ol class="arabic simple">
+<li><p>MCU initializes the GPIO pins.</p></li>
+<li><p><cite>displayNumber()</cite> converts a number into four digits.</p></li>
+<li><p><cite>displayDigits()</cite> converts each digit into segment patterns.</p></li>
+<li><p><cite>shiftOutByte()</cite> sends the patterns to the 74HC595 shift registers.</p></li>
+<li><p>The latch signal updates all four displays simultaneously.</p></li>
+<li><p>The process repeats whenever a new number is displayed.</p></li>
+</ol>
+</section>
+<section id="expected-result">
+<h3>Expected Result<a class="headerlink" href="#expected-result" title="Link to this heading">#</a></h3>
+<p>After uploading the sketch:</p>
+<ul class="simple">
+<li><p>The display initially shows <cite>0</cite>.</p></li>
+<li><p>The display counts from <cite>0000</cite> to <cite>9999</cite>.</p></li>
+<li><p>After the counter finishes, <cite>12.34</cite> is displayed.</p></li>
+<li><p>Next, the display shows <cite>-42</cite>.</p></li>
+<li><p>Finally, the display shows <cite>1234</cite> before repeating the demonstration.</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../_images/7segs.gif" src="../../_images/7segs.gif" />
+</figure>
+</section>
+</section>
+<section id="experiment">
+<h2>Experiment<a class="headerlink" href="#experiment" title="Link to this heading">#</a></h2>
+<p>Try modifying the program to better understand how it works.</p>
+<ul>
+<li><p>Change the counting speed by modifying the delay.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>Display your favorite number.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">displayNumber</span><span class="p">(</span><span class="mi">2026</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>Display a decimal value.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">displayNumber</span><span class="p">(</span><span class="mi">3141</span><span class="p">,</span><span class="w"> </span><span class="mb">0b0010</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>Display four individual digits.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">displayDigits</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p>Modify the <cite>DIGITS</cite> lookup table and observe how changing the segment patterns affects the displayed characters.</p></li>
+</ul>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this tutorial, you learned how to control a 4-digit 7-segment display using four 74HC595 shift registers and only three MCU GPIO pins.</p>
+<p>You learned how to:</p>
+<ul class="simple">
+<li><p>Connect multiple 74HC595 shift registers in a daisy chain.</p></li>
+<li><p>Drive common-anode 7-segment displays.</p></li>
+<li><p>Display integers from <cite>0</cite> to <cite>9999</cite>.</p></li>
+<li><p>Display negative numbers and decimal points.</p></li>
+<li><p>Convert numbers into segment patterns using a lookup table.</p></li>
+<li><p>Update all four displays simultaneously using the latch signal.</p></li>
+</ul>
+<p>This project introduces the use of shift registers for expanding MCU outputs and provides a foundation for building digital clocks, timers, counters, measurement displays, and other numeric display applications.</p>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      <ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a><ul>
+<li><a class="reference internal" href="#shift-register-connections">Shift Register Connections</a></li>
+<li><a class="reference internal" href="#segment-connections">Segment Connections</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#writing-the-program">Writing the Program</a><ul>
+<li><a class="reference internal" href="#pin-definitions">Pin Definitions</a></li>
+<li><a class="reference internal" href="#segment-lookup-table">Segment Lookup Table</a></li>
+<li><a class="reference internal" href="#the-shiftoutbyte-function">The <cite>shiftOutByte()</cite> Function</a></li>
+<li><a class="reference internal" href="#the-displaydigits-function">The <cite>displayDigits()</cite> Function</a></li>
+<li><a class="reference internal" href="#the-displaynumber-function">The <cite>displayNumber()</cite> Function</a></li>
+<li><a class="reference internal" href="#the-setup-and-loop-functions">The <cite>setup()</cite> and <cite>loop()</cite> Functions</a></li>
+<li><a class="reference internal" href="#program-flow">Program Flow</a></li>
+<li><a class="reference internal" href="#expected-result">Expected Result</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#experiment">Experiment</a></li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="Lesson6.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">Project 6 : Display Text and Graphics on an SH1106 OLED</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="Lesson8.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter">Project 8 : Wi-Fi Controlled Switch via Web Browser</a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

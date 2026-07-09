@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project 5 : Control an 8x8 LED Matrix Display using a Button &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project 6 : Display Text and Graphics on an SH1106 OLED" href="Lesson6.html" />
+    <link rel="prev" title="Project 4 : Play a Melody using a Button" href="Lesson4.html" />
+<link rel="stylesheet" type="text/css" src="../../_static/bootstrap/bootstrap.css" />
+<script src="../../_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../../_static/js/conestack.js"></script>
+<script src="../../_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="../../index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="../../search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="project-5-control-an-8x8-led-matrix-display-using-a-button">
+<h1>Project 5 : Control an 8x8 LED Matrix Display using a Button<a class="headerlink" href="#project-5-control-an-8x8-led-matrix-display-using-a-button" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this project, we will learn how to control an 8x8 LED Matrix display using the integrated <strong>MAX7219</strong> LED driver chip. Controlling 64 individual LEDs normally requires a massive amount of microcontroller pins, but the MAX7219 allows us to control the entire matrix using just 3 digital communication pins.</p>
+<p>We will use our button edge-detection logic to cycle through three different pixel-art expressions (Happy, Neutral, and Sad) on the matrix with each press.</p>
+<p>By the end of this tutorial, you will know how to:</p>
+<ul class="simple">
+<li><p>Interface with the MAX7219 LED driver using a library.</p></li>
+<li><p>Represent visual graphics as binary data arrays.</p></li>
+<li><p>Cycle through multiple display states using a single button event.</p></li>
+</ul>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>Before starting, make sure you have the following:</p>
+<ul class="simple">
+<li><p>The STEAM development kit or The STEAM standalone microcontroller board</p></li>
+<li><p>USB cable</p></li>
+<li><p>Arduino IDE with ESP32 toolchain installed</p></li>
+<li><p><strong>LedControl</strong> library installed (Go to <strong>Tools → Manage Libraries</strong>, search for “LedControl” by Eberhard Fahle, and install it).</p></li>
+</ul>
+<p>In this project, the built-in 8x8 LED Matrix and button will be used. No external components are required.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/board_matrix.png"><img alt="../../_images/board_matrix.png" src="../../_images/board_matrix.png" width="400" />
+</a>
+<figcaption>
+<p><span class="caption-text">The interfacing description of the 8x8 matrix</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The built-in button is on <strong>GPIO0</strong>. The MAX7219 driver typically uses three pins: Data In (DIN), Clock (CLK), and Chip Select (CS).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Check your specific STEAM board documentation for the exact GPIO pin numbers assigned to the matrix <strong>DIN</strong>, <strong>CLK</strong>, and <strong>CS</strong> pins and update the code macros below if necessary.</p>
+</div>
+</section>
+<section id="writing-the-program">
+<h2>Writing the Program<a class="headerlink" href="#writing-the-program" title="Link to this heading">#</a></h2>
+<p>Create a new sketch in the Arduino IDE and enter the following code:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;LedControl.h&gt;</span>
+
+<span class="c1">// Define the MAX7219 Matrix Pins (Update based on your board&#39;s schematic)</span>
+<span class="cp">#define DIN_PIN 11</span>
+<span class="cp">#define CS_PIN  10</span>
+<span class="cp">#define CLK_PIN 12</span>
+<span class="cp">#define BUT_PIN 0</span>
+
+<span class="c1">// Initialize LedControl: LedControl(DIN, CLK, CS, Number of Displays)</span>
+<span class="n">LedControl</span><span class="w"> </span><span class="n">lc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LedControl</span><span class="p">(</span><span class="n">DIN_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">CLK_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">CS_PIN</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c1">// Track button states</span>
+<span class="kt">bool</span><span class="w"> </span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HIGH</span><span class="p">;</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">display_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// 0 = Happy, 1 = Neutral, 2 = Sad</span>
+
+<span class="c1">// Define 8x8 Custom Graphics using Byte Arrays (1 = LED ON, 0 = LED OFF)</span>
+<span class="n">byte</span><span class="w"> </span><span class="n">happyFace</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">B00111100</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B01000010</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B10100101</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B10000001</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B10100101</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B10011001</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B01000010</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B00111100</span>
+<span class="p">};</span>
+
+<span class="n">byte</span><span class="w"> </span><span class="n">neutralFace</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">B00111100</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B01000010</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B10100101</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B10000001</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B10111101</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B10000001</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B01000010</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B00111100</span>
+<span class="p">};</span>
+
+<span class="n">byte</span><span class="w"> </span><span class="n">sadFace</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">B00111100</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B01000010</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B10100101</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B10000001</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B10011001</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B10100101</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B01000010</span><span class="p">,</span>
+<span class="w">    </span><span class="n">B00111100</span>
+<span class="p">};</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Wake up the MAX7219 from power-saving/shutdown mode</span>
+<span class="w">    </span><span class="n">lc</span><span class="p">.</span><span class="n">shutdown</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Set brightness intensity (0 is dimmest, 15 is brightest)</span>
+<span class="w">    </span><span class="n">lc</span><span class="p">.</span><span class="n">setIntensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Clear the display screen</span>
+<span class="w">    </span><span class="n">lc</span><span class="p">.</span><span class="n">clearDisplay</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Configure the button pin</span>
+<span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BUT_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Show the initial happy face</span>
+<span class="w">    </span><span class="n">drawFace</span><span class="p">(</span><span class="n">happyFace</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Read the current state of the active-LOW button</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">current_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BUT_PIN</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Detect button press (falling edge: HIGH to LOW transition)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HIGH</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">current_but_sts</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LOW</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">        </span><span class="c1">// Move to the next face state (0 -&gt; 1 -&gt; 2 -&gt; 0)</span>
+<span class="w">        </span><span class="n">display_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">display_state</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// Update display based on the new state</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">display_state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">drawFace</span><span class="p">(</span><span class="n">happyFace</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">display_state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">drawFace</span><span class="p">(</span><span class="n">neutralFace</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">display_state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">drawFace</span><span class="p">(</span><span class="n">sadFace</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span><span class="w"> </span><span class="c1">// Small debounce delay</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Save the state for the next loop iteration</span>
+<span class="w">    </span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_but_sts</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Helper function to render a byte array to the matrix</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">drawFace</span><span class="p">(</span><span class="n">byte</span><span class="w"> </span><span class="n">face</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">lc</span><span class="p">.</span><span class="n">setRow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">face</span><span class="p">[</span><span class="n">row</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="uploading-the-program">
+<h3>Uploading the Program<a class="headerlink" href="#uploading-the-program" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Connect the board to your computer using the USB cable.</p></li>
+<li><p>Open the Arduino IDE.</p></li>
+<li><p>Ensure the <strong>LedControl</strong> library is installed via the Library Manager.</p></li>
+<li><p>Select your board module and the correct serial port from the <strong>Tools</strong> menu.</p></li>
+<li><p>Click the <strong>Upload</strong> button.</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/8x8matrix.png" src="../../_images/8x8matrix.png" />
+</figure>
+</section>
+<section id="expected-result">
+<h3>Expected Result<a class="headerlink" href="#expected-result" title="Link to this heading">#</a></h3>
+<p>After uploading the program:</p>
+<ul class="simple">
+<li><p>The 8x8 LED Matrix will immediately display a smiling face emoji.</p></li>
+<li><p>Press the push button once; the smile transforms into a flat, neutral expression.</p></li>
+<li><p>Press the button a second time; the expression changes to a sad face.</p></li>
+<li><p>Pressing it a third time cycles the loop back, returning the display to a happy face.</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../_images/8x8matrix.gif" src="../../_images/8x8matrix.gif" />
+</figure>
+</section>
+<section id="how-the-code-works">
+<h3>How the Code Works<a class="headerlink" href="#how-the-code-works" title="Link to this heading">#</a></h3>
+<p><strong>Understanding Byte Arrays for Graphics</strong></p>
+<p>An 8x8 matrix consists of 8 rows and 8 columns. We represent this grid using an array of 8 bytes. Because a single byte consists of 8 bits, each bit matches perfectly with an individual LED in that row:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">byte</span><span class="w"> </span><span class="n">happyFace</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">B00111100</span><span class="p">,</span><span class="w"> </span><span class="c1">// Row 0: Only the middle 4 LEDs are ON</span>
+<span class="w">    </span><span class="n">B01000010</span><span class="p">,</span><span class="w"> </span><span class="c1">// Row 1</span>
+<span class="w">    </span><span class="p">...</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>A <cite>1</cite> turns the corresponding pixel ON, while a <cite>0</cite> keeps it OFF. This allows you to paint pixel art directly in text using binary (<cite>B</cite>) syntax!</p>
+<p><strong>The `LedControl` Setup</strong></p>
+<p>Inside <cite>setup()</cite>, we initialize the MAX7219 controller:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">lc</span><span class="p">.</span><span class="n">shutdown</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+<span class="n">lc</span><span class="p">.</span><span class="n">setIntensity</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">);</span>
+<span class="n">lc</span><span class="p">.</span><span class="n">clearDisplay</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>By default, the MAX7219 boots up in “sleep mode” to save power. <cite>shutdown(0, false)</cite> wakes up display index <cite>0</cite>. We then scale the brightness down to <cite>4</cite> so it doesn’t hurt our eyes, and clear out any random artifact data from the screen.</p>
+<p><strong>Cycling States with Modulo Logic</strong></p>
+<p>To change faces smoothly without creating massive <cite>if-else</cite> blocks, we use the modulo operator (<cite>%</cite>):</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">display_state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">display_state</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>This neat math trick forces <cite>display_state</cite> to step forward incrementally, but reset automatically back to <cite>0</cite> whenever it hits <cite>3</cite>, creating a clean, perpetual loop.</p>
+</section>
+<section id="experiment">
+<h3>Experiment<a class="headerlink" href="#experiment" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Create Your Own Icon:</strong> Rewrite one of the byte arrays to display a different icon, such as a heart, a checkbox, or an arrow indicator.</p></li>
+<li><p><strong>Adjust Brightness Dynamically:</strong> Modify the logic so that instead of changing faces, pressing the button steps the display brightness (<cite>lc.setIntensity</cite>) up from 0 to 15, then rolls back to 0.</p></li>
+</ul>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this tutorial, you learned how to command an 8x8 LED Matrix using a MAX7219 driver chip. You bypassed complex multiplexing wiring by leveraging a dedicated hardware driver and the <cite>LedControl</cite> library.</p>
+<p>Key concepts covered include:</p>
+<ul class="simple">
+<li><p>Initializing and configuring external drivers like the MAX7219.</p></li>
+<li><p>Mapping 2D pixel grids using 1D byte arrays and binary literals.</p></li>
+<li><p>Utilizing helper functions (<cite>drawFace</cite>) to keep loops highly organized.</p></li>
+<li><p>Using mathematical constraints (the modulo operator) to loop sequence indexes cleanly.</p></li>
+</ul>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      <ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#writing-the-program">Writing the Program</a><ul>
+<li><a class="reference internal" href="#uploading-the-program">Uploading the Program</a></li>
+<li><a class="reference internal" href="#expected-result">Expected Result</a></li>
+<li><a class="reference internal" href="#how-the-code-works">How the Code Works</a></li>
+<li><a class="reference internal" href="#experiment">Experiment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="Lesson4.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">Project 4 : Play a Melody using a Button</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="Lesson6.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter">Project 6 : Display Text and Graphics on an SH1106 OLED</a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

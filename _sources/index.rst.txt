@@ -1,0 +1,70 @@
+.. Example documentation master file, created by
+   sphinx-quickstart on Sat Sep 23 20:35:12 2023.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. ********************************************
+.. STEAM Development Kit Documentation!
+.. ********************************************
+.. to do port this to markdown
+
+Introduction
+============
+* The STEM Development kit is a low cost esp32s3 based microcontroller Development board, which supports advance peripherals like ethernet, USB, VGA which set it apart from traditional MCU development kit where it's either lack of modern/ advanced communication protocol, too expensive, or only reserve for FPGA.
+* The STEAM Development kit is created to bridge that gap, where with the modular architecture and open source hardware nature it's not only opens up the kit for different kinds of microcontroller but also FPGA and CLPD to such open platform 
+
+.. figure:: ../doc/img/mainboard.jpg
+    :align: center
+    :alt: The STEAM development board  
+
+    The STEAM development board
+
+----------------------------------------
+
+Geting started !
+================
+.. grid:: 1 2 2 2
+   :gutter: 3
+
+   .. grid-item-card:: :octicon:`book` `User manual <usermanual.html>`_
+
+      The instruction on bringing up **The STEAM development board** and how to develop with it.
+
+   .. grid-item-card:: :octicon:`gear` `Software development and toolchain installation <toolchains.html>`_ 
+      :shadow: md
+
+      A guide on how to install the SDK and the necessary toolchains, libraries for developing with the development kit.
+
+   .. grid-item-card:: :octicon:`briefcase` `Example projects <exampleprojects.html>`_ 
+      :shadow: md
+
+      A collection of example projects with various difficulties to help user to get on with the development board.
+
+   .. grid-item-card:: :octicon:`cpu` `Hardware technical documentation <hardware.html>`_
+      :shadow: md
+
+      As the opensource nature of the **The STEAM development board** all hardware design files and documentation can be found here
+      
+
+
+.. toctree::
+   :maxdepth: 6
+   :caption: Contents:
+
+   usermanual.rst
+   toolchains.rst 
+   exampleprojects.rst
+   hardware.rst
+   other_docs.rst
+.. # STEAM Development Kit Documentation
+
+.. A small example of how to use Sphinx and MyST 
+.. to create easily readable and aesthetically pleasing
+.. documentation.
+
+.. ```{toctree}
+.. :maxdepth: 2
+.. :caption: Contents:
+.. some-feature.md
+.. another-feature.md
+.. ```

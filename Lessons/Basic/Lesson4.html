@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project 4 : Play a Melody using a Button &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project 5 : Control an 8x8 LED Matrix Display using a Button" href="Lesson5.html" />
+    <link rel="prev" title="Project 3 : Turn ON and OFF the Buzzer using a button" href="Lesson3.html" />
+<link rel="stylesheet" type="text/css" src="../../_static/bootstrap/bootstrap.css" />
+<script src="../../_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../../_static/js/conestack.js"></script>
+<script src="../../_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="../../index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="../../search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="project-4-play-a-melody-using-a-button">
+<h1>Project 4 : Play a Melody using a Button<a class="headerlink" href="#project-4-play-a-melody-using-a-button" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this project, we will add a fun twist to our button logic: triggering a song! Instead of simply turning the buzzer ON and OFF, pressing the button will now command the microcontroller to play a short melody. By the end of this tutorial, you will know how to:</p>
+<ul class="simple">
+<li><p>Store musical notes and durations using Arrays.</p></li>
+<li><p>Use a loop to iterate through data.</p></li>
+<li><p>Generate audio frequencies using the <code class="docutils literal notranslate"><span class="pre">tone()</span></code> function.</p></li>
+</ul>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The STEAM development kit or The STEAM standalone microcontroller board</p></li>
+<li><p>USB cable</p></li>
+<li><p>Arduino IDE with ESP32 toolchain installed</p></li>
+</ul>
+<p>In this project, the built-in buzzer and button will be used. No external components are required.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/board_buzz.png"><img alt="../../_images/board_buzz.png" src="../../_images/board_buzz.png" width="400" />
+</a>
+<figcaption>
+<p><span class="caption-text">The interfacing description of the microcontroller board</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For buzzer it also need to change the dips switch 1 position as follow:</p>
+<blockquote>
+<div><figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../../_images/buzz_ON.png"><img alt="../../_images/buzz_ON.png" src="../../_images/buzz_ON.png" width="200" />
+</a>
+<figcaption>
+<p><span class="caption-text">DIP switch 1 position for enabling Buzzer</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div></blockquote>
+<p>The built-in buzzer on <strong>GPIO03</strong> and the button on <strong>GPIO0</strong> will be used. <em>(Note: Ensure GPIO09 matches your specific board’s buzzer pin)</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Hardware Tip:</strong> To hear distinct musical pitches, a <strong>passive buzzer</strong> or speaker is required. If your board has an <strong>active buzzer</strong> (which makes a continuous sound when powered), this code will still work, but you will only hear the <em>rhythm</em> of the notes as clicks or beeps, rather than different pitches.</p>
+</div>
+</section>
+<section id="writing-the-program">
+<h2>Writing the Program<a class="headerlink" href="#writing-the-program" title="Link to this heading">#</a></h2>
+<p>Create a new sketch in the Arduino IDE and enter the following code. We will be programming the classic “Twinkle Twinkle Little Star”.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#define BUZZER_PIN 3</span>
+<span class="cp">#define BUT_PIN 0</span>
+
+<span class="c1">// Define the frequencies for musical notes</span>
+<span class="cp">#define NOTE_C4  262</span>
+<span class="cp">#define NOTE_D4  294</span>
+<span class="cp">#define NOTE_E4  330</span>
+<span class="cp">#define NOTE_F4  349</span>
+<span class="cp">#define NOTE_G4  392</span>
+<span class="cp">#define NOTE_A4  440</span>
+
+<span class="c1">// Array storing the sequence of notes</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">melody</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">NOTE_C4</span><span class="p">,</span><span class="w"> </span><span class="n">NOTE_C4</span><span class="p">,</span><span class="w"> </span><span class="n">NOTE_G4</span><span class="p">,</span><span class="w"> </span><span class="n">NOTE_G4</span><span class="p">,</span><span class="w"> </span><span class="n">NOTE_A4</span><span class="p">,</span><span class="w"> </span><span class="n">NOTE_A4</span><span class="p">,</span><span class="w"> </span><span class="n">NOTE_G4</span><span class="w"> </span><span class="p">};</span>
+
+<span class="c1">// Array storing note durations (4 = quarter note, 2 = half note)</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">durations</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">};</span>
+
+<span class="kt">bool</span><span class="w"> </span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HIGH</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BUZZER_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BUT_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Read the current state of the active-LOW button</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">current_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BUT_PIN</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Check for a button press (transition from HIGH to LOW)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HIGH</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">current_but_sts</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LOW</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">playSong</span><span class="p">();</span><span class="w"> </span><span class="c1">// Trigger the melody function</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Save state and briefly pause to debounce</span>
+<span class="w">    </span><span class="n">last_but_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">current_but_sts</span><span class="p">;</span>
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Custom function to play the melody array</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">playSong</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Loop through all 7 notes in our arrays</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Calculate note duration in milliseconds (1 second = 1000ms)</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">noteDuration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">durations</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+
+<span class="w">        </span><span class="c1">// Play the note on the buzzer pin</span>
+<span class="w">        </span><span class="n">tone</span><span class="p">(</span><span class="n">BUZZER_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">melody</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">noteDuration</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Add a short pause between notes so they don&#39;t blend together</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">pauseBetweenNotes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">noteDuration</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.30</span><span class="p">;</span>
+<span class="w">        </span><span class="n">delay</span><span class="p">(</span><span class="n">pauseBetweenNotes</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Stop the tone before the next note plays</span>
+<span class="w">        </span><span class="n">noTone</span><span class="p">(</span><span class="n">BUZZER_PIN</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="uploading-the-program">
+<h3>Uploading the Program<a class="headerlink" href="#uploading-the-program" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Connect the board to your computer.</p></li>
+<li><p>Select <strong>ESP32S3 Dev Module</strong> from <strong>Tools → Board</strong>.</p></li>
+<li><p>Select the correct serial port.</p></li>
+<li><p>Click <strong>Upload</strong>.</p></li>
+</ol>
+<figure class="align-center">
+<img alt="../../_images/buzz_tone.png" src="../../_images/buzz_tone.png" />
+</figure>
+</section>
+<section id="expected-result">
+<h3>Expected Result<a class="headerlink" href="#expected-result" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>The system starts silently.</p></li>
+<li><p>When you press the button, the board plays the first line of “Twinkle Twinkle Little Star”.</p></li>
+<li><p>Because of the state change detection, holding the button down will only play the song once.</p></li>
+<li><p>You must wait for the song to finish, release the button, and press it again to hear it a second time.</p></li>
+</ul>
+</section>
+<section id="how-the-code-works">
+<h3>How the Code Works<a class="headerlink" href="#how-the-code-works" title="Link to this heading">#</a></h3>
+<p><strong>Storing the Melody (Arrays)</strong></p>
+<p>We use two arrays to store the data for our song: one for the pitch (frequency) and one for the timing (duration).</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">melody</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">NOTE_C4</span><span class="p">,</span><span class="w"> </span><span class="n">NOTE_C4</span><span class="p">,</span><span class="w"> </span><span class="n">NOTE_G4</span><span class="p">...</span><span class="w"> </span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">durations</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mf">4.</span><span class="p">..</span><span class="w"> </span><span class="p">};</span>
+</pre></div>
+</div>
+<p>Arrays are like lists. The microcontroller will read through these lists one by one to know exactly what to play and for how long.</p>
+<p><strong>The `playSong()` Function</strong></p>
+<p>Instead of cluttering our <cite>loop()</cite> with audio commands, we created a custom function. Inside, a <cite>for</cite> loop counts from <cite>0</cite> to <cite>6</cite> (giving us 7 steps for our 7 notes).</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">tone</span><span class="p">(</span><span class="n">BUZZER_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">melody</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">noteDuration</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">tone()</span></code> function tells the microcontroller to rapidly pulse the pin at a specific frequency, creating a sound wave. The <code class="docutils literal notranslate"><span class="pre">melody[i]</span></code> grabs the current note from our array, and <code class="docutils literal notranslate"><span class="pre">noteDuration</span></code> tells it how long to hold it.</p>
+</section>
+<section id="experiment">
+<h3>Experiment<a class="headerlink" href="#experiment" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Change the Tempo:</strong> Find the line <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">noteDuration</span> <span class="pre">=</span> <span class="pre">1000</span> <span class="pre">/</span> <span class="pre">durations[i];</span></code>. Try changing <cite>1000</cite> to <cite>500</cite> to play the song twice as fast!</p></li>
+<li><p><strong>Write Your Own Song:</strong> Look up the frequencies for different musical notes online and modify the <code class="docutils literal notranslate"><span class="pre">melody[]</span></code> array to play the Super Mario theme or a custom tune. Just make sure the number of items in both the <code class="docutils literal notranslate"><span class="pre">melody[]</span></code> and <code class="docutils literal notranslate"><span class="pre">durations[]</span></code> arrays match, and update the <code class="docutils literal notranslate"><span class="pre">for</span></code> loop limit accordingly.</p></li>
+</ul>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this project, you stepped beyond basic HIGH and LOW digital signals and learned how to use the <code class="docutils literal notranslate"><span class="pre">tone()</span></code> function to generate specific frequencies. You also learned how to use arrays and a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to organize and iterate through sequences of data. This combination of button edge-detection and data processing is a powerful foundation for building interactive embedded systems.</p>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      <ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#writing-the-program">Writing the Program</a><ul>
+<li><a class="reference internal" href="#uploading-the-program">Uploading the Program</a></li>
+<li><a class="reference internal" href="#expected-result">Expected Result</a></li>
+<li><a class="reference internal" href="#how-the-code-works">How the Code Works</a></li>
+<li><a class="reference internal" href="#experiment">Experiment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="Lesson3.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">Project 3 : Turn ON and OFF the Buzzer using a button</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="Lesson5.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter">Project 5 : Control an 8x8 LED Matrix Display using a Button</a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

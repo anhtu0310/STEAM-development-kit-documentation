@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project 12 : RGB Mood Lamp — Five Light Effects with One Button &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project 13 : High-Resolution VGA Output" href="Lesson13.html" />
+    <link rel="prev" title="Project 11 : USB Keyboard Input Displayed on the OLED Screen" href="Lesson11.html" />
+<link rel="stylesheet" type="text/css" src="../../_static/bootstrap/bootstrap.css" />
+<script src="../../_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../../_static/js/conestack.js"></script>
+<script src="../../_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="../../index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="../../search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="project-12-rgb-mood-lamp-five-light-effects-with-one-button">
+<h1>Project 12 : RGB Mood Lamp — Five Light Effects with One Button<a class="headerlink" href="#project-12-rgb-mood-lamp-five-light-effects-with-one-button" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this project, you will turn the single WS2812B RGB LED on the STEAM development board into a <strong>mood lamp</strong>: a light source that cycles through five distinct visual effects, each selectable by pressing the on-board button. Along the way, you will learn how a single LED can express a wide range of colour, brightness, and animation techniques — and discover why the HSV colour model is far more useful for creative LED work than raw RGB values.</p>
+<p>By the end of this tutorial, you will know how to:</p>
+<ul class="simple">
+<li><p>Control a WS2812B LED using the FastLED library.</p></li>
+<li><p>Understand the difference between the RGB and HSV colour models.</p></li>
+<li><p>Implement multiple light effects (solid colour, breathing, rainbow cycle, fire flicker, and police strobe) using FastLED’s built-in tools.</p></li>
+<li><p>Use a single button to cycle between named program modes.</p></li>
+<li><p>Apply non-blocking timing techniques so animations run smoothly without <code class="docutils literal notranslate"><span class="pre">delay()</span></code>.</p></li>
+</ul>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>Before starting, make sure you have the following:</p>
+<ul class="simple">
+<li><p>The STEAM development kit or The STEAM standalone microcontroller board</p></li>
+<li><p>USB cable</p></li>
+<li><p>Arduino IDE with ESP32 toolchain installed</p></li>
+</ul>
+<p>All components — the WS2812B LED and the push button — are already integrated on the STEAM development board. No external components are needed.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/RGB_led.png"><img alt="../../_images/RGB_led.png" src="../../_images/RGB_led.png" width="400" />
+</a>
+<figcaption>
+<p><span class="caption-text">The interfacing description of the microcontroller board</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Pin assignments used in this project:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal</p></th>
+<th class="head"><p>ESP32-S3 GPIO</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>WS2812B Data</p></td>
+<td><p>IO2</p></td>
+<td><p>Single-wire serial data to the LED</p></td>
+</tr>
+<tr class="row-odd"><td><p>Button</p></td>
+<td><p>IO0</p></td>
+<td><p>Mode select button, reads LOW when pressed</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The button reads logic <strong>LOW</strong> when pressed (active LOW with internal pull-up). The WS2812B data line requires no external resistor or pull-up — it is driven directly by the GPIO output.</p>
+</div>
+</section>
+<section id="background-key-concepts">
+<h2>Background: Key Concepts<a class="headerlink" href="#background-key-concepts" title="Link to this heading">#</a></h2>
+<section id="the-ws2812b-led">
+<h3>The WS2812B LED<a class="headerlink" href="#the-ws2812b-led" title="Link to this heading">#</a></h3>
+<p>The WS2812B is an RGB LED with an integrated control circuit inside its package. Instead of three separate wires for red, green, and blue, it uses a <strong>single serial data wire</strong> and a strict one-wire timing protocol. Each WS2812B contains shift registers and drivers that decode the incoming serial stream and set the brightness of each colour channel independently using pulse-width modulation (PWM).</p>
+<p>This single-wire protocol makes it easy to <strong>daisy-chain</strong> multiple LEDs: the output of one feeds the input of the next, and each LED peels off the first 24 bits it receives (8 bits per channel in GRB order) and forwards the rest downstream. The STEAM board has two WS2812Bs, and an daisy-chain 3 header for whole strip extension.</p>
+<figure class="align-center" id="id2">
+<img alt="../../_images/ws2812-protocol-LED-chain.jpg" src="../../_images/ws2812-protocol-LED-chain.jpg" />
+<figcaption>
+<p><span class="caption-text">WS2812B internal block diagram showing the integrated driver and RGB die</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="the-grb-colour-order">
+<h3>The GRB Colour Order<a class="headerlink" href="#the-grb-colour-order" title="Link to this heading">#</a></h3>
+<p>Unlike most RGB devices, the WS2812B sends colour data in <strong>Green → Red → Blue</strong> order (GRB), not the more intuitive RGB order. The FastLED library handles this automatically when you declare the chipset as <code class="docutils literal notranslate"><span class="pre">WS2812B</span></code> with the <code class="docutils literal notranslate"><span class="pre">GRB</span></code> colour order template parameter — you always write colours as (R, G, B) in your code and FastLED reorders the bytes before transmitting.</p>
+</section>
+<section id="rgb-vs-hsv-choosing-the-right-colour-model">
+<h3>RGB vs. HSV: Choosing the Right Colour Model<a class="headerlink" href="#rgb-vs-hsv-choosing-the-right-colour-model" title="Link to this heading">#</a></h3>
+<p>There are two common ways to describe a colour in software:</p>
+<p><strong>RGB (Red, Green, Blue)</strong> specifies colour by mixing amounts of three primary lights. It is simple to understand but awkward for creative work: to smoothly sweep from red to blue, you would need to decrease R, keep G at zero, and increase B simultaneously — and the arithmetic quickly becomes messy.</p>
+<p><strong>HSV (Hue, Saturation, Value)</strong> separates colour into three more intuitive properties:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 40.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>Range in FastLED</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Hue</p></td>
+<td><p>The colour itself — its position on the colour wheel</p></td>
+<td><p>0–255 (0 = red, 64 = yellow, 96 = green, 160 = blue, 192 = purple)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Saturation</p></td>
+<td><p>How vivid or washed-out the colour is</p></td>
+<td><p>0 = white, 255 = fully saturated pure colour</p></td>
+</tr>
+<tr class="row-even"><td><p>Value</p></td>
+<td><p>Brightness</p></td>
+<td><p>0 = off (black), 255 = maximum brightness</p></td>
+</tr>
+</tbody>
+</table>
+<p>With HSV, creating a smooth rainbow sweep is trivial: simply increment the hue from 0 to 255. Creating a breathing effect is equally simple: oscillate the value. FastLED represents HSV colours with the <code class="docutils literal notranslate"><span class="pre">CHSV</span></code> type and converts to RGB automatically when you assign to a <code class="docutils literal notranslate"><span class="pre">CRGB</span></code> LED element.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>FastLED uses a <strong>0–255 range for all three components</strong>, not the conventional 0–360° for hue. This is intentional: byte-sized values are faster to compute and store on embedded processors. The hue also uses FastLED’s “rainbow” mapping, which spreads yellow and orange more evenly than a mathematically straight spectrum.</p>
+</div>
+</section>
+<section id="non-blocking-animation-with-millis">
+<h3>Non-Blocking Animation with <code class="docutils literal notranslate"><span class="pre">millis()</span></code><a class="headerlink" href="#non-blocking-animation-with-millis" title="Link to this heading">#</a></h3>
+<p>Earlier projects used <code class="docutils literal notranslate"><span class="pre">delay()</span></code> to control timing. For animations, <code class="docutils literal notranslate"><span class="pre">delay()</span></code> is problematic because it stops the CPU completely — the button cannot be read while the delay is running.</p>
+<p>The correct approach is to track the last time an update occurred using <code class="docutils literal notranslate"><span class="pre">millis()</span></code> (the number of milliseconds since boot) and check whether enough time has elapsed before advancing the animation. The CPU is free between updates to check the button and perform other tasks.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">INTERVAL_MS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+<span class="w">    </span><span class="c1">// advance animation one step</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="the-five-mood-effects">
+<h3>The Five Mood Effects<a class="headerlink" href="#the-five-mood-effects" title="Link to this heading">#</a></h3>
+<p>This project implements five named light effects, each teaching a different FastLED concept:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 5.0%" />
+<col style="width: 20.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>#</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><strong>Calm — Solid HSV</strong></p></td>
+<td><p>A single steady colour. Press the button to advance through eight equally-spaced hues around the colour wheel.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><strong>Breathe — Pulse</strong></p></td>
+<td><p>The LED slowly fades in and out on a sinusoidal curve, simulating the rhythm of calm breathing.</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p><strong>Flow — Rainbow Cycle</strong></p></td>
+<td><p>The hue advances continuously around the colour wheel, producing a slow, hypnotic colour sweep.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p><strong>Flicker — Fire</strong></p></td>
+<td><p>The LED simulates a candle flame with randomised orange-red tones and rapid brightness variation.</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p><strong>Alert — Strobe</strong></p></td>
+<td><p>The LED alternates between red and blue in a rapid two-beat pattern, similar to an emergency light.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="required-library">
+<h2>Required Library<a class="headerlink" href="#required-library" title="Link to this heading">#</a></h2>
+<p>Install the FastLED library through the Arduino Library Manager (<strong>Tools → Manage Libraries</strong>):</p>
+<p>Search for <strong>FastLED</strong> and install the library by Daniel Garcia / FastLED. Version <strong>3.7.x</strong> is recommended for the ESP32-S3; see the note below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>FastLED version 3.10+ has known compatibility issues with some ESP32 Arduino core versions and the I²S peripheral used for WS2812B output. If you experience random flickering or incorrect colours, downgrade to version <strong>3.7.8</strong> using the Library Manager’s version selector. The API is identical between these versions.</p>
+</div>
+</section>
+<section id="writing-the-program">
+<h2>Writing the Program<a class="headerlink" href="#writing-the-program" title="Link to this heading">#</a></h2>
+<p>Create a new sketch in the Arduino IDE and enter the following code:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;FastLED.h&gt;</span>
+
+<span class="c1">// ── Hardware ────────────────────────────────────────────────────────────────</span>
+<span class="cp">#define LED_PIN    2      </span><span class="c1">// WS2812B data line</span>
+<span class="cp">#define NUM_LEDS   1      </span><span class="c1">// One on-board LED</span>
+<span class="cp">#define BUT_PIN    0      </span><span class="c1">// Mode button (active LOW, pull-up)</span>
+<span class="cp">#define BRIGHTNESS 80     </span><span class="c1">// Global brightness 0–255 (keep below 150 for single USB power)</span>
+
+<span class="n">CRGB</span><span class="w"> </span><span class="n">leds</span><span class="p">[</span><span class="n">NUM_LEDS</span><span class="p">];</span>
+
+<span class="c1">// ── Mode definitions ────────────────────────────────────────────────────────</span>
+<span class="k">enum</span><span class="w"> </span><span class="nc">Mode</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">MODE_CALM</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">   </span><span class="c1">// Solid colour, advances hue on each press</span>
+<span class="w">    </span><span class="n">MODE_BREATHE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">   </span><span class="c1">// Sinusoidal brightness pulse</span>
+<span class="w">    </span><span class="n">MODE_FLOW</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">   </span><span class="c1">// Continuous hue rotation</span>
+<span class="w">    </span><span class="n">MODE_FLICKER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">   </span><span class="c1">// Candle fire simulation</span>
+<span class="w">    </span><span class="n">MODE_ALERT</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">   </span><span class="c1">// Red/blue emergency strobe</span>
+<span class="w">    </span><span class="n">MODE_COUNT</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w">    </span><span class="c1">// Total number of modes (keep last)</span>
+<span class="p">};</span>
+
+<span class="c1">// Mode names for Serial logging</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">MODE_NAMES</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s">&quot;CALM — Solid&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;BREATHE — Pulse&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;FLOW — Rainbow&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;FLICKER — Fire&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;ALERT — Strobe&quot;</span>
+<span class="p">};</span>
+
+<span class="c1">// ── State ────────────────────────────────────────────────────────────────────</span>
+<span class="n">Mode</span><span class="w">         </span><span class="n">currentMode</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">MODE_CALM</span><span class="p">;</span>
+<span class="kt">uint8_t</span><span class="w">      </span><span class="n">calmHue</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">       </span><span class="c1">// Hue index for CALM mode (0–7 × 32)</span>
+<span class="kt">uint8_t</span><span class="w">      </span><span class="n">flowHue</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">       </span><span class="c1">// Running hue for FLOW mode</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">lastUpdate</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">       </span><span class="c1">// Last animation tick timestamp</span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">lastButton</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">       </span><span class="c1">// Last button-press timestamp (debounce)</span>
+<span class="kt">bool</span><span class="w">         </span><span class="n">lastBtnState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HIGH</span><span class="p">;</span><span class="w">    </span><span class="c1">// Previous button reading</span>
+
+<span class="c1">// ── Button handler: advance mode on falling edge ──────────────────────────</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">checkButton</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">digitalRead</span><span class="p">(</span><span class="n">BUT_PIN</span><span class="p">);</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Falling edge (HIGH → LOW) + 50 ms debounce guard</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lastBtnState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HIGH</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LOW</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastButton</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">lastButton</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentMode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">MODE_CALM</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// In CALM mode, first cycle through 8 hues before switching mode</span>
+<span class="w">            </span><span class="n">calmHue</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w">   </span><span class="c1">// 256 / 32 = 8 steps around the wheel</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">calmHue</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Wrapped all the way around — now advance to next mode</span>
+<span class="w">                </span><span class="n">currentMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Mode</span><span class="p">)((</span><span class="n">currentMode</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MODE_COUNT</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">currentMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Mode</span><span class="p">)((</span><span class="n">currentMode</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">MODE_COUNT</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Mode → &quot;</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">MODE_NAMES</span><span class="p">[</span><span class="n">currentMode</span><span class="p">]);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">lastBtnState</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// ── Effect 1: CALM — Solid HSV colour ─────────────────────────────────────</span>
+<span class="c1">// Shows a single fully saturated, fully bright colour.</span>
+<span class="c1">// The hue is stored in calmHue and advanced by the button handler.</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">effectCalm</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">leds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CHSV</span><span class="p">(</span><span class="n">calmHue</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span>
+<span class="w">    </span><span class="n">FastLED</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// ── Effect 2: BREATHE — Sinusoidal brightness pulse ───────────────────────</span>
+<span class="c1">// beatsin8(bpm, low, high) returns a value oscillating between low and high</span>
+<span class="c1">// at the given BPM using a sine wave. No millis() bookkeeping needed.</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">effectBreathe</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">brightness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beatsin8</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span><span class="w">   </span><span class="c1">// 12 BPM, range 20–255</span>
+<span class="w">    </span><span class="n">leds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CHSV</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="n">brightness</span><span class="p">);</span><span class="w">          </span><span class="c1">// Calm blue hue</span>
+<span class="w">    </span><span class="n">FastLED</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// ── Effect 3: FLOW — Continuous hue rotation ──────────────────────────────</span>
+<span class="c1">// Advances the hue by 1 every 30 ms, completing a full circle in ~8 seconds.</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">effectFlow</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+<span class="w">        </span><span class="n">flowHue</span><span class="o">++</span><span class="p">;</span><span class="w">               </span><span class="c1">// Wraps at 256 automatically (uint8_t overflow)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">leds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CHSV</span><span class="p">(</span><span class="n">flowHue</span><span class="p">,</span><span class="w"> </span><span class="mi">240</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span>
+<span class="w">    </span><span class="n">FastLED</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// ── Effect 4: FLICKER — Candle fire simulation ────────────────────────────</span>
+<span class="c1">// A candle flame is orange-red with rapid, irregular brightness variation.</span>
+<span class="c1">// random8() from FastLED is a fast 8-bit random number generator.</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">effectFlicker</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">random8</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">   </span><span class="c1">// Random update interval 20–80 ms</span>
+<span class="w">        </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">flicker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random8</span><span class="p">(</span><span class="mi">140</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span><span class="w">      </span><span class="c1">// Random brightness</span>
+<span class="w">        </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">flameHue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">random8</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">25</span><span class="p">);</span><span class="w">        </span><span class="c1">// Red-to-orange hue range</span>
+<span class="w">        </span><span class="n">leds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CHSV</span><span class="p">(</span><span class="n">flameHue</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="n">flicker</span><span class="p">);</span>
+<span class="w">        </span><span class="n">FastLED</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ── Effect 5: ALERT — Red/Blue emergency strobe ───────────────────────────</span>
+<span class="c1">// Alternates red and blue at 4 Hz (250 ms per phase).</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">effectAlert</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">250</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+<span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">phase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="n">phase</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">phase</span><span class="p">;</span>
+<span class="w">        </span><span class="n">leds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">phase</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">CRGB</span><span class="o">::</span><span class="n">Red</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">CRGB</span><span class="o">::</span><span class="n">Blue</span><span class="p">;</span>
+<span class="w">        </span><span class="n">FastLED</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// ── Setup ──────────────────────────────────────────────────────────────────</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">BUT_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">INPUT_PULLUP</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">FastLED</span><span class="p">.</span><span class="n">addLeds</span><span class="o">&lt;</span><span class="n">WS2812B</span><span class="p">,</span><span class="w"> </span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">GRB</span><span class="o">&gt;</span><span class="p">(</span><span class="n">leds</span><span class="p">,</span><span class="w"> </span><span class="n">NUM_LEDS</span><span class="p">);</span>
+<span class="w">    </span><span class="n">FastLED</span><span class="p">.</span><span class="n">setBrightness</span><span class="p">(</span><span class="n">BRIGHTNESS</span><span class="p">);</span>
+<span class="w">    </span><span class="n">FastLED</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="w">    </span><span class="n">FastLED</span><span class="p">.</span><span class="n">show</span><span class="p">();</span><span class="w">   </span><span class="c1">// Ensure LED starts OFF</span>
+
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;STEAM RGB Mood Lamp ready.&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Mode → &quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">MODE_NAMES</span><span class="p">[</span><span class="n">currentMode</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="c1">// ── Loop ───────────────────────────────────────────────────────────────────</span>
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">checkButton</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">currentMode</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MODE_CALM</span><span class="p">:</span><span class="w">    </span><span class="n">effectCalm</span><span class="p">();</span><span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MODE_BREATHE</span><span class="p">:</span><span class="w"> </span><span class="n">effectBreathe</span><span class="p">();</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MODE_FLOW</span><span class="p">:</span><span class="w">    </span><span class="n">effectFlow</span><span class="p">();</span><span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MODE_FLICKER</span><span class="p">:</span><span class="w"> </span><span class="n">effectFlicker</span><span class="p">();</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="no">MODE_ALERT</span><span class="p">:</span><span class="w">   </span><span class="n">effectAlert</span><span class="p">();</span><span class="w">   </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="uploading-the-program">
+<h2>Uploading the Program<a class="headerlink" href="#uploading-the-program" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Connect the board to your computer using the USB cable.</p></li>
+<li><p>Open the Arduino IDE.</p></li>
+<li><p>Select <strong>ESP32S3 Dev Module</strong> from <strong>Tools → Board → esp32</strong>.</p></li>
+<li><p>Select the correct serial port from <strong>Tools → Port</strong>.</p></li>
+<li><p>Click the <strong>Upload</strong> button and wait for completion.</p></li>
+<li><p>Open the <strong>Serial Monitor</strong> (Tools → Serial Monitor, baud 115200) to see the current mode name printed each time the button is pressed.</p></li>
+</ol>
+<figure class="align-center">
+<img alt="img/ws2812b_effects.png" src="img/ws2812b_effects.png" />
+</figure>
+</section>
+<section id="expected-result">
+<h2>Expected Result<a class="headerlink" href="#expected-result" title="Link to this heading">#</a></h2>
+<p>After uploading the program, the LED starts in <strong>CALM</strong> mode, showing a red colour at full brightness. From there:</p>
+<ul class="simple">
+<li><p><strong>Pressing the button</strong> in CALM mode cycles through eight colours: red → orange → yellow → green → cyan → blue → purple → pink → red. After a full colour wheel pass, the next press switches to BREATHE mode.</p></li>
+<li><p><strong>BREATHE mode</strong> pulses the LED slowly in and out in calm blue, like a sleeping laptop indicator light.</p></li>
+<li><p><strong>Pressing again</strong> switches to FLOW mode: the colour sweeps continuously around the colour wheel in about eight seconds per full cycle.</p></li>
+<li><p><strong>Pressing again</strong> switches to FLICKER: the LED mimics a candle flame, with random orange-red flashes at irregular intervals.</p></li>
+<li><p><strong>Pressing again</strong> switches to ALERT: the LED flashes red–blue alternately at 4 Hz.</p></li>
+<li><p><strong>One more press</strong> returns to CALM mode and the cycle begins again.</p></li>
+</ul>
+<p>Mode changes are printed to the Serial Monitor with the mode name, which is useful for logging and debugging.</p>
+</section>
+<section id="how-the-code-works">
+<h2>How the Code Works<a class="headerlink" href="#how-the-code-works" title="Link to this heading">#</a></h2>
+<p><strong>FastLED Initialisation</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">FastLED</span><span class="p">.</span><span class="n">addLeds</span><span class="o">&lt;</span><span class="n">WS2812B</span><span class="p">,</span><span class="w"> </span><span class="n">LED_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">GRB</span><span class="o">&gt;</span><span class="p">(</span><span class="n">leds</span><span class="p">,</span><span class="w"> </span><span class="n">NUM_LEDS</span><span class="p">);</span>
+<span class="n">FastLED</span><span class="p">.</span><span class="n">setBrightness</span><span class="p">(</span><span class="n">BRIGHTNESS</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">addLeds&lt;&gt;</span></code> is a template function that takes three compile-time parameters: the chipset type, the data pin, and the colour order. It connects the <code class="docutils literal notranslate"><span class="pre">leds[]</span></code> array to the WS2812B protocol driver. <code class="docutils literal notranslate"><span class="pre">setBrightness()</span></code> applies a global scale factor to all colours before they are transmitted — this is the correct way to dim the LED without altering the colours stored in the array.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">FastLED.setBrightness(80)</span></code> means all colour channels are scaled to 80/255 ≈ 31% of their declared value. This keeps current consumption well within the USB power budget of the development board. A single WS2812B at full white draws approximately 60 mA; at brightness 80 it draws around 19 mA.</p>
+</div>
+<p><strong>The CHSV Type</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">CHSV(hue,</span> <span class="pre">saturation,</span> <span class="pre">value)</span></code> creates a colour in HSV space. When you assign it to a <code class="docutils literal notranslate"><span class="pre">CRGB</span></code> array element, FastLED automatically converts it using its rainbow colour map:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">leds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CHSV</span><span class="p">(</span><span class="n">calmHue</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span><span class="w">   </span><span class="c1">// Pure, fully bright colour at hue &#39;calmHue&#39;</span>
+<span class="n">leds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CHSV</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="n">brightness</span><span class="p">);</span><span class="w"> </span><span class="c1">// Blue, slightly desaturated, variable brightness</span>
+</pre></div>
+</div>
+<p>This automatic conversion means you never need to call a separate conversion function — the assignment operator handles it.</p>
+<p><strong>beatsin8() for Breathing</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">beatsin8(bpm,</span> <span class="pre">low,</span> <span class="pre">high)</span></code> is a FastLED utility that returns a sine-wave oscillating value without any state variables or explicit timing code:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">brightness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beatsin8</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>At 12 BPM the value completes one full sine cycle in five seconds — similar to the breathing rate of a person at rest. The minimum value of 20 ensures the LED never fully extinguishes, maintaining a faint glow at the lowest point.</p>
+<p><strong>Non-blocking Timing in FLOW and FLICKER</strong></p>
+<p>The FLOW and FLICKER effects use <code class="docutils literal notranslate"><span class="pre">millis()</span></code> to advance their state:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">();</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
+<span class="w">    </span><span class="n">flowHue</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Using subtraction (<code class="docutils literal notranslate"><span class="pre">now</span> <span class="pre">-</span> <span class="pre">lastUpdate</span></code>) rather than a comparison like <code class="docutils literal notranslate"><span class="pre">millis()</span> <span class="pre">&gt;=</span> <span class="pre">lastUpdate</span> <span class="pre">+</span> <span class="pre">30</span></code> makes the timing robust against the 49-day overflow of <code class="docutils literal notranslate"><span class="pre">millis()</span></code> back to zero. In the FLICKER effect, the interval itself is randomised (<code class="docutils literal notranslate"><span class="pre">random8(20,</span> <span class="pre">80)</span></code>) to prevent the regular periodic appearance that would break the illusion of a real flame.</p>
+<p><strong>Mode Cycling Logic</strong></p>
+<p>The button handler uses edge detection (monitoring the transition from HIGH to LOW) and a 50 ms debounce guard:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lastBtnState</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HIGH</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LOW</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastButton</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</pre></div>
+</div>
+<p>In CALM mode specifically, the button first steps through the eight hues before advancing to the next mode. This makes the button multi-function: within CALM mode it is a colour selector; at the end of the hue cycle it becomes a mode switcher. The <code class="docutils literal notranslate"><span class="pre">calmHue</span></code> wraps at 256 (natural <code class="docutils literal notranslate"><span class="pre">uint8_t</span></code> overflow), and when it has wrapped back to 0, a full revolution has been completed.</p>
+<p><strong>The switch Statement</strong></p>
+<p>The main <code class="docutils literal notranslate"><span class="pre">loop()</span></code> uses a <code class="docutils literal notranslate"><span class="pre">switch</span></code> on the current mode to dispatch to the appropriate effect function. Each effect function is responsible only for its own timing and LED update — the loop itself remains unconditionally fast, ensuring the button check <code class="docutils literal notranslate"><span class="pre">checkButton()</span></code> runs on every iteration.</p>
+</section>
+<section id="effect-reference-table">
+<h2>Effect Reference Table<a class="headerlink" href="#effect-reference-table" title="Link to this heading">#</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18.0%" />
+<col style="width: 18.0%" />
+<col style="width: 20.0%" />
+<col style="width: 44.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode</p></th>
+<th class="head"><p>Colour Tool</p></th>
+<th class="head"><p>Timing</p></th>
+<th class="head"><p>Key FastLED Feature Used</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CALM</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CHSV</span></code></p></td>
+<td><p>On button press only</p></td>
+<td><p>HSV colour model; hue mapping</p></td>
+</tr>
+<tr class="row-odd"><td><p>BREATHE</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CHSV</span></code> with variable V</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">beatsin8()</span></code> — self-clocking</p></td>
+<td><p>Built-in oscillator function; no state variables</p></td>
+</tr>
+<tr class="row-even"><td><p>FLOW</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CHSV</span></code> with rolling H</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">millis()</span></code> every 30 ms</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8_t</span></code> hue overflow as free modulo</p></td>
+</tr>
+<tr class="row-odd"><td><p>FLICKER</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CHSV</span></code> warm hues</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">millis()</span></code> every 20–80 ms (random)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">random8()</span></code>; irregular timing for realism</p></td>
+</tr>
+<tr class="row-even"><td><p>ALERT</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CRGB::Red</span></code> / <code class="docutils literal notranslate"><span class="pre">CRGB::Blue</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">millis()</span></code> every 250 ms</p></td>
+<td><p>Named <code class="docutils literal notranslate"><span class="pre">CRGB</span></code> colour constants; static local variable</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="experiment">
+<h2>Experiment<a class="headerlink" href="#experiment" title="Link to this heading">#</a></h2>
+<p>Try the following modifications to explore FastLED further.</p>
+<ul>
+<li><p><strong>Change the BREATHE hue</strong> to match a mood. Try <code class="docutils literal notranslate"><span class="pre">CHSV(96,</span> <span class="pre">255,</span> <span class="pre">brightness)</span></code> for green, <code class="docutils literal notranslate"><span class="pre">CHSV(0,</span> <span class="pre">200,</span> <span class="pre">brightness)</span></code> for warm red, or <code class="docutils literal notranslate"><span class="pre">CHSV(64,</span> <span class="pre">180,</span> <span class="pre">brightness)</span></code> for amber. Observe how desaturating (reducing saturation below 255) shifts the colour towards white.</p></li>
+<li><p><strong>Speed up or slow down the FLOW effect</strong> by changing the millisecond interval. A value of <code class="docutils literal notranslate"><span class="pre">5</span></code> produces a rapid colour spin; <code class="docutils literal notranslate"><span class="pre">100</span></code> gives a very slow, meditative sweep. Try linking the speed to an expression involving <code class="docutils literal notranslate"><span class="pre">millis()</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Gradually accelerates over 10 seconds, then resets</span>
+<span class="kt">uint8_t</span><span class="w"> </span><span class="n">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">millis</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastUpdate</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">speed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Add a CALM colour name</strong> to the Serial Monitor output so you can see which colour is currently displayed:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">HUE_NAMES</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s">&quot;Red&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Orange&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Yellow&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Green&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;Cyan&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Blue&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Purple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Pink&quot;</span>
+<span class="p">};</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">HUE_NAMES</span><span class="p">[(</span><span class="n">calmHue</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">32</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">8</span><span class="p">]);</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Add a second FLOW mode</strong> at a different saturation to produce a pastel rainbow:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">leds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CHSV</span><span class="p">(</span><span class="n">flowHue</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span><span class="w">   </span><span class="c1">// Saturation 128 = soft pastel colours</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Combine effects</strong> by using two concurrent oscillators. For example, in a new OCEAN mode, oscillate both hue and brightness independently:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beatsin8</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">140</span><span class="p">,</span><span class="w"> </span><span class="mi">180</span><span class="p">);</span><span class="w">   </span><span class="c1">// Hue swings between sea-blue and teal</span>
+<span class="kt">uint8_t</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">beatsin8</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">);</span><span class="w">    </span><span class="c1">// Brightness pulses at a different rate</span>
+<span class="n">leds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CHSV</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="mi">220</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Map button hold-time to brightness</strong>: detect how long the button is held and use that duration to set <code class="docutils literal notranslate"><span class="pre">FastLED.setBrightness()</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">state</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LOW</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">held</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">millis</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lastButton</span><span class="p">;</span>
+<span class="w">    </span><span class="n">FastLED</span><span class="p">.</span><span class="n">setBrightness</span><span class="p">(</span><span class="n">constrain</span><span class="p">(</span><span class="n">held</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">));</span>
+<span class="w">    </span><span class="n">FastLED</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symptom</p></th>
+<th class="head"><p>What to check</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LED stays off after upload</p></td>
+<td><p>Confirm FastLED is installed. Verify <code class="docutils literal notranslate"><span class="pre">LED_PIN</span></code> is set to <code class="docutils literal notranslate"><span class="pre">2</span></code>. Open the Serial Monitor to check for startup messages.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LED shows wrong colours (e.g. red appears green)</p></td>
+<td><p>The colour order may be wrong. Try replacing <code class="docutils literal notranslate"><span class="pre">GRB</span></code> with <code class="docutils literal notranslate"><span class="pre">RGB</span></code> in the <code class="docutils literal notranslate"><span class="pre">addLeds&lt;&gt;</span></code> template parameter. WS2812B clones sometimes use different orders.</p></td>
+</tr>
+<tr class="row-even"><td><p>LED flickers randomly in all modes</p></td>
+<td><p>This is a known FastLED issue with some ESP32 core 3.10+ versions. Downgrade FastLED to version <strong>3.7.8</strong> via the Library Manager.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Button does not change mode / changes mode erratically</p></td>
+<td><p>The 50 ms debounce guard is too short for some buttons. Increase it to <code class="docutils literal notranslate"><span class="pre">100</span></code> ms. Confirm <code class="docutils literal notranslate"><span class="pre">BUT_PIN</span></code> is set to <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">INPUT_PULLUP</span></code> is configured.</p></td>
+</tr>
+<tr class="row-even"><td><p>ALERT strobe appears at wrong rate</p></td>
+<td><p>Confirm no <code class="docutils literal notranslate"><span class="pre">delay()</span></code> calls are left in the code. Check that <code class="docutils literal notranslate"><span class="pre">lastUpdate</span></code> is declared globally, not inside the effect function (a local static would work but reset on mode change).</p></td>
+</tr>
+<tr class="row-odd"><td><p>LED is much dimmer than expected</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">FastLED.setBrightness(BRIGHTNESS)</span></code> scales all output. Increase the <code class="docutils literal notranslate"><span class="pre">BRIGHTNESS</span></code> constant. For standalone USB power, keep it below 200 (to stay within ~45 mA per LED at white).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this project you built a five-mode mood lamp controlled by a single button, using the WS2812B RGB LED and the FastLED library. Each mode demonstrated a distinct animation technique, from a simple solid colour to a stochastic fire simulation.</p>
+<p>Key concepts covered include:</p>
+<ul class="simple">
+<li><p>Driving a WS2812B with <code class="docutils literal notranslate"><span class="pre">FastLED.addLeds&lt;WS2812B,</span> <span class="pre">PIN,</span> <span class="pre">GRB&gt;()</span></code>.</p></li>
+<li><p>The <strong>GRB colour order</strong> of the WS2812B and how FastLED handles it transparently.</p></li>
+<li><p>The <strong>HSV colour model</strong> (<code class="docutils literal notranslate"><span class="pre">CHSV</span></code>) and why it is more natural for creative LED work than raw RGB.</p></li>
+<li><p><strong>FastLED’s 0–255 rainbow hue space</strong> and the hue values for common colours.</p></li>
+<li><p><strong>``beatsin8()``</strong> for effortless sinusoidal oscillation without manual timing.</p></li>
+<li><p><strong>``random8()``</strong> for fast, 8-bit random values in animation.</p></li>
+<li><p><strong>``millis()``-based non-blocking timing</strong> to keep the button responsive during animations.</p></li>
+<li><p>Button <strong>edge detection and debouncing</strong> for reliable single-event triggering.</p></li>
+<li><p>Using an <strong>enum</strong> and a <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement to structure multi-mode firmware cleanly.</p></li>
+</ul>
+<p>The patterns introduced here — HSV colour sweeps, sinusoidal breathing, non-blocking millis timing, randomised updates, and mode state machines — appear in almost every real-world LED project and are directly transferable to strips of hundreds of LEDs, not just a single light.</p>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      <ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#background-key-concepts">Background: Key Concepts</a><ul>
+<li><a class="reference internal" href="#the-ws2812b-led">The WS2812B LED</a></li>
+<li><a class="reference internal" href="#the-grb-colour-order">The GRB Colour Order</a></li>
+<li><a class="reference internal" href="#rgb-vs-hsv-choosing-the-right-colour-model">RGB vs. HSV: Choosing the Right Colour Model</a></li>
+<li><a class="reference internal" href="#non-blocking-animation-with-millis">Non-Blocking Animation with <code class="docutils literal notranslate"><span class="pre">millis()</span></code></a></li>
+<li><a class="reference internal" href="#the-five-mood-effects">The Five Mood Effects</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#required-library">Required Library</a></li>
+<li><a class="reference internal" href="#writing-the-program">Writing the Program</a></li>
+<li><a class="reference internal" href="#uploading-the-program">Uploading the Program</a></li>
+<li><a class="reference internal" href="#expected-result">Expected Result</a></li>
+<li><a class="reference internal" href="#how-the-code-works">How the Code Works</a></li>
+<li><a class="reference internal" href="#effect-reference-table">Effect Reference Table</a></li>
+<li><a class="reference internal" href="#experiment">Experiment</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="Lesson11.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">Project 11 : USB Keyboard Input Displayed on the OLED Screen</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="Lesson13.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter">Project 13 : High-Resolution VGA Output</a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

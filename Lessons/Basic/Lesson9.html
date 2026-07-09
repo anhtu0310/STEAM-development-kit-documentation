@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project 9 : Ethernet-Controlled Relay Switch via Web Browser &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project 10 : Environmental Monitoring with BMP280 and OLED Display" href="Lesson10.html" />
+    <link rel="prev" title="Project 8 : Wi-Fi Controlled Switch via Web Browser" href="Lesson8.html" />
+<link rel="stylesheet" type="text/css" src="../../_static/bootstrap/bootstrap.css" />
+<script src="../../_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../../_static/js/conestack.js"></script>
+<script src="../../_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="../../index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="../../search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="project-9-ethernet-controlled-relay-switch-via-web-browser">
+<h1>Project 9 : Ethernet-Controlled Relay Switch via Web Browser<a class="headerlink" href="#project-9-ethernet-controlled-relay-switch-via-web-browser" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this project, you will learn how to control a relay over a local area network (LAN) using a web browser. The ESP32-S3 hosts a small web server that any device on the same network can visit to toggle the relay ON or OFF — no internet connection, no cloud service, no app required.</p>
+<p>By the end of this tutorial, you will know how to:</p>
+<ul class="simple">
+<li><p>Initialise the W5500 Ethernet chip over SPI with custom pin assignments.</p></li>
+<li><p>Start a simple HTTP web server on the ESP32-S3.</p></li>
+<li><p>Serve an HTML control page to a browser on the LAN.</p></li>
+<li><p>Parse HTTP requests to determine which action the user requested.</p></li>
+<li><p>Control a relay output based on browser input.</p></li>
+</ul>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>Before starting, make sure you have the following:</p>
+<ul class="simple">
+<li><p>The STEAM development kit or The STEAM standalone microcontroller board</p></li>
+<li><p>USB cable (for programming)</p></li>
+<li><p>Arduino IDE with ESP32 toolchain installed</p></li>
+<li><p>A network switch or router with an available Ethernet port</p></li>
+<li><p>An Ethernet cable (Cat 5e or better)</p></li>
+<li><p>A device with a web browser (PC, phone, or tablet) on the same LAN</p></li>
+</ul>
+<p>All relay and Ethernet hardware is already integrated on the STEAM development board. No external components are needed.</p>
+<figure class="align-center" id="id1">
+<img alt="../../_images/board_w5500.png" src="../../_images/board_w5500.png" />
+<figcaption>
+<p><span class="caption-text">The interfacing description of the microcontroller board</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>Pin assignments used in this project:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 20.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Signal</p></th>
+<th class="head"><p>ESP32-S3 GPIO</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SPI CLK</p></td>
+<td><p>IO13</p></td>
+<td><p>SPI clock to W5500</p></td>
+</tr>
+<tr class="row-odd"><td><p>SPI CS</p></td>
+<td><p>IO14</p></td>
+<td><p>Chip Select (active LOW)</p></td>
+</tr>
+<tr class="row-even"><td><p>SPI MISO</p></td>
+<td><p>IO12</p></td>
+<td><p>Data from W5500 to ESP32-S3</p></td>
+</tr>
+<tr class="row-odd"><td><p>SPI MOSI</p></td>
+<td><p>IO11</p></td>
+<td><p>Data from ESP32-S3 to W5500</p></td>
+</tr>
+<tr class="row-even"><td><p>RESET</p></td>
+<td><p>IO9</p></td>
+<td><p>Hardware reset for W5500 (active LOW)</p></td>
+</tr>
+<tr class="row-odd"><td><p>INT</p></td>
+<td><p>IO10</p></td>
+<td><p>Interrupt output from W5500 (unused in this project)</p></td>
+</tr>
+<tr class="row-even"><td><p>Relay</p></td>
+<td><p>IO45</p></td>
+<td><p>Relay coil driver (HIGH = energised)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="background-key-concepts">
+<h2>Background: Key Concepts<a class="headerlink" href="#background-key-concepts" title="Link to this heading">#</a></h2>
+<section id="the-w5500-ethernet-controller">
+<h3>The W5500 Ethernet Controller<a class="headerlink" href="#the-w5500-ethernet-controller" title="Link to this heading">#</a></h3>
+<p>The W5500 is a hardwired TCP/IP Ethernet controller that handles the entire network stack in hardware. It communicates with the ESP32-S3 over the SPI bus, leaving the MCU free to run your application code. Because it contains its own TCP/IP engine, you do not need to manage packets, checksums, or protocol state machines — you simply open a socket and read or write data.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="img/w5500_block.png"><img alt="img/w5500_block.png" src="img/w5500_block.png" width="400" />
+</a>
+<figcaption>
+<p><span class="caption-text">W5500 internal block diagram</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="how-the-web-server-works">
+<h3>How the Web Server Works<a class="headerlink" href="#how-the-web-server-works" title="Link to this heading">#</a></h3>
+<p>When a browser visits <code class="docutils literal notranslate"><span class="pre">http://&lt;board-ip&gt;/</span></code>, it sends an HTTP GET request — a short text message that identifies what page it wants. The ESP32-S3 reads that request, decides what to do (serve the main page, toggle the relay, etc.), and responds with an HTML document the browser renders.</p>
+<p>This project uses <strong>HTTP redirects after actions</strong> (POST/Redirect/GET pattern) so that refreshing the browser does not accidentally re-send a relay command.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The web server in this project is single-client and synchronous — it handles one HTTP request at a time. This is perfectly adequate for a LAN control panel used by a small number of users.</p>
+</div>
+</section>
+</section>
+<section id="required-libraries">
+<h2>Required Libraries<a class="headerlink" href="#required-libraries" title="Link to this heading">#</a></h2>
+<p>This project uses the <strong>Ethernet</strong> library with W5500 support. Install it from the Arduino Library Manager:</p>
+<ol class="arabic simple">
+<li><p>Open Arduino IDE.</p></li>
+<li><p>Go to <strong>Tools → Manage Libraries</strong>.</p></li>
+<li><p>Search for <strong>Ethernet</strong> by the Arduino team (version 2.0 or later, which includes W5500 support).</p></li>
+<li><p>Click <strong>Install</strong>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The built-in <code class="docutils literal notranslate"><span class="pre">Ethernet</span></code> library uses <code class="docutils literal notranslate"><span class="pre">Ethernet.init(csPin)</span></code> to select the chip-select pin. Custom SPI pin remapping is done via <code class="docutils literal notranslate"><span class="pre">SPI.begin(sck,</span> <span class="pre">miso,</span> <span class="pre">mosi,</span> <span class="pre">cs)</span></code> before initialising Ethernet.</p>
+</div>
+</section>
+<section id="writing-the-program">
+<h2>Writing the Program<a class="headerlink" href="#writing-the-program" title="Link to this heading">#</a></h2>
+<p>Create a new sketch in the Arduino IDE and enter the following code:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;SPI.h&gt;</span>
+<span class="w">  </span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Ethernet.h&gt;</span>
+
+<span class="w">  </span><span class="c1">// ── Pin definitions ────────────────────────────────────────────────────────</span>
+<span class="w">  </span><span class="cp">#define ETH_CLK    13</span>
+<span class="w">  </span><span class="cp">#define ETH_CS     14</span>
+<span class="w">  </span><span class="cp">#define ETH_MISO   12</span>
+<span class="w">  </span><span class="cp">#define ETH_MOSI   11</span>
+<span class="w">  </span><span class="cp">#define ETH_RESET   9</span>
+<span class="w">  </span><span class="cp">#define ETH_INT    10    </span><span class="c1">// Wired but not used in this project</span>
+<span class="w">  </span><span class="cp">#define RELAY_PIN  45</span>
+
+<span class="w">  </span><span class="c1">// ── Network configuration ──────────────────────────────────────────────────</span>
+<span class="w">  </span><span class="c1">// MAC address — must be unique on your LAN.</span>
+<span class="w">  </span><span class="c1">// The label on your board, or keep this default for a single-board setup.</span>
+<span class="w">  </span><span class="n">byte</span><span class="w"> </span><span class="n">mac</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mh">0xDE</span><span class="p">,</span><span class="w"> </span><span class="mh">0xAD</span><span class="p">,</span><span class="w"> </span><span class="mh">0xBE</span><span class="p">,</span><span class="w"> </span><span class="mh">0xEF</span><span class="p">,</span><span class="w"> </span><span class="mh">0xFE</span><span class="p">,</span><span class="w"> </span><span class="mh">0xED</span><span class="w"> </span><span class="p">};</span>
+
+<span class="w">  </span><span class="c1">// Static IP — change to suit your network (or use DHCP, see Experiments).</span>
+<span class="w">  </span><span class="n">IPAddress</span><span class="w"> </span><span class="nf">ip</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span><span class="w"> </span><span class="mi">168</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">177</span><span class="p">);</span>
+<span class="w">  </span><span class="n">IPAddress</span><span class="w"> </span><span class="nf">gateway</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span><span class="w"> </span><span class="mi">168</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">  </span><span class="n">IPAddress</span><span class="w"> </span><span class="nf">subnet</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// ── Globals ────────────────────────────────────────────────────────────────</span>
+<span class="w">  </span><span class="n">EthernetServer</span><span class="w"> </span><span class="nf">server</span><span class="p">(</span><span class="mi">80</span><span class="p">);</span><span class="w">   </span><span class="c1">// Listen on port 80 (standard HTTP)</span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">relay_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span><span class="w">      </span><span class="c1">// Relay starts de-energised</span>
+
+<span class="w">  </span><span class="c1">// ── HTML page ──────────────────────────────────────────────────────────────</span>
+<span class="w">  </span><span class="c1">// Stored in flash (F macro) to save RAM.</span>
+<span class="w">  </span><span class="c1">// The %STATE% and %BTN% tokens are replaced at runtime.</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">HTML_TEMPLATE</span><span class="p">[]</span><span class="w"> </span><span class="n">PROGMEM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sa">R</span><span class="s">&quot;</span><span class="dl">rawhtml(</span>
+<span class="s">  &lt;!DOCTYPE html&gt;</span>
+<span class="s">  &lt;html lang=&quot;en&quot;&gt;</span>
+<span class="s">  &lt;head&gt;</span>
+<span class="s">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span>
+<span class="s">  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span>
+<span class="s">  &lt;title&gt;Relay Control&lt;/title&gt;</span>
+<span class="s">  &lt;style&gt;</span>
+<span class="s">      *{box-sizing:border-box;margin:0;padding:0}</span>
+<span class="s">      body{font-family:sans-serif;background:#0f1923;color:#e0e6ed;display:grid;place-items:center;min-height:100vh}</span>
+<span class="s">      .card{background:#1a2535;border:1px solid #2a3a50;border-radius:16px;padding:2.5rem;text-align:center;width:320px;box-shadow:0 8px 32px rgba(0,0,0,.4)}</span>
+<span class="s">      h1{font-size:1.25rem;letter-spacing:.08em;color:#7a9bbe;margin-bottom:2rem;text-transform:uppercase}</span>
+<span class="s">      .indicator{width:80px;height:80px;border-radius:50%;margin:0 auto 1.5rem;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;transition:.3s}</span>
+<span class="s">      .on{background:#1db954;box-shadow:0 0 24px #1db95488;color:#fff}</span>
+<span class="s">      .off{background:#2a3a50;color:#7a9bbe}</span>
+<span class="s">      .status-label{font-size:.9rem;color:#7a9bbe;margin-bottom:2rem}</span>
+<span class="s">      .status-label span{font-weight:700;color:#e0e6ed}</span>
+<span class="s">      button{width:100%;padding:.85rem;border:none;border-radius:8px;font-weight:700;cursor:pointer}</span>
+<span class="s">      button:active{transform:scale(.97)}</span>
+<span class="s">      .btn-on{background:#1db954;color:#fff}</span>
+<span class="s">      .btn-off{background:#c0392b;color:#fff}</span>
+<span class="s">      .footer{margin-top:2rem;font-size:.72rem;color:#3a5a7a}</span>
+<span class="s">  &lt;/style&gt;</span>
+<span class="s">  &lt;/head&gt;</span>
+<span class="s">  &lt;body&gt;</span>
+<span class="s">  &lt;div class=&quot;card&quot;&gt;</span>
+<span class="s">      &lt;h1&gt;Relay Control&lt;/h1&gt;</span>
+<span class="s">      &lt;div class=&quot;indicator %INDCLASS%&quot;&gt;%INDLABEL%&lt;/div&gt;</span>
+<span class="s">      &lt;p class=&quot;status-label&quot;&gt;Relay is &lt;span&gt;%STATE%&lt;/span&gt;&lt;/p&gt;</span>
+<span class="s">      &lt;form method=&quot;POST&quot; action=&quot;/toggle&quot;&gt;</span>
+<span class="s">      &lt;button class=&quot;%BTNCLASS%&quot;&gt;%BTNLABEL%&lt;/button&gt;</span>
+<span class="s">      &lt;/form&gt;</span>
+<span class="s">      &lt;p class=&quot;footer&quot;&gt;STEAM Dev Board &amp;bull; Ethernet LAN&lt;/p&gt;</span>
+<span class="s">  &lt;/div&gt;</span>
+<span class="s">  &lt;/body&gt;</span>
+<span class="s">  &lt;/html&gt;</span>
+<span class="s">  </span><span class="dl">)rawhtml</span><span class="s">&quot;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="c1">// ── Helper: send the control page ─────────────────────────────────────────</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">sendPage</span><span class="p">(</span><span class="n">EthernetClient</span><span class="o">&amp;</span><span class="w"> </span><span class="n">client</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Build the response string from the template, substituting live values.</span>
+<span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">page</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">((</span><span class="n">__FlashStringHelper</span><span class="o">*</span><span class="p">)</span><span class="n">HTML_TEMPLATE</span><span class="p">);</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">relay_sts</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">page</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;%STATE%&quot;</span><span class="p">,</span><span class="w">    </span><span class="s">&quot;ON&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">page</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;%INDCLASS%&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;on&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">page</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;%INDLABEL%&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ON&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">page</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;%BTNCLASS%&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;btn-off&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">page</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;%BTNLABEL%&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Turn OFF&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">page</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;%STATE%&quot;</span><span class="p">,</span><span class="w">    </span><span class="s">&quot;OFF&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">page</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;%INDCLASS%&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;off&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">page</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;%INDLABEL%&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;OFF&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">page</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;%BTNCLASS%&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;btn-on&quot;</span><span class="p">);</span>
+<span class="w">          </span><span class="n">page</span><span class="p">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;%BTNLABEL%&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Turn ON&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;HTTP/1.1 200 OK&quot;</span><span class="p">));</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Content-Type: text/html&quot;</span><span class="p">));</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Connection: close&quot;</span><span class="p">));</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Content-Length: &quot;</span><span class="p">));</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">page</span><span class="p">.</span><span class="n">length</span><span class="p">());</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">page</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// ── Helper: send a redirect response ──────────────────────────────────────</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">sendRedirect</span><span class="p">(</span><span class="n">EthernetClient</span><span class="o">&amp;</span><span class="w"> </span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">location</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;HTTP/1.1 303 See Other&quot;</span><span class="p">));</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Location: &quot;</span><span class="p">));</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">location</span><span class="p">);</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Connection: close&quot;</span><span class="p">));</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// ── Setup ──────────────────────────────────────────────────────────────────</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// Relay</span>
+<span class="w">      </span><span class="n">pinMode</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">      </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">relay_sts</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// Hardware-reset the W5500</span>
+<span class="w">      </span><span class="n">pinMode</span><span class="p">(</span><span class="n">ETH_RESET</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">      </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">ETH_RESET</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">      </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">      </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">ETH_RESET</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">      </span><span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span><span class="w">   </span><span class="c1">// Allow W5500 to complete its internal reset</span>
+
+<span class="w">      </span><span class="c1">// Remap SPI to the custom pins and init Ethernet</span>
+<span class="w">      </span><span class="n">SPI</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ETH_CLK</span><span class="p">,</span><span class="w"> </span><span class="n">ETH_MISO</span><span class="p">,</span><span class="w"> </span><span class="n">ETH_MOSI</span><span class="p">,</span><span class="w"> </span><span class="n">ETH_CS</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Ethernet</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">ETH_CS</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Ethernet</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">mac</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="p">,</span><span class="w"> </span><span class="n">gateway</span><span class="p">,</span><span class="w"> </span><span class="n">gateway</span><span class="p">,</span><span class="w"> </span><span class="n">subnet</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// Check hardware link</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Ethernet</span><span class="p">.</span><span class="n">hardwareStatus</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EthernetNoHardware</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;ERROR: W5500 not found. Check SPI wiring.&quot;</span><span class="p">));</span>
+<span class="w">          </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1">// Halt — nothing can be done</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">Ethernet</span><span class="p">.</span><span class="n">linkStatus</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">LinkOFF</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;WARNING: Ethernet cable not connected.&quot;</span><span class="p">));</span>
+<span class="w">          </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Ethernet</span><span class="p">.</span><span class="n">linkStatus</span><span class="p">());</span>
+<span class="w">      </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">server</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Server ready at http://&quot;</span><span class="p">));</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Ethernet</span><span class="p">.</span><span class="n">localIP</span><span class="p">());</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// ── Loop ───────────────────────────────────────────────────────────────────</span>
+<span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">EthernetClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">available</span><span class="p">();</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Client connected&quot;</span><span class="p">));</span>
+
+<span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">request</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">bool</span><span class="w">   </span><span class="n">firstLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">requestLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="c1">// Read the HTTP request (first line contains method + path)</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">connected</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">client</span><span class="p">.</span><span class="n">available</span><span class="p">())</span><span class="w"> </span><span class="k">continue</span><span class="p">;</span>
+
+<span class="w">          </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+
+<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">firstLine</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="n">firstLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">              </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                  </span><span class="n">requestLine</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">              </span><span class="p">}</span>
+<span class="w">          </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">              </span><span class="c1">// Read and discard the remaining headers</span>
+<span class="w">              </span><span class="c1">// until we reach the blank line (\r\n\r\n)</span>
+<span class="w">              </span><span class="n">request</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<span class="w">              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">request</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\r\n\r\n</span><span class="s">&quot;</span><span class="p">))</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Request: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">requestLine</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// Route the request</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">requestLine</span><span class="p">.</span><span class="n">startsWith</span><span class="p">(</span><span class="s">&quot;POST /toggle&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">relay_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">relay_sts</span><span class="p">;</span>
+<span class="w">          </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">relay_sts</span><span class="p">);</span>
+<span class="w">          </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Relay → &quot;</span><span class="p">));</span>
+<span class="w">          </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">relay_sts</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">F</span><span class="p">(</span><span class="s">&quot;ON&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">F</span><span class="p">(</span><span class="s">&quot;OFF&quot;</span><span class="p">));</span>
+<span class="w">          </span><span class="n">sendRedirect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">);</span><span class="w">          </span><span class="c1">// PRG pattern: redirect after POST</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">          </span><span class="n">sendPage</span><span class="p">(</span><span class="n">client</span><span class="p">);</span><span class="w">                   </span><span class="c1">// GET / → serve the control page</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="c1">// Give the browser time to receive the response, then close</span>
+<span class="w">      </span><span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">      </span><span class="n">client</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
+<span class="w">      </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Client disconnected&quot;</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Connect the board to your computer using the USB cable.</p></li>
+<li><p><strong>Before uploading</strong>, edit the <code class="docutils literal notranslate"><span class="pre">ip</span></code>, <code class="docutils literal notranslate"><span class="pre">gateway</span></code>, and <code class="docutils literal notranslate"><span class="pre">subnet</span></code> variables to match your local network (see <em>Finding Your Network Settings</em> below).</p></li>
+<li><p>Open the Arduino IDE.</p></li>
+<li><p>Select <strong>ESP32S3 Dev Module</strong> from <strong>Tools → Board → esp32</strong>.</p></li>
+<li><p>Select the correct serial port from <strong>Tools → Port</strong>.</p></li>
+<li><p>Click the <strong>Upload</strong> button and wait for completion.</p></li>
+<li><p>Open the <strong>Serial Monitor</strong> (Tools → Serial Monitor, baud 115200).</p></li>
+<li><p>Connect an Ethernet cable between the board and your network switch or router.</p></li>
+<li><p>The Serial Monitor will print the board’s IP address once it is ready.</p></li>
+</ol>
+<p>On <strong>Windows</strong>, open a Command Prompt and run <code class="docutils literal notranslate"><span class="pre">ipconfig</span></code>. Look for the adapter connected to your LAN:</p>
+<ul class="simple">
+<li><p><strong>IPv4 Address</strong> — your PC’s address; assign the board a <em>different</em> unused address in the same range.</p></li>
+<li><p><strong>Default Gateway</strong> — use this as the <code class="docutils literal notranslate"><span class="pre">gateway</span></code> value.</p></li>
+<li><p><strong>Subnet Mask</strong> — use this as the <code class="docutils literal notranslate"><span class="pre">subnet</span></code> value.</p></li>
+</ul>
+<p>On <strong>macOS / Linux</strong>, run <code class="docutils literal notranslate"><span class="pre">ifconfig</span></code> or <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">addr</span></code> in a terminal.</p>
+<p><strong>Example:</strong> if your PC shows <code class="docutils literal notranslate"><span class="pre">192.168.1.100</span></code> with gateway <code class="docutils literal notranslate"><span class="pre">192.168.1.1</span></code> and mask <code class="docutils literal notranslate"><span class="pre">255.255.255.0</span></code>, you could assign the board <code class="docutils literal notranslate"><span class="pre">192.168.1.177</span></code>.</p>
+<figure class="align-center" id="id3">
+<img alt="../../_images/eth_webserver.png" src="../../_images/eth_webserver.png" />
+<figcaption>
+<p><span class="caption-text">The relay control page as seen in a web browser</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>After uploading and connecting the Ethernet cable:</p>
+<ul class="simple">
+<li><p>The Serial Monitor prints the board’s IP address.</p></li>
+<li><p>Opening that IP in any browser on the same LAN shows the relay control page.</p></li>
+<li><p>The page displays the current relay state (ON or OFF) with a colour indicator.</p></li>
+<li><p>Clicking the button toggles the relay — you will hear a click from the relay — and the page refreshes to show the new state.</p></li>
+<li><p>The relay state is preserved between browser sessions; only a power cycle resets it.</p></li>
+</ul>
+<figure class="align-center">
+<img alt="../../_images/eth_relay.gif" src="../../_images/eth_relay.gif" />
+</figure>
+<p><strong>Initialising the W5500</strong></p>
+<p>The W5500 requires a hardware reset before use. The code drives <code class="docutils literal notranslate"><span class="pre">ETH_RESET</span></code> LOW for 10 ms and then HIGH, then waits 200 ms for the chip’s internal power-on sequence to complete.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">ETH_RESET</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">ETH_RESET</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Because the W5500 is connected to non-default SPI pins, <code class="docutils literal notranslate"><span class="pre">SPI.begin()</span></code> is called with the custom GPIO assignments before <code class="docutils literal notranslate"><span class="pre">Ethernet.init()</span></code>:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">SPI</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ETH_CLK</span><span class="p">,</span><span class="w"> </span><span class="n">ETH_MISO</span><span class="p">,</span><span class="w"> </span><span class="n">ETH_MOSI</span><span class="p">,</span><span class="w"> </span><span class="n">ETH_CS</span><span class="p">);</span>
+<span class="n">Ethernet</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">ETH_CS</span><span class="p">);</span>
+<span class="n">Ethernet</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">mac</span><span class="p">,</span><span class="w"> </span><span class="n">ip</span><span class="p">,</span><span class="w"> </span><span class="n">gateway</span><span class="p">,</span><span class="w"> </span><span class="n">gateway</span><span class="p">,</span><span class="w"> </span><span class="n">subnet</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The code then checks that the W5500 was found (<code class="docutils literal notranslate"><span class="pre">EthernetNoHardware</span></code> means the SPI wiring is wrong) and whether a cable is connected (<code class="docutils literal notranslate"><span class="pre">LinkOFF</span></code>).</p>
+<p><strong>The Request Loop</strong></p>
+<p>On every iteration of <code class="docutils literal notranslate"><span class="pre">loop()</span></code>, the server checks for a waiting client. If one is present, it reads characters until the first line of the HTTP request is captured — for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">POST</span> <span class="o">/</span><span class="n">toggle</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+</pre></div>
+</div>
+<p>The remaining header lines are read and discarded. No request body is needed because the toggle action is encoded entirely in the URL path.</p>
+<p><strong>Routing</strong></p>
+<p>Two routes are handled:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 20.0%" />
+<col style="width: 55.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>HTTP Method</p></th>
+<th class="head"><p>Path</p></th>
+<th class="head"><p>Action</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GET</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td><p>Serve the HTML control page</p></td>
+</tr>
+<tr class="row-odd"><td><p>POST</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/toggle</span></code></p></td>
+<td><p>Toggle relay, then redirect browser to <code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>Any other path also falls through to <code class="docutils literal notranslate"><span class="pre">sendPage()</span></code>, returning the main page.</p>
+<p><strong>Post / Redirect / Get (PRG) Pattern</strong></p>
+<p>After the toggle POST, the server replies with HTTP 303 (redirect to <code class="docutils literal notranslate"><span class="pre">/</span></code>) rather than directly serving the page. This means if the user refreshes the browser, it performs a harmless GET instead of resubmitting the POST — preventing accidental double-toggles.</p>
+<p><strong>The HTML Template</strong></p>
+<p>The HTML page is stored in program flash (<code class="docutils literal notranslate"><span class="pre">PROGMEM</span></code>) using a raw-string literal. Five placeholder tokens (<code class="docutils literal notranslate"><span class="pre">%STATE%</span></code>, <code class="docutils literal notranslate"><span class="pre">%INDCLASS%</span></code>, <code class="docutils literal notranslate"><span class="pre">%INDLABEL%</span></code>, <code class="docutils literal notranslate"><span class="pre">%BTNCLASS%</span></code>, <code class="docutils literal notranslate"><span class="pre">%BTNLABEL%</span></code>) are replaced at runtime with values that reflect the current relay state before the response is sent.</p>
+<p>The page is self-contained — no external CSS frameworks or JavaScript libraries are loaded — making it functional even without internet access on the LAN.</p>
+<p>Try the following modifications to deepen your understanding.</p>
+<ul>
+<li><p><strong>Use DHCP</strong> instead of a static IP so the router assigns the address automatically:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Replace Ethernet.begin(mac, ip, ...) with:</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">Ethernet</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="n">mac</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;DHCP failed — check cable&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;DHCP address: &quot;</span><span class="p">));</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Ethernet</span><span class="p">.</span><span class="n">localIP</span><span class="p">());</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>With DHCP, the board’s IP address may change after a reboot. Check the Serial Monitor or your router’s client list to find the new address.</p>
+</div>
+</li>
+<li><p><strong>Add a status API endpoint</strong> that returns the relay state as plain text, useful for automation scripts:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">requestLine</span><span class="p">.</span><span class="n">startsWith</span><span class="p">(</span><span class="s">&quot;GET /status&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">body</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">relay_sts</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;ON&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;OFF&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;HTTP/1.1 200 OK&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Content-Type: text/plain&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">F</span><span class="p">(</span><span class="s">&quot;Content-Length: &quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">body</span><span class="p">.</span><span class="n">length</span><span class="p">());</span>
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+<span class="w">    </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">body</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Test it from a terminal on the same LAN: <code class="docutils literal notranslate"><span class="pre">curl</span> <span class="pre">http://192.168.1.177/status</span></code></p>
+</li>
+<li><p><strong>Add separate ON and OFF endpoints</strong> so a home-automation system can set state directly instead of toggling:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">requestLine</span><span class="p">.</span><span class="n">startsWith</span><span class="p">(</span><span class="s">&quot;POST /on&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">relay_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">relay_sts</span><span class="p">);</span>
+<span class="w">    </span><span class="n">sendRedirect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">requestLine</span><span class="p">.</span><span class="n">startsWith</span><span class="p">(</span><span class="s">&quot;POST /off&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">relay_sts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">relay_sts</span><span class="p">);</span>
+<span class="w">    </span><span class="n">sendRedirect</span><span class="p">(</span><span class="n">client</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;/&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Add a page title and board name</strong> to the HTML template so that multiple boards on the same LAN are easy to distinguish in browser tabs.</p></li>
+<li><p><strong>Blink the built-in LED</strong> (GPIO8) whenever an HTTP request arrives, giving a visible indicator that the board is receiving traffic.</p></li>
+</ul>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symptom</p></th>
+<th class="head"><p>What to check</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Serial prints “W5500 not found”</p></td>
+<td><p>Verify SPI wiring (CLK/MISO/MOSI/CS pins). Confirm the W5500 reset line is not stuck LOW.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Serial prints “cable not connected”</p></td>
+<td><p>Seat the Ethernet cable firmly. Try a different cable or port on the switch.</p></td>
+</tr>
+<tr class="row-even"><td><p>Browser says “site can’t be reached”</p></td>
+<td><p>Confirm the board’s static IP is in the same subnet as your PC. Ping the IP from a terminal (<code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">192.168.1.177</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Page loads but relay does not click</p></td>
+<td><p>Check that GPIO45 is not held LOW by another peripheral. Confirm the relay supply voltage is present.</p></td>
+</tr>
+<tr class="row-even"><td><p>Page shows wrong state after power cycle</p></td>
+<td><p>Expected — <code class="docutils literal notranslate"><span class="pre">relay_sts</span></code> is a RAM variable. Add EEPROM or NVS storage to persist state across resets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Multiple rapid clicks when pressing the button</p></td>
+<td><p>The browser submitted multiple requests. Confirm the PRG redirect is working (HTTP 303 after POST).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this tutorial, you learned how to turn the ESP32-S3 into a networked relay controller. The W5500 Ethernet chip is initialised over SPI using custom pin assignments, and the built-in <code class="docutils literal notranslate"><span class="pre">Ethernet</span></code> library manages the TCP/IP stack in hardware. A minimal HTTP server listens for browser requests, serves a self-contained HTML control page, and toggles a relay in response to user actions.</p>
+<p>Key concepts covered include:</p>
+<ul class="simple">
+<li><p>Remapping SPI pins with <code class="docutils literal notranslate"><span class="pre">SPI.begin(sck,</span> <span class="pre">miso,</span> <span class="pre">mosi,</span> <span class="pre">cs)</span></code> for non-default hardware layouts.</p></li>
+<li><p>Initialising the W5500 with a hardware reset sequence.</p></li>
+<li><p>Configuring a static IP address to make the board consistently reachable on the LAN.</p></li>
+<li><p>Parsing HTTP request lines to route GET and POST requests.</p></li>
+<li><p>Implementing the Post/Redirect/Get (PRG) pattern to prevent duplicate actions on browser refresh.</p></li>
+<li><p>Serving a self-contained, styled HTML page from <code class="docutils literal notranslate"><span class="pre">PROGMEM</span></code> to conserve RAM.</p></li>
+<li><p>Controlling a relay output based on network input.</p></li>
+</ul>
+<p>This project brings together SPI peripheral control, TCP/IP networking, HTTP protocol handling, and GPIO output in a single application — a common pattern in industrial IoT and home-automation firmware.</p>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      <ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#background-key-concepts">Background: Key Concepts</a><ul>
+<li><a class="reference internal" href="#the-w5500-ethernet-controller">The W5500 Ethernet Controller</a></li>
+<li><a class="reference internal" href="#how-the-web-server-works">How the Web Server Works</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#required-libraries">Required Libraries</a></li>
+<li><a class="reference internal" href="#writing-the-program">Writing the Program</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="Lesson8.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">Project 8 : Wi-Fi Controlled Switch via Web Browser</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="Lesson10.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter">Project 10 : Environmental Monitoring with BMP280 and OLED Display</a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Toolchains installation &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Example projects" href="exampleprojects.html" />
+    <link rel="prev" title="User manual" href="usermanual.html" />
+<link rel="stylesheet" type="text/css" src="_static/bootstrap/bootstrap.css" />
+<script src="_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="_static/js/conestack.js"></script>
+<script src="_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usermanual.html">User manual</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Toolchains installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exampleprojects.html">Example projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="other_docs.html">Other documentations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Other_docs/arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Other_docs/arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Other_docs/arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Other_docs/arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Other_docs/windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Other_docs/mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="toolchains-installation">
+<h1>Toolchains installation<a class="headerlink" href="#toolchains-installation" title="Link to this heading">#</a></h1>
+<p>This guide will show how to install the SDK and toolchain for <strong>The STEAM development board</strong>. Currently there are 2 major platform environments for developing with ESP32-S3.</p>
+<ul class="simple">
+<li><p><strong>ESP-IDF:</strong> The official SDK for the ESP32-S3 microcontroller which is a powerful SDK, highly optimized, written primarily in C (and C++), gives direct access to low-level hardware features, and permits deep power management customization</p></li>
+<li><p><strong>Arduino:</strong> A simple development environments easier for beginners. it’s a wrapper-based on the Espressif’s offical toolchains, fewer customization options, heavier resource usage.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently this documentation is under development, and current users based are beginners. Therefore, only the instruction for Arduino is written here, for the ESP-IDF installation instruction, refer to the <a class="reference external" href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/index.html">Offical ESP-IDF documentation</a></p>
+</div>
+<p>If you are not familiar with the Arduino IDE, you can find <a class="reference external" href="arduinoIDE.html">installation instruction here</a></p>
+<section id="arduino-toolchains">
+<h2>Arduino toolchains<a class="headerlink" href="#arduino-toolchains" title="Link to this heading">#</a></h2>
+<section id="installing-using-arduino-ide">
+<h3>Installing using Arduino IDE<a class="headerlink" href="#installing-using-arduino-ide" title="Link to this heading">#</a></h3>
+<figure class="align-center">
+<img alt="_images/logo_arduino.png" src="_images/logo_arduino.png" />
+</figure>
+<p>This is the way to install Arduino-ESP32 directly from the Arduino IDE.</p>
+<ul>
+<li><p>Stable release link:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">espressif</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">arduino</span><span class="o">-</span><span class="n">esp32</span><span class="o">/</span><span class="n">package_esp32_index</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</li>
+<li><p>Development release link:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">espressif</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">arduino</span><span class="o">-</span><span class="n">esp32</span><span class="o">/</span><span class="n">package_esp32_dev_index</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Starting with the Arduino IDE version 1.6.4, Arduino allows installation of third-party platform
+packages using Boards Manager. We have packages available for Windows, macOS, and Linux.</p>
+</div>
+<p>To start the installation process using the Boards Manager, follow these steps:</p>
+<ul class="simple">
+<li><p>Install the current upstream Arduino IDE at the 1.8 level or later. The current version is at the <a class="reference external" href="https://www.arduino.cc/en/Main/Software">arduino.cc</a> website.</p></li>
+<li><p>Start Arduino and open the Preferences window.</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/install_guide_preferences.png"><img alt="_images/install_guide_preferences.png" src="_images/install_guide_preferences.png" width="600" />
+</a>
+</figure>
+<ul class="simple">
+<li><p>Enter one of the release links above into <em>Additional Board Manager URLs</em> field. You can add multiple URLs, separating them with commas.</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/install_guide_boards_manager_url.png"><img alt="_images/install_guide_boards_manager_url.png" src="_images/install_guide_boards_manager_url.png" width="600" />
+</a>
+</figure>
+<ul class="simple">
+<li><p>Open Boards Manager from Tools &gt; Board menu and install <em>esp32</em> platform (and do not forget to select your ESP32 board from Tools &gt; Board menu after installation).
+Users in China must select the package version with the “-cn” suffix and perform updates manually.
+Automatic updates are not supported in this region, as they target the default package without the “-cn” suffix, resulting in download failures.</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/install_guide_boards_manager_esp32.png"><img alt="_images/install_guide_boards_manager_esp32.png" src="_images/install_guide_boards_manager_esp32.png" width="600" />
+</a>
+</figure>
+<ul class="simple">
+<li><p>Restart Arduino IDE.</p></li>
+</ul>
+</section>
+<section id="manual-installation">
+<h3>Manual installation<a class="headerlink" href="#manual-installation" title="Link to this heading">#</a></h3>
+<section id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Arduino ESP32 core v2.x.x cannot be used on Windows 8.x x86 (32 bits), Windows 7 or earlier. The Windows 32 bits OS is no longer supported by this toolchain.</p>
+<p>The Arduino ESP32 v1.0.6 still works on WIN32. You might want to install python 3.8.x because it is the latest release supported by Windows 7.</p>
+</div>
+<p>Steps to install Arduino ESP32 support on Windows:</p>
+<p><strong>Step 1</strong></p>
+<ol class="arabic simple">
+<li><p>Download and install the latest Arduino IDE <code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">Installer</span></code> from [arduino.cc](<a class="reference external" href="https://www.arduino.cc/en/Main/Software">https://www.arduino.cc/en/Main/Software</a>)</p></li>
+<li><p>Download and install Git from [git-scm.com](<a class="reference external" href="https://git-scm.com/download/win">https://git-scm.com/download/win</a>)</p></li>
+<li><p>Start <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">GUI</span></code> and do the following steps:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">Clone</span> <span class="pre">Existing</span> <span class="pre">Repository</span></code></p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/win-gui-1.png"><img alt="_images/win-gui-1.png" src="_images/win-gui-1.png" width="600" />
+</a>
+</figure>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Select source and destination</dt><dd><ul>
+<li><p>Sketchbook Directory: Usually <code class="docutils literal notranslate"><span class="pre">C:/Users/[YOUR_USER_NAME]/Documents/Arduino</span></code> and is listed underneath the “Sketchbook location” in Arduino preferences.</p></li>
+<li><p>Source Location: <code class="docutils literal notranslate"><span class="pre">https://github.com/espressif/arduino-esp32.git</span></code></p></li>
+<li><p>Target Directory: <code class="docutils literal notranslate"><span class="pre">[ARDUINO_SKETCHBOOK_DIR]/hardware/espressif/esp32</span></code></p></li>
+<li><p>Click <code class="docutils literal notranslate"><span class="pre">Clone</span></code> to start cloning the repository</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Step 2</strong></p>
+<figure class="align-center">
+<img alt="_images/win-gui-2.png" src="_images/win-gui-2.png" />
+</figure>
+<p><strong>Step 3</strong></p>
+<figure class="align-center">
+<img alt="_images/win-gui-3.png" src="_images/win-gui-3.png" />
+</figure>
+<ul class="simple">
+<li><p>open a <cite>Git Bash</cite> session pointing to <code class="docutils literal notranslate"><span class="pre">[ARDUINO_SKETCHBOOK_DIR]/hardware/espressif/esp32</span></code> and execute <code class="docutils literal notranslate"><span class="pre">`git</span> <span class="pre">submodule</span> <span class="pre">update</span> <span class="pre">--init</span> <span class="pre">--recursive`</span></code></p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">[ARDUINO_SKETCHBOOK_DIR]/hardware/espressif/esp32/tools</span></code> and double-click <code class="docutils literal notranslate"><span class="pre">get.exe</span></code></p></li>
+</ul>
+<p><strong>Step 4</strong></p>
+<figure class="align-center">
+<img alt="_images/win-gui-4.png" src="_images/win-gui-4.png" />
+</figure>
+<ul class="simple">
+<li><p>When <code class="docutils literal notranslate"><span class="pre">`get.exe`</span></code> finishes, you should see the following files in the directory</p></li>
+</ul>
+<p><strong>Step 5</strong></p>
+<figure class="align-center">
+<img alt="_images/win-gui-5.png" src="_images/win-gui-5.png" />
+</figure>
+<ol class="arabic simple">
+<li><p>Plug your ESP32 board and wait for the drivers to install (or install manually any that might be required)</p></li>
+<li><p>Start Arduino IDE</p></li>
+<li><p>Select your board in <code class="docutils literal notranslate"><span class="pre">Tools</span> <span class="pre">&gt;</span> <span class="pre">Board</span></code> menu</p></li>
+<li><p>Select the COM port that the board is attached to</p></li>
+<li><p>Compile and upload (You might need to hold the boot button while uploading)</p></li>
+</ol>
+<figure class="align-center">
+<img alt="_images/arduino-ide.png" src="_images/arduino-ide.png" />
+</figure>
+<section id="how-to-update-to-the-latest-code">
+<h5>How to update to the latest code<a class="headerlink" href="#how-to-update-to-the-latest-code" title="Link to this heading">#</a></h5>
+<ol class="arabic simple">
+<li><p>Start <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">GUI</span></code> and you should see the repository under <code class="docutils literal notranslate"><span class="pre">Open</span> <span class="pre">Recent</span> <span class="pre">Repository</span></code>. Click on it!</p></li>
+</ol>
+<figure class="align-center">
+<img alt="_images/win-gui-update-1.png" src="_images/win-gui-update-1.png" />
+</figure>
+<ol class="arabic simple">
+<li><p>From menu <code class="docutils literal notranslate"><span class="pre">Remote</span></code> select <code class="docutils literal notranslate"><span class="pre">Fetch</span> <span class="pre">from</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">origin</span></code></p></li>
+</ol>
+<figure class="align-center">
+<img alt="_images/win-gui-update-2.png" src="_images/win-gui-update-2.png" />
+</figure>
+<ol class="arabic simple">
+<li><p>Wait for git to pull any changes and close <code class="docutils literal notranslate"><span class="pre">Git</span> <span class="pre">GUI</span></code></p></li>
+<li><p>Open <code class="docutils literal notranslate"><span class="pre">[ARDUINO_SKETCHBOOK_DIR]/hardware/espressif/esp32/tools</span></code> and double-click <code class="docutils literal notranslate"><span class="pre">get.exe</span></code></p></li>
+</ol>
+<figure class="align-center">
+<img alt="_images/win-gui-4.png" src="_images/win-gui-4.png" />
+</figure>
+</section>
+</section>
+<section id="linux">
+<h4>Linux<a class="headerlink" href="#linux" title="Link to this heading">#</a></h4>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/logo_linux.png"><img alt="_images/logo_linux.png" src="_images/logo_linux.png" width="200" />
+</a>
+</figure>
+<section id="debian-ubuntu">
+<h5>Debian/Ubuntu<a class="headerlink" href="#debian-ubuntu" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p>Install latest Arduino IDE from <a class="reference external" href="https://www.arduino.cc/en/Main/Software">arduino.cc</a>.</p></li>
+<li><p>Open Terminal and execute the following command (copy -&gt; paste and hit enter):</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>dialout<span class="w"> </span><span class="nv">$USER</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+wget<span class="w"> </span>https://bootstrap.pypa.io/get-pip.py<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+sudo<span class="w"> </span>python3<span class="w"> </span>get-pip.py<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+sudo<span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>pyserial<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/Arduino/hardware/espressif<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="nb">cd</span><span class="w"> </span>~/Arduino/hardware/espressif<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/espressif/arduino-esp32.git<span class="w"> </span>esp32<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="nb">cd</span><span class="w"> </span>esp32/tools<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+python3<span class="w"> </span>get.py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Restart Arduino IDE.</p></li>
+<li><p>If you have Arduino installed to ~/, modify the installation as follows, beginning at <cite>mkdir -p ~/Arduino/hardware</cite>:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/Arduino/hardware
+mkdir<span class="w"> </span>-p<span class="w"> </span>espressif<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="nb">cd</span><span class="w"> </span>espressif<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/espressif/arduino-esp32.git<span class="w"> </span>esp32<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="nb">cd</span><span class="w"> </span>esp32/tools<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+python3<span class="w"> </span>get.py
+</pre></div>
+</div>
+</section>
+<section id="fedora">
+<h5>Fedora<a class="headerlink" href="#fedora" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p>Install the latest Arduino IDE from <a class="reference external" href="https://www.arduino.cc/en/Main/Software">arduino.cc</a>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Command <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">-y</span> <span class="pre">install</span> <span class="pre">arduino</span></code> will most likely install an older release.</p>
+</div>
+<ul class="simple">
+<li><p>Open Terminal and execute the following command (copy -&gt; paste and hit enter):</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>dialout<span class="w"> </span><span class="nv">$USER</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>python3-pip<span class="w"> </span>python3-pyserial<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/Arduino/hardware/espressif<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="nb">cd</span><span class="w"> </span>~/Arduino/hardware/espressif<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/espressif/arduino-esp32.git<span class="w"> </span>esp32<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="nb">cd</span><span class="w"> </span>esp32/tools<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+python<span class="w"> </span>get.py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Restart Arduino IDE.</p></li>
+</ul>
+</section>
+<section id="opensuse">
+<h5>openSUSE<a class="headerlink" href="#opensuse" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p>Install the latest Arduino IDE from <a class="reference external" href="https://www.arduino.cc/en/Main/Software">arduino.cc</a>.</p></li>
+<li><p>Open Terminal and execute the following command (copy -&gt; paste and hit enter):</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>usermod<span class="w"> </span>-a<span class="w"> </span>-G<span class="w"> </span>dialout<span class="w"> </span><span class="nv">$USER</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="sb">`</span>python<span class="w"> </span>--version<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;2.7&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="sb">`</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="se">\</span>
+sudo<span class="w"> </span>zypper<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>python-pip<span class="w"> </span>python-pyserial<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="k">else</span><span class="w"> </span><span class="se">\</span>
+sudo<span class="w"> </span>zypper<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>python3-pip<span class="w"> </span>python3-pyserial<span class="p">;</span><span class="w"> </span><span class="se">\</span>
+<span class="k">fi</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/Arduino/hardware/espressif<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="nb">cd</span><span class="w"> </span>~/Arduino/hardware/espressif<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/espressif/arduino-esp32.git<span class="w"> </span>esp32<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="nb">cd</span><span class="w"> </span>esp32/tools<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+python<span class="w"> </span>get.py
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Restart Arduino IDE.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="macos">
+<h3>macOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Install the latest Arduino IDE from <a class="reference external" href="https://www.arduino.cc/en/Main/Software">arduino.cc</a>.</p></li>
+<li><p>Open Terminal and execute the following command (copy -&gt; paste and hit enter):</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/Documents/Arduino/hardware/espressif<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="nb">cd</span><span class="w"> </span>~/Documents/Arduino/hardware/espressif<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/espressif/arduino-esp32.git<span class="w"> </span>esp32<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="nb">cd</span><span class="w"> </span>esp32/tools<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+python<span class="w"> </span>get.py
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">~/Documents/Arduino</span></code> represents your sketch book location as per “Arduino” &gt; “Preferences” &gt; “Sketchbook location” (in the IDE once started). Adjust the command above accordingly.</p>
+<ul class="simple">
+<li><p>If you get the error below, install through the command line dev tools with <cite>xcode-select –install</cite> and try the command above again:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xcrun:<span class="w"> </span>error:<span class="w"> </span>invalid<span class="w"> </span>active<span class="w"> </span>developer<span class="w"> </span>path<span class="w"> </span><span class="o">(</span>/Library/Developer/CommandLineTools<span class="o">)</span>,<span class="w"> </span>missing<span class="w"> </span>xcrun<span class="w"> </span>at:<span class="w"> </span>/Library/Developer/CommandLineTools/usr/bin/xcrun
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run the command:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xcode-select<span class="w"> </span>--install
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Try <code class="docutils literal notranslate"><span class="pre">python3</span></code> instead of <code class="docutils literal notranslate"><span class="pre">python</span></code> if you get the error: <code class="docutils literal notranslate"><span class="pre">IOError:</span> <span class="pre">[Errno</span> <span class="pre">socket</span> <span class="pre">error]</span> <span class="pre">[SSL:</span> <span class="pre">TLSV1_ALERT_PROTOCOL_VERSION]</span> <span class="pre">tlsv1</span> <span class="pre">alert</span> <span class="pre">protocol</span> <span class="pre">version</span> <span class="pre">(_ssl.c:590)</span></code> when running <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">get.py</span></code></p></li>
+<li><p>If you get the following error when running <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">get.py</span></code>: <code class="docutils literal notranslate"><span class="pre">urllib.error.URLError:</span> <span class="pre">&lt;urlopen</span> <span class="pre">error</span> <span class="pre">SSL:</span> <span class="pre">CERTIFICATE_VERIFY_FAILED</span></code>, go to <code class="docutils literal notranslate"><span class="pre">Macintosh</span> <span class="pre">HD</span> <span class="pre">&gt;</span> <span class="pre">Applications</span> <span class="pre">&gt;</span> <span class="pre">Python3.6</span> <span class="pre">folder</span> <span class="pre">(or</span> <span class="pre">any</span> <span class="pre">other</span> <span class="pre">python</span> <span class="pre">version)</span></code>, and run the following scripts: Install Certificates.command and Update Shell Profile.command</p></li>
+<li><p>Restart Arduino IDE.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      <ul>
+<li><a class="reference internal" href="#arduino-toolchains">Arduino toolchains</a><ul>
+<li><a class="reference internal" href="#installing-using-arduino-ide">Installing using Arduino IDE</a></li>
+<li><a class="reference internal" href="#manual-installation">Manual installation</a><ul>
+<li><a class="reference internal" href="#windows">Windows</a><ul>
+<li><a class="reference internal" href="#how-to-update-to-the-latest-code">How to update to the latest code</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#linux">Linux</a><ul>
+<li><a class="reference internal" href="#debian-ubuntu">Debian/Ubuntu</a></li>
+<li><a class="reference internal" href="#fedora">Fedora</a></li>
+<li><a class="reference internal" href="#opensuse">openSUSE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#macos">macOS</a></li>
+</ul>
+</li>
+</ul>
+
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="usermanual.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">User manual</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="exampleprojects.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter">Example projects</a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

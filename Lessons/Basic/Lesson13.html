@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project 13 : High-Resolution VGA Output &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Hardware" href="../../hardware.html" />
+    <link rel="prev" title="Project 12 : RGB Mood Lamp — Five Light Effects with One Button" href="Lesson12.html" />
+<link rel="stylesheet" type="text/css" src="../../_static/bootstrap/bootstrap.css" />
+<script src="../../_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../../_static/js/conestack.js"></script>
+<script src="../../_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="../../index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="../../search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="project-13-high-resolution-vga-output">
+<h1>Project 13 : High-Resolution VGA Output<a class="headerlink" href="#project-13-high-resolution-vga-output" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this project, you will turn the ESP32-S3 into a video card. The STEAM development board has a full VGA connector and a resistor-ladder digital-to-analogue converter (DAC) built in, isolated from the MCU’s GPIOs by an <strong>SN74LCV245</strong> octal bus transceiver. By driving this hardware with bitluni’s <code class="docutils literal notranslate"><span class="pre">ESP32-S3-VGA</span></code> library, you can output real, syncing VGA video to any standard monitor — no external frame buffer chip required. The ESP32-S3 generates the entire signal — pixel timing, horizontal sync, vertical sync, and colour — purely in software using its LCD peripheral.</p>
+<p>By the end of this tutorial, you will know how to:</p>
+<ul class="simple">
+<li><p>Understand how the SN74LCV245 isolates and buffers the GPIOs driving the VGA resistor ladder.</p></li>
+<li><p>Understand the relationship between resolution, colour depth, and available memory (SRAM vs. PSRAM).</p></li>
+<li><p>Configure and install bitluni’s <code class="docutils literal notranslate"><span class="pre">ESP32-S3-VGA</span></code> library.</p></li>
+<li><p>Initialise a VGA mode and draw text using the Adafruit GFX wrapper.</p></li>
+<li><p>Draw raw pixel graphics directly using the low-level drawing API.</p></li>
+<li><p>Choose the highest <strong>stable</strong> resolution for the ESP32-S3’s onboard PSRAM.</p></li>
+</ul>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>Before starting, make sure you have the following:</p>
+<ul class="simple">
+<li><p>The STEAM development kit or The STEAM standalone microcontroller board (8 MB Octal PSRAM variant — <strong>N8R8</strong>)</p></li>
+<li><p>USB cable</p></li>
+<li><p>Arduino IDE with ESP32 toolchain installed</p></li>
+<li><p>A VGA monitor or a VGA-capable display, plus a standard VGA cable</p></li>
+</ul>
+<p>The VGA port, resistor-ladder DAC, and SN74LCV245 isolation buffer are already integrated on the STEAM development board. No external wiring is needed.</p>
+<figure class="align-center" id="id1">
+<img alt="../../_images/vga_board.png" src="../../_images/vga_board.png" />
+<figcaption>
+<p><span class="caption-text">The interfacing description of the board</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This project requires the <strong>8 MB Octal PSRAM (N8R8)</strong> variant of the ESP32-S3. High-resolution colour modes will fail to initialise on modules without PSRAM, because the frame buffer for anything above roughly 320×240 does not fit in the chip’s internal SRAM.</p>
+</div>
+</section>
+<section id="background-key-concepts">
+<h2>Background: Key Concepts<a class="headerlink" href="#background-key-concepts" title="Link to this heading">#</a></h2>
+<section id="how-software-generated-vga-works">
+<h3>How Software-Generated VGA Works<a class="headerlink" href="#how-software-generated-vga-works" title="Link to this heading">#</a></h3>
+<p>VGA is an analogue video standard, but the ESP32-S3 is a digital chip. To generate analogue-looking video, the board uses a <strong>resistor ladder DAC</strong>: each colour channel (Red, Green, Blue) is driven by several GPIO pins, each connected through a resistor of a different value to the same output node. By switching combinations of these GPIOs high or low, the combined voltage on that node approximates an analogue level — more bits per colour channel means finer voltage steps and smoother colour gradients.</p>
+<p>The ESP32-S3’s <strong>LCD_CAM peripheral</strong> (normally intended for driving LCD panels) is repurposed here to clock these GPIOs out at high speed with precise, hardware-generated timing, alongside the HSync and VSync pulses that tell the monitor when each line and frame begins. This is the same fundamental trick bitluni used in earlier ESP32 boards via I²S, but the ESP32-S3 version uses the newer, more capable LCD peripheral, which is why the original ESP32 VGA library is not compatible with the S3.</p>
+<figure class="align-center" id="id2">
+<img alt="../../_images/res_lad.png" src="../../_images/res_lad.png" />
+<figcaption>
+<p><span class="caption-text">GPIOs driving a resistor-ladder DAC to produce analogue colour voltage levels</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="the-role-of-the-sn74lcv245">
+<h3>The Role of the SN74LCV245<a class="headerlink" href="#the-role-of-the-sn74lcv245" title="Link to this heading">#</a></h3>
+<p>The SN74LCV245 is an <strong>octal bus transceiver</strong> — eight bidirectional buffer channels in one chip, normally used to let two buses at different voltage levels or drive strengths talk to each other safely.</p>
+<p>On the STEAM board, the SN74LCV245 sits between the ESP32-S3’s GPIOs and the resistor-ladder network feeding the VGA connector. It serves two purposes:</p>
+<ul class="simple">
+<li><p><strong>Electrical isolation</strong> — the resistor ladder and the VGA connector present a real-world load (cable capacitance, monitor input impedance, potential static discharge from plugging in a cable) that could otherwise stress or damage the MCU’s GPIO pins directly. The buffer chip absorbs this.</p></li>
+<li><p><strong>Drive strength</strong> — VGA’s resistor ladder needs to switch relatively quickly and supply enough current at each output to charge cable capacitance for clean edges. The SN74LCV245 is a dedicated high-speed driver, more consistent than relying on the ESP32-S3’s GPIO drivers directly.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because the buffer is configured for one-directional output (MCU → VGA connector) in this design, you do not need to manage any direction-control logic in software. From the Arduino sketch’s perspective, the GPIOs behave exactly as if they were wired straight to the resistor ladder — the isolation is entirely transparent to your code.</p>
+</div>
+</section>
+<section id="resolution-colour-depth-and-memory">
+<h3>Resolution, Colour Depth, and Memory<a class="headerlink" href="#resolution-colour-depth-and-memory" title="Link to this heading">#</a></h3>
+<p>The frame buffer — the block of memory holding every pixel’s colour value — must fit somewhere in the chip’s memory. Its size is simply <code class="docutils literal notranslate"><span class="pre">width</span> <span class="pre">×</span> <span class="pre">height</span> <span class="pre">×</span> <span class="pre">bytes-per-pixel</span></code>. This creates a direct trade-off between resolution, colour depth, and how much memory is available:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Resolution</p></th>
+<th class="head"><p>Colour Depth</p></th>
+<th class="head"><p>Frame Buffer Size</p></th>
+<th class="head"><p>Memory Required</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>320×240</p></td>
+<td><p>16-bit</p></td>
+<td><p>150 KB</p></td>
+<td><p>Fits in internal SRAM</p></td>
+</tr>
+<tr class="row-odd"><td><p>640×480</p></td>
+<td><p>16-bit</p></td>
+<td><p>600 KB</p></td>
+<td><p>Requires PSRAM</p></td>
+</tr>
+<tr class="row-even"><td><p>800×600</p></td>
+<td><p>16-bit</p></td>
+<td><p>960 KB</p></td>
+<td><p>Requires PSRAM — recommended ceiling for reliable colour</p></td>
+</tr>
+<tr class="row-odd"><td><p>1024×768</p></td>
+<td><p>8-bit</p></td>
+<td><p>768 KB</p></td>
+<td><p>Requires PSRAM — usable, occasional glitches reported</p></td>
+</tr>
+<tr class="row-even"><td><p>1280×720</p></td>
+<td><p>8-bit</p></td>
+<td><p>900 KB</p></td>
+<td><p>Requires PSRAM — documented as experimental, sync issues common</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The library’s documentation and community testing both describe higher resolutions as <strong>experimental</strong>. Resolutions up to 800×600 at 60 Hz with 16-bit colour work reliably, while 1280×720 (achieved by dropping to 8-bit colour) and similar very-high resolutions can suffer from cache-related glitches at the start of each frame, with 1024×768 generally recommended as the practical highest resolution before instability appears. This lesson therefore targets <strong>800×600 at 16-bit colour</strong> as the highest resolution that is both maximally detailed and dependably stable — true “highest possible” in the sense of usable, not just theoretical.</p>
+</div>
+</section>
+</section>
+<section id="required-libraries">
+<h2>Required Libraries<a class="headerlink" href="#required-libraries" title="Link to this heading">#</a></h2>
+<p>This project uses three components, installed in a specific order.</p>
+<ol class="arabic simple">
+<li><p><strong>ESP32 board support</strong> — confirm you already have the ESP32 board package installed (<code class="docutils literal notranslate"><span class="pre">Tools</span> <span class="pre">→</span> <span class="pre">Board</span> <span class="pre">→</span> <span class="pre">Boards</span> <span class="pre">Manager</span></code>, search “esp32”).</p></li>
+<li><p><strong>Adafruit GFX Library</strong> — install via the Arduino Library Manager (<code class="docutils literal notranslate"><span class="pre">Tools</span> <span class="pre">→</span> <span class="pre">Manage</span> <span class="pre">Libraries</span></code>, search “Adafruit GFX Library”). This provides the text-drawing and shape-drawing API used by the GfxWrapper.</p></li>
+<li><p><strong>ESP32-S3-VGA library</strong> — this library is not yet published in the Arduino Library Manager, so it must be installed manually:</p>
+<ol class="loweralpha simple">
+<li><p>Download the repository as a ZIP from <a class="reference external" href="https://github.com/bitluni/ESP32-S3-VGA">github.com/bitluni/ESP32-S3-VGA</a> (Code → Download ZIP).</p></li>
+<li><p>In the Arduino IDE, go to <strong>Sketch → Include Library → Add .ZIP Library…</strong> and select the downloaded file.</p></li>
+<li><p>Restart the Arduino IDE.</p></li>
+</ol>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After installation, example sketches will appear under <strong>File → Examples → bitluni ESP32-S3-VGA</strong>, but the code in this lesson is self-contained and does not require opening them.</p>
+</div>
+</section>
+<section id="required-arduino-ide-settings">
+<h2>Required Arduino IDE Settings<a class="headerlink" href="#required-arduino-ide-settings" title="Link to this heading">#</a></h2>
+<p>Go to <strong>Tools</strong> and set the following before uploading. These match the official requirements for the VGA library:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Required Value</p></th>
+<th class="head"><p>Why</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Board</p></td>
+<td><p><strong>ESP32S3 Dev Module</strong></p></td>
+<td><p>Targets the correct chip variant</p></td>
+</tr>
+<tr class="row-odd"><td><p>CPU Frequency</p></td>
+<td><p><strong>240 MHz (WiFi)</strong></p></td>
+<td><p>The LCD peripheral needs full clock speed for stable high-resolution timing</p></td>
+</tr>
+<tr class="row-even"><td><p>Flash Size</p></td>
+<td><p><strong>8 MB (64 Mb)</strong></p></td>
+<td><p>Matches the STEAM board’s flash</p></td>
+</tr>
+<tr class="row-odd"><td><p>PSRAM</p></td>
+<td><p><strong>OPI PSRAM</strong></p></td>
+<td><p><strong>Critical.</strong> Without this, the frame buffer cannot be allocated and <code class="docutils literal notranslate"><span class="pre">vga.init()</span></code> will fail</p></td>
+</tr>
+<tr class="row-even"><td><p>USB CDC On Boot</p></td>
+<td><p><strong>Enabled</strong></p></td>
+<td><p>Allows Serial Monitor over the native USB port for this project</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">PSRAM</span></code> is left at its default of “Disabled”, any resolution above roughly 320×240 will fail to initialise. This is the single most common cause of a blank screen with this library.</p>
+</div>
+</section>
+<section id="writing-the-program-part-1-displaying-text">
+<h2>Writing the Program — Part 1: Displaying Text<a class="headerlink" href="#writing-the-program-part-1-displaying-text" title="Link to this heading">#</a></h2>
+<p>This first sketch demonstrates the simplest possible use of the library: initialising 800×600 VGA output and printing text using the familiar Adafruit GFX <code class="docutils literal notranslate"><span class="pre">print()</span></code> API via bitluni’s <code class="docutils literal notranslate"><span class="pre">GfxWrapper</span></code>.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ESP32S3VGA.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;GfxWrapper.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Fonts/FreeMonoBoldOblique24pt7b.h&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Fonts/FreeSerif24pt7b.h&gt;</span>
+<span class="c1">// ── VGA pin configuration ──────────────────────────────────────────────────</span>
+<span class="c1">// Order: R0..R4, G0..G5, B0..B4, HSync, VSync</span>
+<span class="c1">// These map to the resistor-ladder DAC inputs through the SN74LCV245 buffer.</span>
+<span class="k">const</span><span class="w"> </span><span class="n">PinConfig</span><span class="w"> </span><span class="n">pins</span><span class="p">(</span>
+<span class="w">    </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">           </span><span class="c1">// Red   (5 bits)</span>
+<span class="w">    </span><span class="mi">38</span><span class="p">,</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">   </span><span class="c1">// Green (6 bits)</span>
+<span class="w">    </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">      </span><span class="c1">// Blue  (5 bits)</span>
+<span class="w">    </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w">                     </span><span class="c1">// HSync, VSync</span>
+<span class="p">);</span>
+
+<span class="c1">// ── VGA device and display mode ──────────────────────────────────────────</span>
+<span class="n">VGA</span><span class="w"> </span><span class="n">vga</span><span class="p">;</span>
+<span class="n">Mode</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mode</span><span class="o">::</span><span class="n">MODE_800x600x60</span><span class="p">;</span><span class="w">   </span><span class="c1">// Highest stable resolution, 60 Hz</span>
+
+<span class="c1">// ── Adafruit GFX wrapper — gives access to print(), drawing primitives ───</span>
+<span class="n">GfxWrapper</span><span class="o">&lt;</span><span class="n">VGA</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gfx</span><span class="p">(</span><span class="n">vga</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">.</span><span class="n">hRes</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">.</span><span class="n">vRes</span><span class="p">);</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Use 2 frame buffers for tear-free updates</span>
+<span class="w">    </span><span class="n">vga</span><span class="p">.</span><span class="n">bufferCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Initialise: pin config, mode, bits per pixel (16-bit colour)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">vga</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;VGA init failed! Check PSRAM setting in Tools menu.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="n">vga</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Clear the screen to black</span>
+<span class="w">    </span><span class="n">vga</span><span class="p">.</span><span class="n">clear</span><span class="p">(</span><span class="n">vga</span><span class="p">.</span><span class="n">rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">));</span>
+<span class="w">    </span><span class="n">gfx</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="o">&amp;</span><span class="n">FreeSerif24pt7b</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Configure text appearance</span>
+<span class="w">    </span><span class="n">gfx</span><span class="p">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="n">vga</span><span class="p">.</span><span class="n">rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">));</span><span class="w">  </span><span class="c1">// White text</span>
+<span class="w">    </span><span class="n">gfx</span><span class="p">.</span><span class="n">setTextSize</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="w">                         </span><span class="c1">// 2x scale</span>
+<span class="w">    </span><span class="n">gfx</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">);</span>
+<span class="w">    </span><span class="n">gfx</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, VGA!&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">gfx</span><span class="p">.</span><span class="n">setTextSize</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="w">    </span><span class="n">gfx</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">);</span>
+<span class="w">    </span><span class="n">gfx</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;ESP32-S3  -  800x600  -  16-bit color&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">gfx</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span>
+<span class="w">    </span><span class="n">gfx</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;STEAM Development Board&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Nothing needed here for a static text display.</span>
+<span class="w">    </span><span class="c1">// The VGA signal continues to be generated automatically</span>
+<span class="w">    </span><span class="c1">// by the LCD peripheral in the background.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Connect the board to your computer using the USB cable.</p></li>
+<li><p>Confirm all settings in the <strong>Required Arduino IDE Settings</strong> table above, especially <strong>PSRAM: OPI PSRAM</strong>.</p></li>
+<li><p>Select the correct serial port from <strong>Tools → Port</strong>.</p></li>
+<li><p>Click the <strong>Upload</strong> button and wait for completion.</p></li>
+<li><p>Connect a VGA cable from the board to a monitor.</p></li>
+<li><p>Power-cycle the board (or it should already be running after upload).</p></li>
+</ol>
+<figure class="align-center" id="id3">
+<img alt="img/vga_hello_world.png" src="img/vga_hello_world.png" />
+<figcaption>
+<p><span class="caption-text">“Hello, VGA!” rendered at 800×600 on a connected monitor</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>After uploading and connecting the monitor:</p>
+<ul class="simple">
+<li><p>The monitor should sync immediately and show a black screen.</p></li>
+<li><p>The text <strong>“Hello, VGA!”</strong> appears near the top-left in white, at double size.</p></li>
+<li><p>Two additional lines of smaller text appear below, confirming the resolution and board name.</p></li>
+<li><p>The image should be sharp and stable, with no visible flicker, tearing, or rolling.</p></li>
+</ul>
+<p><strong>Pin Configuration</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">PinConfig</span></code> constructor takes 18 arguments in a fixed order: five Red bits, six Green bits, five Blue bits, then HSync and VSync. This 5-6-5 split matches the RGB565 colour format used internally — green gets one extra bit because the human eye is more sensitive to green luminance variation, a convention shared with most 16-bit colour formats.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">PinConfig</span><span class="w"> </span><span class="n">pins</span><span class="p">(</span>
+<span class="w">    </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">           </span><span class="c1">// R0 (LSB) .. R4 (MSB)</span>
+<span class="w">    </span><span class="mi">38</span><span class="p">,</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">41</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">   </span><span class="c1">// G0 (LSB) .. G5 (MSB)</span>
+<span class="w">    </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w">      </span><span class="c1">// B0 (LSB) .. B4 (MSB)</span>
+<span class="w">    </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w">                     </span><span class="c1">// HSync, VSync</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>These GPIO numbers correspond to the STEAM board’s fixed wiring to the resistor ladder via the SN74LCV245 — you do not need to change them unless you are using different hardware.</p>
+<p><strong>Mode Selection</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">Mode::MODE_800x600x60</span></code> is a pre-defined timing configuration built into the library, specifying the resolution and refresh rate together. The library includes several pre-defined modes for common resolutions; using a named mode is far simpler than calculating VGA timing parameters (front porch, sync pulse width, back porch) by hand.</p>
+<p><strong>Initialisation Sequence</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">vga</span><span class="p">.</span><span class="n">bufferCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">vga</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="cm">/* handle failure */</span><span class="w"> </span><span class="p">}</span>
+<span class="n">vga</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">bufferCount</span> <span class="pre">=</span> <span class="pre">2</span></code> enables <strong>double buffering</strong>: one frame buffer is being displayed while you draw into the other, then the library swaps them. This eliminates tearing artefacts when content changes, at the cost of double the frame buffer memory — a worthwhile trade-off given the 8 MB of available PSRAM.</p>
+<p><code class="docutils literal notranslate"><span class="pre">vga.init()</span></code> allocates the frame buffer(s) and configures the LCD peripheral’s timing registers to match the chosen mode. It returns <code class="docutils literal notranslate"><span class="pre">false</span></code> if memory allocation fails — almost always because PSRAM is not enabled in the Tools menu. <code class="docutils literal notranslate"><span class="pre">vga.start()</span></code> then begins continuously streaming the frame buffer out as a live VGA signal; from this point on, anything in the frame buffer appears on the monitor automatically, with no further action required in <code class="docutils literal notranslate"><span class="pre">loop()</span></code>.</p>
+<p><strong>Drawing Text with GfxWrapper</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">GfxWrapper&lt;VGA&gt;</span></code> is bitluni’s adapter class that implements the interface Adafruit GFX expects, translating drawing calls (<code class="docutils literal notranslate"><span class="pre">drawPixel()</span></code>, <code class="docutils literal notranslate"><span class="pre">fillRect()</span></code>, font rendering, and so on) into writes against the VGA frame buffer. Once wrapped, the full Adafruit GFX API becomes available — including the <code class="docutils literal notranslate"><span class="pre">print()</span></code> family of functions used here:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">gfx</span><span class="p">.</span><span class="n">setTextColor</span><span class="p">(</span><span class="n">vga</span><span class="p">.</span><span class="n">rgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">));</span>
+<span class="n">gfx</span><span class="p">.</span><span class="n">setTextSize</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">gfx</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">);</span>
+<span class="n">gfx</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, VGA!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">vga.rgb(r,</span> <span class="pre">g,</span> <span class="pre">b)</span></code> converts standard 8-bit-per-channel RGB values (0–255 each) into the packed 16-bit colour format the frame buffer actually stores, so you can think in familiar RGB terms without manual bit-packing.</p>
+</section>
+<section id="writing-the-program-part-2-drawing-raw-graphics">
+<h2>Writing the Program — Part 2: Drawing Raw Graphics<a class="headerlink" href="#writing-the-program-part-2-drawing-raw-graphics" title="Link to this heading">#</a></h2>
+<p>This second sketch bypasses Adafruit GFX entirely and uses the library’s low-level pixel API directly, generating a colour gradient test pattern — useful both as a visual demonstration and as a way to confirm every bit of the resistor ladder is wired and functioning correctly.</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ESP32S3VGA.h&gt;</span>
+
+<span class="c1">// ── VGA pin configuration (same as Part 1) ─────────────────────────────────</span>
+<span class="k">const</span><span class="w"> </span><span class="n">PinConfig</span><span class="w"> </span><span class="nf">pins</span><span class="p">(</span>
+<span class="w">    </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
+<span class="w">    </span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<span class="w">    </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span>
+<span class="w">    </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span>
+<span class="p">);</span>
+
+<span class="n">VGA</span><span class="w"> </span><span class="n">vga</span><span class="p">;</span>
+<span class="n">Mode</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mode</span><span class="o">::</span><span class="n">MODE_800x600x60</span><span class="p">;</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">vga</span><span class="p">.</span><span class="n">bufferCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">vga</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">pins</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;VGA init failed! Check PSRAM setting in Tools menu.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">vga</span><span class="p">.</span><span class="n">start</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// ── Draw a full-screen horizontal colour gradient ───────────────────────</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">mode</span><span class="p">.</span><span class="n">vRes</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">mode</span><span class="p">.</span><span class="n">hRes</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Map horizontal position to a 0-255 gradient value</span>
+<span class="w">            </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint8_t</span><span class="p">)((</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">255L</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">mode</span><span class="p">.</span><span class="n">hRes</span><span class="p">);</span>
+<span class="w">            </span><span class="n">vga</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="mi">128</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ── Draw RGB calibration bars across the top 60 rows ────────────────────</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span><span class="w"> </span><span class="n">y</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">256</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">vga</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w">       </span><span class="n">y</span><span class="p">,</span><span class="w">      </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">   </span><span class="c1">// Pure red ramp</span>
+<span class="w">            </span><span class="n">vga</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">270</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w">      </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">   </span><span class="c1">// Pure green ramp</span>
+<span class="w">            </span><span class="n">vga</span><span class="p">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">540</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w">      </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">   </span><span class="c1">// Pure blue ramp</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// ── Present the completed frame ─────────────────────────────────────────</span>
+<span class="w">    </span><span class="n">vga</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+
+<span class="w">    </span><span class="n">delay</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span><span class="w">   </span><span class="c1">// Roughly matches the 60 Hz refresh — avoids redrawing faster than needed</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>After uploading this sketch:</p>
+<ul class="simple">
+<li><p>The top 60 rows of the screen show three 256-pixel-wide colour ramps: pure red, pure green, and pure blue, each going from black to full brightness left-to-right.</p></li>
+<li><p>The remainder of the screen shows a smooth diagonal-feeling gradient blending orange and teal tones across the width of the display.</p></li>
+<li><p>If any vertical banding, missing colour channel, or stuck-at-one-colour artefacts appear, this points to a specific GPIO or resistor in the ladder — see Troubleshooting below.</p></li>
+</ul>
+<p><strong>The Low-Level Drawing API</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">vga.dot(x,</span> <span class="pre">y,</span> <span class="pre">r,</span> <span class="pre">g,</span> <span class="pre">b)</span></code> writes a single pixel directly into the active (off-screen) frame buffer, taking individual 0–255 red, green, and blue values and packing them internally. Unlike the GFX wrapper’s abstraction, this gives you direct per-pixel control and is the fastest possible way to generate procedural graphics, since there is no intermediate object-oriented drawing layer.</p>
+<p><strong>Manual Frame Presentation</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">vga</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>When using <code class="docutils literal notranslate"><span class="pre">vga.dot()</span></code> directly (without going through GfxWrapper), you call <code class="docutils literal notranslate"><span class="pre">vga.show()</span></code> once all drawing for the frame is complete. With double buffering enabled, this swaps the buffer you just finished drawing into to become the one actively being scanned out to the monitor, while the previously-displayed buffer becomes available for your next frame’s drawing calls.</p>
+<p><strong>Why This Test Pattern Is Useful</strong></p>
+<p>The RGB calibration bars isolate each colour channel completely — the red bar uses only the Red GPIO bits, with Green and Blue held at zero, and so on. If, for example, the green bar shows banding or doesn’t reach full brightness, that specifically implicates the Green channel’s resistor ladder or its associated SN74LCV245 buffer channel, dramatically narrowing down a hardware fault without needing an oscilloscope.</p>
+<p>Try the following modifications to deepen your understanding.</p>
+<ul>
+<li><p><strong>Try a lower, guaranteed-stable resolution</strong> for comparison:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Mode</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mode</span><span class="o">::</span><span class="n">MODE_320x240x60</span><span class="p">;</span><span class="w">   </span><span class="c1">// Fits entirely in internal SRAM</span>
+</pre></div>
+</div>
+<p>Notice that initialisation is faster and the image is rock solid — useful as a reference point when troubleshooting higher resolutions.</p>
+</li>
+<li><p><strong>Animate the gradient</strong> by adding a time-based offset, turning the static test pattern into a moving one:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">uint8_t</span><span class="w"> </span><span class="n">level</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">uint8_t</span><span class="p">)(((</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">offset</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">255L</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">mode</span><span class="p">.</span><span class="n">hRes</span><span class="p">)</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">256</span><span class="p">;</span>
+<span class="c1">// ... after the drawing loops, before vga.show():</span>
+<span class="n">offset</span><span class="o">++</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Combine text and graphics in one frame.</strong> Use <code class="docutils literal notranslate"><span class="pre">GfxWrapper</span></code> for text as in Part 1, but also call <code class="docutils literal notranslate"><span class="pre">vga.dot()</span></code> for custom shapes — both write to the same underlying frame buffer, so they compose naturally:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">GfxWrapper</span><span class="o">&lt;</span><span class="n">VGA</span><span class="o">&gt;</span><span class="w"> </span><span class="n">gfx</span><span class="p">(</span><span class="n">vga</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">.</span><span class="n">hRes</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="p">.</span><span class="n">vRes</span><span class="p">);</span>
+<span class="c1">// ... after drawing your dots in loop():</span>
+<span class="n">gfx</span><span class="p">.</span><span class="n">setCursor</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">);</span>
+<span class="n">gfx</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;FPS test pattern&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Display a bitmap image.</strong> Convert a small image to a C array (many online tools do this, exporting RGB565 arrays compatible with this frame buffer format), then iterate over it with <code class="docutils literal notranslate"><span class="pre">vga.dot()</span></code> to render a real picture instead of a procedural gradient.</p></li>
+<li><p><strong>Measure your actual frame rate.</strong> Add a <code class="docutils literal notranslate"><span class="pre">millis()</span></code>-based counter around the render loop and print frames-per-second to Serial once per second — useful for understanding how much CPU budget remains for game logic, sensor reads, or other tasks alongside video generation.</p></li>
+</ul>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symptom</p></th>
+<th class="head"><p>What to check</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Monitor shows “No Signal”</p></td>
+<td><p>Confirm <code class="docutils literal notranslate"><span class="pre">PSRAM</span></code> is set to <strong>OPI PSRAM</strong> in Tools, and that <code class="docutils literal notranslate"><span class="pre">vga.init()</span></code> returned <code class="docutils literal notranslate"><span class="pre">true</span></code> (check Serial Monitor for the failure message).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Screen syncs but is solid black</p></td>
+<td><p>Confirm <code class="docutils literal notranslate"><span class="pre">vga.start()</span></code> is called after <code class="docutils literal notranslate"><span class="pre">vga.init()</span></code>, and that drawing calls happen after both.</p></td>
+</tr>
+<tr class="row-even"><td><p>Image is present but rolls or jitters vertically</p></td>
+<td><p>VSync wiring or timing issue. Confirm GPIO 2 (VSync) is unobstructed; try a different, known-good VGA cable.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Image is squeezed, stretched, or shows diagonal tearing</p></td>
+<td><p>HSync timing issue, often from running other heavy code in <code class="docutils literal notranslate"><span class="pre">loop()</span></code> that starves the LCD peripheral. Keep per-frame work light, or reduce resolution.</p></td>
+</tr>
+<tr class="row-even"><td><p>One colour channel is missing or stuck</p></td>
+<td><p>Check the corresponding GPIO group (R: 4–8, G: 9–14, B: 15–18,21) and the SN74LCV245’s connections for that channel. The RGB calibration bar test pattern (Part 2) isolates this precisely.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Works at 320×240 but fails at 800×600</p></td>
+<td><p>Confirm PSRAM is actually enabled — this is the most common cause. Re-check the Tools menu setting and re-upload; this setting does not persist if accidentally reset.</p></td>
+</tr>
+<tr class="row-even"><td><p>Visible glitch or shift at the top of the frame at very high resolution (1024×768 / 1280×720)</p></td>
+<td><p>This is a known, documented limitation of the current library at extreme resolutions due to PSRAM cache behaviour. Drop to 800×600 at 16-bit colour for reliable output.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Upload succeeds but board does not reset into the new program</p></td>
+<td><p>Hold the BOOT button while pressing RESET, then release BOOT, to force programming mode, then re-select the correct port.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this tutorial, you turned the ESP32-S3 into a self-contained VGA video generator, using the chip’s LCD peripheral to produce real, monitor-syncing analogue video entirely in software — no dedicated video chip required.</p>
+<p>Key concepts covered include:</p>
+<ul class="simple">
+<li><p>How a <strong>resistor-ladder DAC</strong> converts multiple digital GPIO outputs into an analogue colour voltage.</p></li>
+<li><p>The role of the <strong>SN74LCV245</strong> bus transceiver in electrically isolating and buffering the MCU’s GPIOs from the VGA connector’s resistor ladder, transparently to your code.</p></li>
+<li><p>The direct trade-off between <strong>resolution, colour depth, and frame buffer memory</strong>, and why PSRAM is mandatory for anything beyond the smallest resolutions.</p></li>
+<li><p>Installing and configuring bitluni’s <strong>ESP32-S3-VGA</strong> library, including the critical <strong>OPI PSRAM</strong> Tools setting.</p></li>
+<li><p>Initialising a VGA mode with <code class="docutils literal notranslate"><span class="pre">PinConfig</span></code>, <code class="docutils literal notranslate"><span class="pre">Mode</span></code>, <code class="docutils literal notranslate"><span class="pre">vga.init()</span></code>, and <code class="docutils literal notranslate"><span class="pre">vga.start()</span></code>.</p></li>
+<li><p>Drawing text using the <strong>Adafruit GFX</strong> API via <code class="docutils literal notranslate"><span class="pre">GfxWrapper</span></code>.</p></li>
+<li><p>Drawing raw pixel graphics directly with <code class="docutils literal notranslate"><span class="pre">vga.dot()</span></code> and presenting completed frames with <code class="docutils literal notranslate"><span class="pre">vga.show()</span></code>.</p></li>
+<li><p>Choosing <strong>800×600 at 16-bit colour</strong> as the practical highest-resolution mode that remains reliably stable on current hardware and library versions.</p></li>
+</ul>
+<p>This project demonstrates that with the right peripheral (the LCD_CAM block) and the right supporting hardware (a resistor ladder and isolation buffer), a general-purpose microcontroller can generate broadcast-quality analogue video — a technique with applications in retro computing, custom instrumentation displays, and standalone graphical user interfaces that need no separate display driver chip.</p>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      <ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#background-key-concepts">Background: Key Concepts</a><ul>
+<li><a class="reference internal" href="#how-software-generated-vga-works">How Software-Generated VGA Works</a></li>
+<li><a class="reference internal" href="#the-role-of-the-sn74lcv245">The Role of the SN74LCV245</a></li>
+<li><a class="reference internal" href="#resolution-colour-depth-and-memory">Resolution, Colour Depth, and Memory</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#required-libraries">Required Libraries</a></li>
+<li><a class="reference internal" href="#required-arduino-ide-settings">Required Arduino IDE Settings</a></li>
+<li><a class="reference internal" href="#writing-the-program-part-1-displaying-text">Writing the Program — Part 1: Displaying Text</a></li>
+<li><a class="reference internal" href="#writing-the-program-part-2-drawing-raw-graphics">Writing the Program — Part 2: Drawing Raw Graphics</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="Lesson12.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">Project 12 : RGB Mood Lamp — Five Light Effects with One Button</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="../../hardware.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter">Hardware</a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>

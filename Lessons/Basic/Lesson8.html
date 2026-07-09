@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Project 8 : Wi-Fi Controlled Switch via Web Browser &#8212; STEAM Development Kit Documentation! 0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5703f573" />
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css?v=d623d863" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/conestack.css?v=53c11f18" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <script src="../../_static/documentation_options.js?v=2709fde1"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Project 9 : Ethernet-Controlled Relay Switch via Web Browser" href="Lesson9.html" />
+    <link rel="prev" title="Project 7 : 4-Digit 7-Segment Display Using 74HC595 Shift Registers" href="Lesson7.html" />
+<link rel="stylesheet" type="text/css" src="../../_static/bootstrap/bootstrap.css" />
+<script src="../../_static/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="../../_static/js/conestack.js"></script>
+<script src="../../_static/js/colortoggle.js"></script>
+
+  </head><body>
+
+  <noscript>
+    <style type="text/css">
+      #searchbox,
+      #searchdesc {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        #navbar-toggle {
+          display: none;
+        }
+        #cs-mobile-menu {
+          display: block;
+        }
+        #cs-layout {
+          margin-top: 12rem;
+        }
+        #cs-ext-links {
+          margin-right: 2rem!important;
+        }
+      }
+    </style>
+  </noscript>
+
+  
+  <header class="navbar navbar-expand-md sticky-top" id="header">
+    <nav class="container-xxl flex-wrap flex-md-nowrap p-0" id="cs-nav">
+  <a id="logo" class="navbar-brand p-0 me-2" href="../../index.html">
+    <img src="_static/logo-removebg.png"
+         alt="Logo"
+         width="40px"
+         height="20px" />
+    <span>The STEAM Development Kit</span>
+  </a>
+
+      
+  <div id="nav-search" class="ms-auto">
+    <div id="searchbox" class="nav-item me-3" role="search" style="display: none;">
+      <form class="search input-group" action="../../search.html" method="get">
+        <input type="text" class="form-control" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        <button type="submit" 
+                class="bi bi-search input-group-text"
+                btn-title="Search documentation"></button>
+      </form>
+    </div>
+  </div>
+      
+
+      <div id="colortoggler-wrapper">
+        <div id="colortoggler"
+             class="nav-item dropdown align-items-center h-100 p-0 form-check form-switch me-4">
+          <i class="bi-sun-fill me-2"></i>
+          <div class="form-check form-switch m-0 d-inline-block">
+            <input class="form-check-input" type="checkbox" id="colortoggle-switch">
+          </div>
+          <i class="bi-moon-fill"></i>
+        </div>
+      </div>
+
+      <button id="navbar-toggle" class="navbar-toggler p-0 me-4" type="button" data-bs-toggle="collapse" data-bs-target="#cs-mobile-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"></path></svg>
+      </button>
+
+      <div class="collapse container-fluid m-0 p-3" id="cs-mobile-menu"><nav class="cs-mobile-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a></li>
+</ul>
+
+</nav>
+      </div>
+    </nav>
+  </header>
+  
+
+  <div class="container-xxl my-md-4" id="cs-layout">
+    
+  <aside id="cs-sidebar" class="ms-4 sphinxsidebar"><nav class="cs-nav-toc">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../usermanual.html">User manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#hardware-overview">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#specification">Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#gpios-and-peripherals">GPIOs and Peripherals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#shared-hw-resources">Shared HW resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usermanual.html#using-the-board">Using the board</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../toolchains.html">Toolchains installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../toolchains.html#arduino-toolchains">Arduino toolchains</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../exampleprojects.html">Example projects</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../exampleprojects.html#basic-projects">Basic projects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware.html">Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../hardware.html#introduction">Introduction</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../other_docs.html">Other documentations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html"><strong>Getting started with Arduino</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#download-arduino-ide"><strong>1. Download arduino IDE</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#arduino-ide-settings"><strong>3. Arduino IDE Settings</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/arduinoIDE.html#import-library"><strong>5. Import Library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/windows_driver.html"><strong>Install CP2102 Driver on Windows System</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Other_docs/mac_driver.html"><strong>Install CP2102 Driver on MAC System</strong></a></li>
+</ul>
+</li>
+</ul>
+
+</nav>
+    
+  </aside>
+    
+
+    
+      <main class="document cs-main order-1" role="main">
+    
+      <div class="ps-lg-4 mt-3 cs-content">
+        
+  <section id="project-8-wi-fi-controlled-switch-via-web-browser">
+<h1>Project 8 : Wi-Fi Controlled Switch via Web Browser<a class="headerlink" href="#project-8-wi-fi-controlled-switch-via-web-browser" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In this project, we step into the world of the Internet of Things (IoT). We will leverage the ESP32’s built-in Wi-Fi radio to transform our microcontroller into a standalone local <strong>Web Server</strong>.</p>
+<p>Instead of using physical buttons, we will design a control panel web page hosted directly inside the chip’s memory. Anyone connected to the network can load this page on a smartphone or PC and toggle an integrated switch over the air.</p>
+<p>By the end of this tutorial, you will know how to:</p>
+<ul class="simple">
+<li><p>Configure the ESP32 as a Wi-Fi Access Point (AP).</p></li>
+<li><p>Launch a lightweight HTTP web server on Port 80.</p></li>
+<li><p>Process incoming HTTP GET requests sent by a web browser.</p></li>
+<li><p>Serve custom HTML and CSS styled control buttons wirelessly.</p></li>
+</ul>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
+<p>Before starting, make sure you have the following:</p>
+<ul class="simple">
+<li><p>The STEAM development kit or The STEAM standalone microcontroller board</p></li>
+<li><p>USB cable</p></li>
+<li><p>Arduino IDE with ESP32 toolchain installed</p></li>
+<li><p>A smartphone, tablet, or laptop with Wi-Fi capability</p></li>
+</ul>
+<p>In this project, the built-in LED on <strong>GPIO08</strong> will act as our relay/switch indicator. No external wiring is required.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/MCU_board.png"><img alt="../../_images/MCU_board.png" src="../../_images/MCU_board.png" width="400" />
+</a>
+<figcaption>
+<p><span class="caption-text">The interfacing description of the microcontroller board</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because we are setting the ESP32 to <strong>Access Point Mode</strong>, it will broadcast its own custom network name (SSID). You do not need an active internet connection or a home router for this project to work.</p>
+</div>
+</section>
+<section id="writing-the-program">
+<h2>Writing the Program<a class="headerlink" href="#writing-the-program" title="Link to this heading">#</a></h2>
+<p>Create a new sketch in the Arduino IDE and enter the following code:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;WiFi.h&gt;</span>
+
+<span class="c1">// Define the pin acting as our digital switch (the built-in LED)</span>
+<span class="cp">#define RELAY_PIN 8</span>
+
+<span class="c1">// Set up your private Wi-Fi Network credentials</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">ssid</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;STEAM_Web_Switch&quot;</span><span class="p">;</span>
+<span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;12345678&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Must be at least 8 characters</span>
+
+<span class="c1">// Instantiate the server on standard HTTP port 80</span>
+<span class="n">WiFiServer</span><span class="w"> </span><span class="nf">server</span><span class="p">(</span><span class="mi">80</span><span class="p">);</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Initialize serial communication for debugging output</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">OUTPUT</span><span class="p">);</span>
+<span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span><span class="w"> </span><span class="c1">// Start with switch OFF</span>
+
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Configuring Access Point...&quot;</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Start broadcasting the Wi-Fi network</span>
+<span class="w">    </span><span class="n">WiFi</span><span class="p">.</span><span class="n">softAP</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Retrieve and print the server IP address to the Serial Monitor</span>
+<span class="w">    </span><span class="n">IPAddress</span><span class="w"> </span><span class="n">myIP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WiFi</span><span class="p">.</span><span class="n">softAPIP</span><span class="p">();</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;AP IP address: &quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">myIP</span><span class="p">);</span>
+
+<span class="w">    </span><span class="c1">// Start the web server</span>
+<span class="w">    </span><span class="n">server</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+<span class="w">    </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Server started successfully!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Check if a web browser (client) has connected to our server</span>
+<span class="w">    </span><span class="n">WiFiClient</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">server</span><span class="p">.</span><span class="n">available</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">client</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;New client connected.&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">currentLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// String buffer to hold incoming HTTP request data</span>
+
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">connected</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">available</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">read</span><span class="p">();</span><span class="w"> </span><span class="c1">// Read bytes sent by the browser</span>
+<span class="w">                </span><span class="n">Serial</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="n">c</span><span class="p">);</span>
+
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="c1">// An empty line indicates the end of the HTTP request header</span>
+<span class="w">                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentLine</span><span class="p">.</span><span class="n">length</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="c1">// Send standard HTTP response headers</span>
+<span class="w">                        </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;HTTP/1.1 200 OK&quot;</span><span class="p">);</span>
+<span class="w">                        </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Content-type:text/html&quot;</span><span class="p">);</span>
+<span class="w">                        </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Connection: close&quot;</span><span class="p">);</span>
+<span class="w">                        </span><span class="n">client</span><span class="p">.</span><span class="n">println</span><span class="p">();</span><span class="w"> </span><span class="c1">// Blank line mandatory separating headers and body</span>
+
+<span class="w">                        </span><span class="c1">// Construct and transmit the HTML/CSS web page code</span>
+<span class="w">                        </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;&lt;html&gt;&lt;head&gt;&lt;meta name=</span><span class="se">\&quot;</span><span class="s">viewport</span><span class="se">\&quot;</span><span class="s"> content=</span><span class="se">\&quot;</span><span class="s">width=device-width, initial-scale=1</span><span class="se">\&quot;</span><span class="s">&gt;&quot;</span><span class="p">);</span>
+<span class="w">                        </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;&lt;style&gt;body{font-family:Arial; text-align:center; margin-top:50px;}&quot;</span><span class="p">);</span>
+<span class="w">                        </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;.btn{display:inline-block; padding:20px 40px; font-size:24px; text-decoration:none; color:#fff; border-radius:8px; margin:10px; font-weight:bold;}&quot;</span><span class="p">);</span>
+<span class="w">                        </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;.on{background-color:#2ecc71;} .off{background-color:#e74c3c;}&lt;/style&gt;&lt;/head&gt;&quot;</span><span class="p">);</span>
+
+<span class="w">                        </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;&lt;body&gt;&lt;h1&gt;STEAM Wi-Fi Relay Control&lt;/h1&gt;&quot;</span><span class="p">);</span>
+
+<span class="w">                        </span><span class="c1">// Dynamically update status label text on screen</span>
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">HIGH</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;&lt;p&gt;Current State: &lt;span style=&#39;color:#2ecc71; font-weight:bold;&#39;&gt;ON&lt;/span&gt;&lt;/p&gt;&quot;</span><span class="p">);</span>
+<span class="w">                        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                            </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;&lt;p&gt;Current State: &lt;span style=&#39;color:#e74c3c; font-weight:bold;&#39;&gt;OFF&lt;/span&gt;&lt;/p&gt;&quot;</span><span class="p">);</span>
+<span class="w">                        </span><span class="p">}</span>
+
+<span class="w">                        </span><span class="c1">// Hyperlinked button paths that trigger HTTP GET requests</span>
+<span class="w">                        </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;&lt;a href=</span><span class="se">\&quot;</span><span class="s">/ON</span><span class="se">\&quot;</span><span class="s">&gt;&lt;div class=&#39;btn on&#39;&gt;TURN ON&lt;/div&gt;&lt;/a&gt;&quot;</span><span class="p">);</span>
+<span class="w">                        </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;&lt;a href=</span><span class="se">\&quot;</span><span class="s">/OFF</span><span class="se">\&quot;</span><span class="s">&gt;&lt;div class=&#39;btn off&#39;&gt;TURN OFF&lt;/div&gt;&lt;/a&gt;&quot;</span><span class="p">);</span>
+<span class="w">                        </span><span class="n">client</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">);</span>
+
+<span class="w">                        </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="c1">// Exit the loop to finalize sending data</span>
+<span class="w">                    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                        </span><span class="n">currentLine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Clear buffer on a regular newline</span>
+<span class="w">                    </span><span class="p">}</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="sc">&#39;\r&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">currentLine</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c</span><span class="p">;</span><span class="w"> </span><span class="c1">// Append incoming characters to our parsing string</span>
+<span class="w">                </span><span class="p">}</span>
+
+<span class="w">                </span><span class="c1">// Route commands based on the browser URL request ending</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentLine</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s">&quot;GET /ON&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">HIGH</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentLine</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s">&quot;GET /OFF&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">RELAY_PIN</span><span class="p">,</span><span class="w"> </span><span class="n">LOW</span><span class="p">);</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// Disconnect client connection cleanly to free up resources</span>
+<span class="w">        </span><span class="n">client</span><span class="p">.</span><span class="n">stop</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Client disconnected.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="uploading-the-program">
+<h3>Uploading the Program<a class="headerlink" href="#uploading-the-program" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Connect the board to your computer using the USB cable.</p></li>
+<li><p>Select <strong>ESP32S3 Dev Module</strong> and the active serial port from <strong>Tools</strong>.</p></li>
+<li><p>Open the <strong>Serial Monitor</strong> (<strong>Tools → Serial Monitor</strong>) and set the baud rate speed to <strong>115200</strong>.</p></li>
+<li><p>Click the <strong>Upload</strong> button.</p></li>
+</ol>
+</section>
+<section id="expected-result">
+<h3>Expected Result<a class="headerlink" href="#expected-result" title="Link to this heading">#</a></h3>
+<p>After code completion:</p>
+<ul class="simple">
+<li><p>Look at your Serial Monitor. You will see text confirming <code class="docutils literal notranslate"><span class="pre">AP</span> <span class="pre">IP</span> <span class="pre">address:</span> <span class="pre">192.168.4.1</span></code>.</p></li>
+<li><p>Grab your smartphone or computer, open your Wi-Fi settings panel, and scan for networks.</p></li>
+<li><p>Connect to the network named <strong>STEAM_Web_Switch</strong> using the security password <strong>12345678</strong>.</p></li>
+<li><p>Open your device’s web browser (Safari, Chrome, Firefox) and type <code class="docutils literal notranslate"><span class="pre">192.168.4.1</span></code> directly into the URL address bar and press Enter.</p></li>
+<li><p>A control panel page will load. Tap the green <strong>TURN ON</strong> or red <strong>TURN OFF</strong> buttons; the integrated board LED will cleanly change states wireless in real time.</p></li>
+</ul>
+</section>
+<section id="how-the-code-works">
+<h3>How the Code Works<a class="headerlink" href="#how-the-code-works" title="Link to this heading">#</a></h3>
+<p><strong>Soft Access Point (softAP)</strong></p>
+<p>Instead of latching onto an external household internet hub, the statement:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">WiFi</span><span class="p">.</span><span class="n">softAP</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span><span class="w"> </span><span class="n">password</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>tells the ESP32 firmware to configure itself as a hot spot root router. By default, it generates a gateway IP address of exactly <code class="docutils literal notranslate"><span class="pre">192.168.4.1</span></code>.</p>
+<p><strong>Parsing Network Strings</strong></p>
+<p>When you click an HTML hyperlink button, the web browser submits an underlying request text payload string to our port server that looks something like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>GET /ON HTTP/1.1
+Host: 192.168.4.1
+...
+</pre></div>
+</div>
+<p>The script continuously looks for these signatures inside the <cite>loop()</cite> using:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">currentLine</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s">&quot;GET /ON&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span>
+</pre></div>
+</div>
+<p>When it catches that specific matching marker text sequence, it reroutes standard system code instructions natively to trip the <cite>digitalWrite()</cite> state high or low.</p>
+</section>
+<section id="experiment">
+<h3>Experiment<a class="headerlink" href="#experiment" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Customize Security Credentials:</strong> Change the network <cite>ssid</cite> string name and password variable blocks at the top of the sketch file. Test re-authenticating your phone using your unique customized credentials.</p></li>
+<li><p><strong>Audio Visual Hybrid Alert:</strong> Integrate Project 2 or 3 into this sketch. Make it so that when a user taps the web browser interface “ON” button, the board not only trips the relay light indicator but also plays a brief chime verification confirmation tone using the integrated board buzzer.</p></li>
+</ul>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this tutorial, you bridged the boundary line between offline hardware devices and local network data streams. You transformed an embedded board microcontroller chip engine directly into a running local text web server node platform.</p>
+<p>Key concepts covered include:</p>
+<ul class="simple">
+<li><p>Distinguishing between Client Station mode and local hosted Access Point options.</p></li>
+<li><p>Running an active application listening server port handler using <code class="docutils literal notranslate"><span class="pre">WiFiServer</span></code>.</p></li>
+<li><p>Streaming raw standard hypertext compiled HTML language structures and custom embedded inline layout CSS style blocks natively using standard microcontroller print buffers.</p></li>
+<li><p>Decoding browser HTTP link command modifications dynamically to control physical digital hardware structures.</p></li>
+</ul>
+</section>
+</section>
+
+
+      </div>
+
+    
+  <div class="cs-local-toc mx-4 mt-4 mb-5 my-md-0 ps-xl-3 mb-lg-5 text-muted">
+    <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+    <nav id="TableOfContents">
+      <ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#writing-the-program">Writing the Program</a><ul>
+<li><a class="reference internal" href="#uploading-the-program">Uploading the Program</a></li>
+<li><a class="reference internal" href="#expected-result">Expected Result</a></li>
+<li><a class="reference internal" href="#how-the-code-works">How the Code Works</a></li>
+<li><a class="reference internal" href="#experiment">Experiment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+
+    </nav>
+  </div>
+    
+    </main>
+  </div><div class="container footer" role="contentinfo">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center pt-2 my-4 border-top"><ul class="pb-2 mb-3 nav container border-bottom">
+  <li class="nav-item col-md-6 col">
+    <a href="Lesson7.html"
+       title="previous chapter"
+       class="nav-link px-2 text-muted previous-chapter">Project 7 : 4-Digit 7-Segment Display Using 74HC595 Shift Registers</a>
+  </li>
+  <li class="nav-item col-md-6 col text-end">
+    <a href="Lesson9.html"
+       title="next chapter"
+       class="nav-link px-2 text-muted next-chapter">Project 9 : Ethernet-Controlled Relay Switch via Web Browser</a>
+  </li>
+</ul>
+      <div class="container text-center text-muted pt-2 pb-2">
+          &#169; Copyright 2026 Tu Dang.
+      </div>
+      <div class="container text-center text-muted pt-2 pb-2">
+        Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+      </div>
+  </footer>
+</div>
+
+  </body>
+</html>
