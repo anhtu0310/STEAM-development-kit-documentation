@@ -21,17 +21,17 @@ templates_path = ['_templates']
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-
+html_static_path = ['_static']
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'conestack'
 
 html_theme_options = {
-    'logo_url': '_static/your_logo.svg',
+    'logo_url': '_static/logo-removebg.png',
     'logo_title': 'The STEAM Development Kit',
-    'logo_width': '0px',
-    'logo_height': '0px'
+    'logo_width': '40px',
+    'logo_height': '20px'
 }
 # html_static_path = ['_static']
 # html_theme_options = {

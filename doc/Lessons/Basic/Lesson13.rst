@@ -1,5 +1,5 @@
 *****************************************************************
-Project 6 : High-Resolution VGA Output — Text and Graphics
+Project 13 : High-Resolution VGA Output 
 *****************************************************************
 
 
@@ -29,12 +29,11 @@ Before starting, make sure you have the following:
 
 The VGA port, resistor-ladder DAC, and SN74LCV245 isolation buffer are already integrated on the STEAM development board. No external wiring is needed.
 
-.. figure:: ../../img/MCU_board.png
+.. figure:: ../../img/vga_board.png
    :align: center
-   :width: 400
    :figclass: align-center
 
-   The interfacing description of the microcontroller board
+   The interfacing description of the board
 
 .. important::
    This project requires the **8 MB Octal PSRAM (N8R8)** variant of the ESP32-S3. High-resolution colour modes will fail to initialise on modules without PSRAM, because the frame buffer for anything above roughly 320×240 does not fit in the chip's internal SRAM.
@@ -49,9 +48,8 @@ VGA is an analogue video standard, but the ESP32-S3 is a digital chip. To genera
 
 The ESP32-S3's **LCD_CAM peripheral** (normally intended for driving LCD panels) is repurposed here to clock these GPIOs out at high speed with precise, hardware-generated timing, alongside the HSync and VSync pulses that tell the monitor when each line and frame begins. This is the same fundamental trick bitluni used in earlier ESP32 boards via I²S, but the ESP32-S3 version uses the newer, more capable LCD peripheral, which is why the original ESP32 VGA library is not compatible with the S3.
 
-.. figure:: ../../img/vga_resistor_ladder.png
+.. figure:: ../../img/res_lad.png
    :align: center
-   :width: 450
    :figclass: align-center
 
    GPIOs driving a resistor-ladder DAC to produce analogue colour voltage levels
@@ -162,62 +160,65 @@ This first sketch demonstrates the simplest possible use of the library: initial
 
 .. code-block:: cpp
 
-   #include <ESP32S3VGA.h>
-   #include <GfxWrapper.h>
+  #include <ESP32S3VGA.h>
+  #include <GfxWrapper.h>
+  #include <Fonts/FreeMonoBoldOblique24pt7b.h>
+  #include <Fonts/FreeSerif24pt7b.h>
+  // ── VGA pin configuration ──────────────────────────────────────────────────
+  // Order: R0..R4, G0..G5, B0..B4, HSync, VSync
+  // These map to the resistor-ladder DAC inputs through the SN74LCV245 buffer.
+  const PinConfig pins(
+      4, 5, 6, 7, 8,           // Red   (5 bits)
+      38, 39, 40, 41, 42, 3,   // Green (6 bits)
+      15, 16, 17, 18, 21,      // Blue  (5 bits)
+      1, 2                     // HSync, VSync
+  );
 
-   // ── VGA pin configuration ──────────────────────────────────────────────────
-   // Order: R0..R4, G0..G5, B0..B4, HSync, VSync
-   // These map to the resistor-ladder DAC inputs through the SN74LCV245 buffer.
-   const PinConfig pins(
-       4, 5, 6, 7, 8,           // Red   (5 bits)
-       9, 10, 11, 12, 13, 14,   // Green (6 bits)
-       15, 16, 17, 18, 21,      // Blue  (5 bits)
-       1, 2                     // HSync, VSync
-   );
+  // ── VGA device and display mode ──────────────────────────────────────────
+  VGA vga;
+  Mode mode = Mode::MODE_800x600x60;   // Highest stable resolution, 60 Hz
 
-   // ── VGA device and display mode ──────────────────────────────────────────
-   VGA vga;
-   Mode mode = Mode::MODE_800x600x60;   // Highest stable resolution, 60 Hz
+  // ── Adafruit GFX wrapper — gives access to print(), drawing primitives ───
+  GfxWrapper<VGA> gfx(vga, mode.hRes, mode.vRes);
 
-   // ── Adafruit GFX wrapper — gives access to print(), drawing primitives ───
-   GfxWrapper<VGA> gfx(vga, mode.hRes, mode.vRes);
+  void setup() {
+      Serial.begin(115200);
 
-   void setup() {
-       Serial.begin(115200);
+      // Use 2 frame buffers for tear-free updates
+      vga.bufferCount = 2;
 
-       // Use 2 frame buffers for tear-free updates
-       vga.bufferCount = 2;
+      // Initialise: pin config, mode, bits per pixel (16-bit colour)
+      if (!vga.init(pins, mode, 16)) {
+          Serial.println("VGA init failed! Check PSRAM setting in Tools menu.");
+          while (true) { delay(1000); }
+      }
 
-       // Initialise: pin config, mode, bits per pixel (16-bit colour)
-       if (!vga.init(pins, mode, 16)) {
-           Serial.println("VGA init failed! Check PSRAM setting in Tools menu.");
-           while (true) { delay(1000); }
-       }
+      vga.start();
 
-       vga.start();
+      // Clear the screen to black
+      vga.clear(vga.rgb(0, 0, 0));
+      gfx.setFont(&FreeSerif24pt7b);
 
-       // Clear the screen to black
-       vga.clear(vga.rgb(0, 0, 0));
+      // Configure text appearance
+      gfx.setTextColor(vga.rgb(255, 255, 255));  // White text
+      gfx.setTextSize(2);                         // 2x scale
+      gfx.setCursor(100, 100);
+      gfx.print("Hello, VGA!");
 
-       // Configure text appearance
-       gfx.setTextColor(vga.rgb(255, 255, 255));  // White text
-       gfx.setTextSize(2);                         // 2x scale
-       gfx.setCursor(40, 40);
-       gfx.print("Hello, VGA!");
+      gfx.setTextSize(1);
+      gfx.setCursor(100, 200);
+      gfx.print("ESP32-S3  -  800x600  -  16-bit color");
 
-       gfx.setTextSize(1);
-       gfx.setCursor(40, 90);
-       gfx.print("ESP32-S3  -  800x600  -  16-bit color");
+      gfx.setCursor(100, 500);
+      gfx.print("STEAM Development Board");
+  }
 
-       gfx.setCursor(40, 110);
-       gfx.print("STEAM Development Board");
-   }
+  void loop() {
+      // Nothing needed here for a static text display.
+      // The VGA signal continues to be generated automatically
+      // by the LCD peripheral in the background.
+  }
 
-   void loop() {
-       // Nothing needed here for a static text display.
-       // The VGA signal continues to be generated automatically
-       // by the LCD peripheral in the background.
-   }
 
 Uploading the Program
 ^^^^^^^^^^^^^^^^^^^^^
@@ -256,7 +257,7 @@ The ``PinConfig`` constructor takes 18 arguments in a fixed order: five Red bits
 
    const PinConfig pins(
        4, 5, 6, 7, 8,           // R0 (LSB) .. R4 (MSB)
-       9, 10, 11, 12, 13, 14,   // G0 (LSB) .. G5 (MSB)
+       38, 39, 40, 41, 42, 3,   // G0 (LSB) .. G5 (MSB)
        15, 16, 17, 18, 21,      // B0 (LSB) .. B4 (MSB)
        1, 2                     // HSync, VSync
    );

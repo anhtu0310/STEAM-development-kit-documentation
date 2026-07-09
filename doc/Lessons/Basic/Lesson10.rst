@@ -291,7 +291,7 @@ Create a new sketch in the Arduino IDE and enter the following code:
 
 
 Uploading the Program
-^^^^^^^^^^^^^^^^^^^^^
+======================
 
 1. Connect the board to your computer using the USB cable.
 2. Select **ESP32S3 Dev Module** from **Tools → Board → esp32**.
@@ -304,7 +304,7 @@ Uploading the Program
    :figclass: align-center
 
 Expected Result
-^^^^^^^^^^^^^^^
+===============
 
 After uploading:
 
@@ -327,7 +327,7 @@ If the OLED shows **"BMP280 not found!"**, see the Troubleshooting section.
    :figclass: align-center
 
 How the Code Works
-^^^^^^^^^^^^^^^^^^
+==================
 
 **Shared I²C Bus Initialisation**
 
@@ -392,7 +392,7 @@ All drawing calls after ``clearBuffer()`` build up in RAM. Only ``sendBuffer()``
 After a successful ``BMP.begin()``, the code reads and prints ``BMP.sensorID()`` to the Serial Monitor. This is useful for distinguishing genuine BMP280 modules (chip ID ``0x60``) from BMP280 modules (chip IDs ``0x56`` to ``0x58``) that are sometimes sold mislabelled. A BMP280 lacks the humidity sensor, so humidity readings will return ``NaN``.
 
 I²C Scanner Sketch
-^^^^^^^^^^^^^^^^^^^
+==================
 
 If you are unsure of the I²C address of any device on the bus, upload this utility sketch first to identify everything connected. It is standalone — remove it before uploading the main program.
 
@@ -434,7 +434,7 @@ Expected output with the STEAM board:
 If you see only one address or none, check the wiring and power supply before proceeding.
 
 Experiment
-^^^^^^^^^^
+==========
 
 Try the following modifications to deepen your understanding.
 

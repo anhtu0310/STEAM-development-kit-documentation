@@ -1,6 +1,6 @@
-******************
-Exampple projects
-******************
+*****************
+Example projects
+*****************
 
 This section contains the example projects for the STEAM development kit.
 
@@ -25,6 +25,8 @@ The projects where it helps user to understand the function of the Development b
    Lessons/Basic/Lesson9.rst
    Lessons/Basic/Lesson10.rst
    Lessons/Basic/Lesson11.rst
+   Lessons/Basic/Lesson12.rst
+   Lessons/Basic/Lesson13.rst
 
    .. Lessons/Advanced/bme280_oled.rst
    .. Lessons/Advanced/bmp280_oled_display.rst
