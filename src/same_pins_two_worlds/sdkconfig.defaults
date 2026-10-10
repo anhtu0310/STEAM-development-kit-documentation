@@ -1,0 +1,65 @@
+# STEAM Same Pins, Two Worlds: ESP-IDF 5.4.x, ESP32-S3 with octal PSRAM.
+# The VGA settings are the Live Lab Console ones (its VGA_STABILITY.md).
+# Change the settings marked [VGA] only together with that document.
+
+CONFIG_IDF_TARGET="esp32s3"
+
+# --- Flash and partitions -------------------------------------------------
+# 8 MB header + a 4 MB layout: the image boots on an N8R* or N16R* module,
+# so the flash-size question in the draft does not block the demo. The boot
+# log prints the sizes the chip actually reports.
+CONFIG_ESPTOOLPY_FLASHSIZE_8MB=y
+CONFIG_ESPTOOLPY_FLASHMODE_QIO=y
+CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+# --- PSRAM ----------------------------------------------------------------
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_MODE_OCT=y
+CONFIG_SPIRAM_TYPE_AUTO=y
+CONFIG_SPIRAM_SPEED_80M=y
+CONFIG_SPIRAM_BOOT_INIT=y
+# [VGA] Code and read-only data run from PSRAM, so a flash write (NVS writes) no longer disables the cache or stalls the
+# other core. Without this, every NVS write freezes the refill interrupt.
+CONFIG_SPIRAM_XIP_FROM_PSRAM=y
+CONFIG_SPIRAM_USE_MALLOC=y
+CONFIG_SPIRAM_MALLOC_ALWAYSINTERNAL=4096
+CONFIG_SPIRAM_MALLOC_RESERVE_INTERNAL=49152
+
+# --- CPU and caches --------------------------------------------------------
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+CONFIG_ESP32S3_DATA_CACHE_LINE_64B=y
+CONFIG_COMPILER_OPTIMIZATION_PERF=y
+
+# --- RGB LCD (VGA) ---------------------------------------------------------
+# [VGA] The refill ISR is in IRAM and touches only DRAM + the PSRAM frame
+# buffer, which stays reachable with XIP from PSRAM.
+CONFIG_LCD_RGB_ISR_IRAM_SAFE=y
+# [VGA] Deliberately OFF. In IDF 5.4.x (and 5.5.1) "always restart" never
+# resets the bounce-buffer EOF counter, so one lost EOF leaves the driver
+# refilling the buffer the DMA is reading: permanent banding/flicker. With
+# it off, the driver still restarts at VSYNC after an EOF deficit and resets
+# the counter, so a missed refill costs one frame. See VGA_STABILITY.md.
+# CONFIG_LCD_RGB_RESTART_IN_VSYNC is not set
+
+# --- Core split [VGA] ------------------------------------------------------
+# Core 1 = VGA refill ISR + scene renderer only. The control task, World B
+# drivers, buttons, serial console, USB host and OLED live on core 0.
+CONFIG_ESP_MAIN_TASK_AFFINITY_CPU0=y
+CONFIG_ESP_TIMER_TASK_AFFINITY_CPU0=y
+CONFIG_ESP_TIMER_ISR_AFFINITY_CPU0=y
+
+# --- USB host (Type-A port; the Type-C USB device port is not used) ---------
+CONFIG_USB_HOST_CONTROL_TRANSFER_MAX_SIZE=1024
+CONFIG_ESP_CONSOLE_UART_DEFAULT=y
+
+# --- FreeRTOS ----------------------------------------------------------------
+CONFIG_FREERTOS_HZ=1000
+CONFIG_FREERTOS_GENERATE_RUN_TIME_STATS=y
+CONFIG_FREERTOS_USE_TRACE_FACILITY=y
+
+# Console on the CP2102 UART only; the native USB PHY belongs to USB host.
+CONFIG_ESP_CONSOLE_SECONDARY_NONE=y
+CONFIG_ESP_CONSOLE_UART_BAUDRATE=115200
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=6144

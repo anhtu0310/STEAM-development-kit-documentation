@@ -1,0 +1,37 @@
+menu "STEAM Same Pins, Two Worlds"
+
+    config SPTW_BOUNCE_LINES
+        int "VGA bounce-buffer height (lines)"
+        default 20
+        range 10 40
+        help
+            Height of each of the two internal-SRAM bounce buffers. 600 must be
+            divisible by it (10, 12, 15, 20, 24, 25, 30 or 40). Same meaning as
+            in the Live Lab Console.
+
+    config SPTW_SEG_ACTIVE_LOW
+        bool "7-segment segments light on a LOW 74HC595 output (common anode)"
+        default y
+        help
+            The kit's 7seg.ino example drives common-anode digits with LOW =
+            segment on. STEAM_PERIPHERAL_SHOWCASE_IDF54 sends the opposite
+            polarity. If every digit shows its complement, change this.
+
+    config SPTW_SEG_REVERSE_DIGITS
+        bool "Shift the leftmost digit first"
+        default n
+        help
+            By default the rightmost digit is shifted first, so it ends in the
+            last 74HC595 of the chain. Turn this on if "GP17" reads "71PG".
+
+    config SPTW_MATRIX_INTENSITY
+        int "MAX7219 intensity (0-15)"
+        default 4
+        range 0 15
+
+    config SPTW_WS2812_COUNT
+        int "Number of WS2812B LEDs in the chain"
+        default 2
+        range 1 16
+
+endmenu
