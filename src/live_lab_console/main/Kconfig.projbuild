@@ -1,0 +1,42 @@
+menu "STEAM Live Lab Console"
+
+    config LLC_BOUNCE_LINES
+        int "VGA bounce-buffer height (lines)"
+        default 20
+        range 10 40
+        help
+            Height of each of the two internal-SRAM bounce buffers. 600 must be
+            divisible by it (10, 12, 15, 20, 24, 25, 30 or 40). Each buffer uses
+            1600 bytes per line, so 20 lines = 2 x 32 KB. A taller buffer gives
+            the refill interrupt more slack (T_bb = lines x 28.4 us).
+
+    config LLC_WIFI_AP_SSID
+        string "Wi-Fi soft-AP SSID"
+        default "STEAM-LAB"
+
+    config LLC_WIFI_AP_PASSWORD
+        string "Wi-Fi soft-AP password (8+ characters, empty = open)"
+        default "steamlab"
+
+    config LLC_WIFI_AP_CHANNEL
+        int "Wi-Fi soft-AP channel"
+        default 6
+        range 1 13
+
+    config LLC_ETH_FALLBACK_IP
+        string "Ethernet static address used when no DHCP lease arrives"
+        default "192.168.50.2"
+        help
+            Lets a laptop wired straight to the board (192.168.50.1/24) reach
+            the dashboard without a router, as in the E1 bench setup.
+
+    config LLC_RELAY_MAX_ON_SECONDS
+        int "Relay automatic-off time (seconds)"
+        default 30
+        range 1 3600
+
+    config LLC_BLE_REMOTE_NAME
+        string "BLE remote advertised name"
+        default "AB Shutter3"
+
+endmenu

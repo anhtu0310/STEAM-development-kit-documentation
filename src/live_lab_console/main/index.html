@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STEAM Live Lab Console</title>
+<style>
+:root{--bg:#060d18;--panel:#0e1b2c;--edge:#22405e;--text:#e8f2f8;--muted:#829dae;
+--cyan:#2dd5e0;--green:#44d68b;--amber:#ffb84d;--red:#ff5b69}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.4 system-ui,sans-serif}
+header{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding:12px 16px;
+background:var(--panel);border-bottom:2px solid var(--cyan)}
+header h1{margin:0;font-size:20px;letter-spacing:.04em}
+header h1 b{color:var(--cyan)}
+#badge{margin-left:auto;padding:4px 12px;border-radius:4px;background:var(--edge);color:var(--muted);font-weight:600}
+#badge.stress{background:var(--amber);color:#000}#badge.envelope{background:var(--red);color:#fff}
+main{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;padding:12px 16px}
+.card{background:var(--panel);border:1px solid var(--edge);border-left:4px solid var(--edge);padding:10px 14px;border-radius:4px}
+.card h2{margin:0 0 6px;font-size:12px;color:var(--muted);letter-spacing:.08em;font-weight:600}
+.big{font-size:26px;font-weight:700;font-variant-numeric:tabular-nums}
+.ok{color:var(--green)}.warn{color:var(--amber)}.bad{color:var(--red)}.dim{color:var(--muted)}
+.wide{grid-column:1/-1}
+.buttons{display:flex;flex-wrap:wrap;gap:8px}
+button{flex:1 1 120px;padding:10px;border:1px solid var(--edge);background:#16263a;color:var(--text);
+font:inherit;border-radius:4px;cursor:pointer}
+button:active{background:var(--edge)}
+ol{margin:0;padding-left:0;list-style:none;font-family:ui-monospace,monospace;font-size:13px}
+ol li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#err{color:var(--red);padding:0 16px}
+</style>
+</head>
+<body>
+<header><h1><b>STEAM</b> LIVE LAB CONSOLE</h1><span id="up" class="dim"></span><span id="badge">STRESS OFF</span></header>
+<div id="err"></div>
+<main>
+<section class="card wide"><h2>CONTROLS</h2><div class="buttons">
+<button data-c="relay">Toggle relay</button><button data-c="stress">Stress on/off</button>
+<button data-c="envelope">Envelope test</button><button data-c="clear">Clear VGA counters</button>
+<button data-c="mark">Mark SD log</button></div></section>
+<section class="card" id="vga"><h2>VGA REFILL HEALTH</h2><div class="big" id="late"></div><div id="vgainfo" class="dim"></div></section>
+<section class="card"><h2>ETHERNET W5500</h2><div class="big" id="eth"></div><div id="ethinfo" class="dim"></div></section>
+<section class="card"><h2>WI-FI SOFT-AP</h2><div class="big" id="wifi"></div><div id="wifiinfo" class="dim"></div></section>
+<section class="card"><h2>BLE REMOTE</h2><div class="big" id="ble"></div><div id="bleinfo" class="dim"></div></section>
+<section class="card"><h2>USB KEYBOARD</h2><div class="big" id="usb"></div><div id="usbinfo" class="dim"></div></section>
+<section class="card"><h2>RELAY GPIO45</h2><div class="big" id="relay"></div><div id="relayinfo" class="dim"></div></section>
+<section class="card"><h2>microSD</h2><div class="big" id="sd"></div><div id="sdinfo" class="dim"></div></section>
+<section class="card"><h2>BMP280</h2><div class="big" id="bmp"></div><div id="bmpinfo" class="dim"></div></section>
+<section class="card"><h2>SYSTEM</h2><div id="sys"></div></section>
+<section class="card wide"><h2>EVENTS</h2><ol id="events"></ol></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+function set(id,text,cls){const e=$(id);e.textContent=text;if(cls!==undefined)e.className='big '+cls;}
+const hms=s=>[s/3600|0,(s/60|0)%60,s%60].map(n=>String(n).padStart(2,'0')).join(':');
+document.querySelectorAll('button').forEach(b=>b.onclick=()=>fetch('/api/cmd?c='+b.dataset.c,{method:'POST'}));
+async function poll(){
+ try{
+  const s=await (await fetch('/api/status',{cache:'no-store'})).json();
+  $('err').textContent='';
+  const v=s.vga, clean=v.late===0&&v.irregular_frames===0;
+  set('late','LATE '+v.late,clean?'ok':(v.irregular_frames?'bad':'warn'));
+  $('vgainfo').textContent=`irregular frames ${v.irregular_frames} · ISR max ${v.max_exec_us.toFixed(0)}/${v.budget_us.toFixed(0)} µs · min slack ${v.min_slack_us.toFixed(0)} µs · L=${v.bounce_lines} · ${v.refresh_hz.toFixed(1)} Hz`;
+  set('eth',s.eth.link?'LINK UP':'NO LINK',s.eth.link?'ok':'warn');
+  $('ethinfo').textContent=`${s.eth.ip}${s.eth.static?' (static)':''} · RX ${s.eth.rx_mbps.toFixed(1)} Mbit/s · ${s.eth.rx_mb} MB`;
+  set('wifi',s.wifi.up?`${s.wifi.stations} client${s.wifi.stations==1?'':'s'}`:'OFF',s.wifi.up?'ok':'bad');
+  $('wifiinfo').textContent=`${s.wifi.ssid} ${s.wifi.ip} · RX ${s.wifi.rx_mbps.toFixed(1)} Mbit/s · ${s.wifi.rx_mb} MB`;
+  set('ble',s.ble.state,s.ble.state.startsWith('CONNECTED')?'ok':'warn');
+  $('bleinfo').textContent=(s.ble.battery>=0?`battery ${s.ble.battery}% · `:'')+`last ${s.ble.last}`;
+  set('usb',s.usb.state,s.usb.state==='KEYBOARD'?'ok':'warn');
+  $('usbinfo').textContent='last key '+s.usb.last;
+  set('relay',s.relay.on?'ON':'OFF',s.relay.on?'ok':'');
+  $('relayinfo').textContent=s.relay.on?`by ${s.relay.source}, off in ${Math.ceil(s.relay.remaining_ms/1000)} s`:'last: '+s.relay.source;
+  set('sd',s.sd.ok?(s.system.stress!=='off'?s.sd.write_kbps.toFixed(0)+' kB/s':'LOGGING'):'NO CARD',s.sd.ok?(s.sd.errors?'warn':'ok'):'bad');
+  $('sdinfo').textContent=`${s.sd.log_lines} lines · ${s.sd.stress_mb} MB stress · ${s.sd.khz} kHz · errors ${s.sd.errors}`;
+  set('bmp',s.bmp280.ok?s.bmp280.temperature_c.toFixed(2)+' °C':'NOT FOUND',s.bmp280.ok?'':'warn');
+  $('bmpinfo').textContent=s.bmp280.ok?s.bmp280.pressure_hpa.toFixed(2)+' hPa':'';
+  const y=s.system;
+  $('sys').textContent=`CPU0 ${y.cpu0}% · CPU1 ${y.cpu1}% · SRAM ${(y.sram_free/1024)|0}k (min ${(y.sram_min/1024)|0}k) · PSRAM ${(y.psram_free/1048576).toFixed(1)}/${(y.psram_size/1048576).toFixed(0)} MB · flash ${(y.flash_size/1048576)|0} MB`;
+  $('up').textContent='UP '+hms(y.uptime_s);
+  const b=$('badge');b.className=y.stress==='off'?'':y.stress;b.textContent=y.stress==='off'?'STRESS OFF':(y.stress==='stress'?'STRESS ON':'ENVELOPE');
+  $('events').replaceChildren(...s.events.map(t=>{const li=document.createElement('li');li.textContent=t;return li;}));
+ }catch(e){$('err').textContent='Board not reachable: '+e;}
+}
+poll();setInterval(poll,1000);
+</script>
+</body>
+</html>
