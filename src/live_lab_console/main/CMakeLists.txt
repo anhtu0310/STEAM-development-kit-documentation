@@ -1,0 +1,42 @@
+idf_component_register(
+    SRCS
+        "main.cpp"
+        "app_state.cpp"
+        "vga4.cpp"
+        "gfx.cpp"
+        "dashboard.cpp"
+        "io.cpp"
+        "sensors.cpp"
+        "net.cpp"
+        "web.cpp"
+        "storage.cpp"
+        "ble_remote.cpp"
+        "esp_hid_gap.c"
+        "usb_keyboard.cpp"
+    INCLUDE_DIRS "."
+    EMBED_TXTFILES "index.html"
+    REQUIRES
+        esp_lcd
+        esp_driver_gpio
+        esp_driver_i2c
+        esp_driver_spi
+        esp_driver_sdspi
+        esp_eth
+        esp_event
+        esp_http_server
+        esp_hid
+        esp_netif
+        esp_psram
+        esp_timer
+        esp_wifi
+        spi_flash
+        fatfs
+        json
+        lwip
+        nvs_flash
+        sdmmc
+        bt
+        usb
+        usb_host_hid
+)
+target_compile_options(${COMPONENT_LIB} PRIVATE -O2 -Wall -Wextra -Wno-missing-field-initializers -Wno-unused-parameter)
