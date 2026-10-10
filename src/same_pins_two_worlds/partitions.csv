@@ -1,0 +1,6 @@
+# Name,   Type, SubType, Offset,   Size
+# Fits 4, 8 and 16 MB flash, so the image runs whatever the module really is.
+# The 3 MB factory slot matches the launcher's "advanced" slot size.
+nvs,      data, nvs,     0x9000,   0x6000,
+phy_init, data, phy,     0xf000,   0x1000,
+factory,  app,  factory, 0x10000,  0x300000,
